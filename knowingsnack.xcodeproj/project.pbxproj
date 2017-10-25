@@ -50,6 +50,9 @@
 		9FDAC9161FA07D8C00A47371 /* 58.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC9151FA07D8200A47371 /* 58.ttf */; };
 		9FDAC91A1FA0835B00A47371 /* RigisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC9191FA0835B00A47371 /* RigisterViewController.m */; };
 		9FDAC91D1FA0971700A47371 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */; };
+		AC8FD5221FA0D616001961A0 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */; };
+		AC8FD5231FA0D618001961A0 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5211FA0D5F6001961A0 /* SMS_SDK.framework */; };
+		AC8FD5251FA0D632001961A0 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5241FA0D632001961A0 /* libstdc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +267,9 @@
 		9FDAC9191FA0835B00A47371 /* RigisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RigisterViewController.m; sourceTree = "<group>"; };
 		9FDAC91B1FA0971700A47371 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		AC8FD5211FA0D5F6001961A0 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		AC8FD5241FA0D632001961A0 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,11 +277,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC8FD5251FA0D632001961A0 /* libstdc++.tbd in Frameworks */,
 				9FDAC8871FA02D0000A47371 /* CoreLocation.framework in Frameworks */,
 				9FDAC8851FA02CF900A47371 /* CoreTelephony.framework in Frameworks */,
 				9FDAC8831FA02CF200A47371 /* MobileCoreServices.framework in Frameworks */,
 				9FDAC8811FA02CEC00A47371 /* SystemConfiguration.framework in Frameworks */,
 				9FDAC87F1FA02CE400A47371 /* libsqlite3.tbd in Frameworks */,
+				AC8FD5231FA0D618001961A0 /* SMS_SDK.framework in Frameworks */,
+				AC8FD5221FA0D616001961A0 /* MOBFoundation.framework in Frameworks */,
 				9FDAC87D1FA02CD900A47371 /* libicucore.tbd in Frameworks */,
 				9FDAC87B1FA02CD100A47371 /* libc++.tbd in Frameworks */,
 				9FDAC8791FA02CC900A47371 /* libz.tbd in Frameworks */,
@@ -381,6 +390,9 @@
 		9FDAC8751FA02A3700A47371 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC8FD5241FA0D632001961A0 /* libstdc++.tbd */,
+				AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */,
+				AC8FD5211FA0D5F6001961A0 /* SMS_SDK.framework */,
 				9FDAC89A1FA02FB100A47371 /* AVOSCloud.framework */,
 				9FDAC8891FA02FB100A47371 /* AVOSCloudIM.framework */,
 				9FDAC8861FA02D0000A47371 /* CoreLocation.framework */,
@@ -1035,6 +1047,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GCT6APS53M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/knowingsnack/Supporting Files\"";
 				INFOPLIST_FILE = "$(SRCROOT)/knowingsnack/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1053,6 +1069,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GCT6APS53M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/knowingsnack/Supporting Files\"";
 				INFOPLIST_FILE = "$(SRCROOT)/knowingsnack/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

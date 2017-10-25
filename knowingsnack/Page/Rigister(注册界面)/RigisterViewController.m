@@ -54,11 +54,67 @@
     [username.layer setBorderWidth:1];
     [username.layer setBorderColor:FlatBlack.CGColor];
     username.center = CGPointMake(SCREEN_WEIGHT/2.0f, text.center.y + 30 +40);
-    username.placeholder = @"手机号/邮箱";
+    username.placeholder = @"手机号";
     
     //通过kvc来设置placeholder的字体和颜色
     username.placeholderLabel.font = [UIFont boldSystemFontOfSize:16];
     [self.view addSubview:username];
+    
+    
+    UITextView *keyword = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
+    keyword.layer.cornerRadius = 5.0f;
+    keyword.layer.masksToBounds = YES;
+    [keyword.layer setBorderWidth:1];
+    [keyword.layer setBorderColor:FlatBlack.CGColor];
+    keyword.center = CGPointMake(SCREEN_WEIGHT/2.0f, username.center.y + 30 +20);
+    keyword.placeholder = @"密码";
+    
+    //通过kvc来设置placeholder的字体和颜色
+    keyword.placeholderLabel.font = [UIFont boldSystemFontOfSize:16];
+    [self.view addSubview:keyword];
+    
+    UIButton *uploadbtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
+    uploadbtn.layer.cornerRadius = 5.0f;
+    uploadbtn.backgroundColor = FlatRed;
+    [uploadbtn setTitle:@"登录" forState:UIControlStateNormal];
+    [uploadbtn setTitle:@"登录" forState:UIControlStateSelected];
+    [self.view addSubview:uploadbtn];
+    uploadbtn.center = CGPointMake(SCREEN_WEIGHT/2.0f, keyword.center.y + 30 +20);
+    [uploadbtn addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    UIButton *registerbtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.24f, 30)];
+    registerbtn.backgroundColor = ClearColor;
+    [registerbtn setTitle:@"注册知食" forState:UIControlStateNormal];
+    [registerbtn setTitle:@"注册知食" forState:UIControlStateSelected];
+    [self.view addSubview:registerbtn];
+    [registerbtn setTitleColor:FlatRed forState:UIControlStateNormal];
+    [registerbtn setTitleColor:FlatRed forState:UIControlStateSelected];
+    registerbtn.titleLabel.font = [UIFont fontWithName:@"Arial" size:14];
+    registerbtn.center = CGPointMake(SCREEN_WEIGHT/2.0f - SCREEN_WEIGHT * 0.24f/2.0f - 3 , uploadbtn.center.y + 30 +20);
+                             
+    
+    UIButton *forgetkey = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.24f, 30)];
+    forgetkey.backgroundColor = ClearColor;
+    [forgetkey setTitle:@"忘记密码" forState:UIControlStateNormal];
+    [forgetkey setTitle:@"忘记密码" forState:UIControlStateSelected];
+    [self.view addSubview:forgetkey];
+    [forgetkey setTitleColor:FlatGray forState:UIControlStateNormal];
+    [forgetkey setTitleColor:FlatGray forState:UIControlStateSelected];
+    forgetkey.titleLabel.font = [UIFont fontWithName:@"Arial" size:14];
+    forgetkey.center = CGPointMake(SCREEN_WEIGHT/2.0f + SCREEN_WEIGHT * 0.24f/2.0f + 3 , uploadbtn.center.y + 30 +20);
+    
+    
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 20)];
+    line.backgroundColor = FlatGray;
+    [self.view addSubview:line];
+    line.center = CGPointMake(SCREEN_WEIGHT/2.0f, uploadbtn.center.y + 30 +20);
+    
+}
+
+
+
+-(void)upload{
     
 }
 
