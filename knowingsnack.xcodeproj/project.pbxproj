@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F525BD61FA170F400DCCD87 /* knowingsnack.xcodeproj in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F525BD71FA170F400DCCD87 /* knowingsnack.xcodeproj */; };
+		9F525BDE1FA172A100DCCD87 /* NSString+IsTelNum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BDD1FA172A100DCCD87 /* NSString+IsTelNum.m */; };
+		9F525BE21FA174EE00DCCD87 /* XHToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BE11FA174D300DCCD87 /* XHToast.m */; };
+		9F525BE51FA187F400DCCD87 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8561FA029F500A47371 /* AVOSCloud.framework */; };
+		9F525BE61FA187F600DCCD87 /* AVOSCloudIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8621FA029F500A47371 /* AVOSCloudIM.framework */; };
+		9F525BE91FA18CA600DCCD87 /* AVOSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BE81FA18CA600DCCD87 /* AVOSManager.m */; };
+		9F525BEE1FA18D6600DCCD87 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BED1FA18D6600DCCD87 /* UserInfo.m */; };
+		9F525BF21FA1AA1700DCCD87 /* UserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BF11FA1AA1700DCCD87 /* UserInfoManager.m */; };
+		9F525BF81FA1B6AA00DCCD87 /* RigisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BF71FA1B6A900DCCD87 /* RigisterViewController.m */; };
+		9F525C001FA1B70100DCCD87 /* RealRigisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BFE1FA1B70100DCCD87 /* RealRigisterViewController.m */; };
+		9F525C011FA1B70100DCCD87 /* RealRigisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F525BFF1FA1B70100DCCD87 /* RealRigisterViewController.xib */; };
 		9FDAC8121FA028E400A47371 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC8111FA028E400A47371 /* AppDelegate.m */; };
 		9FDAC81A1FA028E400A47371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC8191FA028E400A47371 /* Assets.xcassets */; };
 		9FDAC81D1FA028E400A47371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC81B1FA028E400A47371 /* LaunchScreen.storyboard */; };
 		9FDAC8201FA028E400A47371 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC81F1FA028E400A47371 /* main.m */; };
 		9FDAC82A1FA028E500A47371 /* knowingsnackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC8291FA028E500A47371 /* knowingsnackTests.m */; };
 		9FDAC8351FA028E500A47371 /* knowingsnackUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC8341FA028E500A47371 /* knowingsnackUITests.m */; };
-		9FDAC8761FA02A3700A47371 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8561FA029F500A47371 /* AVOSCloud.framework */; };
-		9FDAC8771FA02A3700A47371 /* AVOSCloudIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8621FA029F500A47371 /* AVOSCloudIM.framework */; };
 		9FDAC8791FA02CC900A47371 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8781FA02CC900A47371 /* libz.tbd */; };
 		9FDAC87B1FA02CD100A47371 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC87A1FA02CD100A47371 /* libc++.tbd */; };
 		9FDAC87D1FA02CD900A47371 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC87C1FA02CD900A47371 /* libicucore.tbd */; };
@@ -48,7 +57,6 @@
 		9FDAC9041FA068FA00A47371 /* UIImage+ChangeImageColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC9031FA068FA00A47371 /* UIImage+ChangeImageColor.m */; };
 		9FDAC9101FA06EE000A47371 /* MainNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC90F1FA06EE000A47371 /* MainNavView.m */; };
 		9FDAC9161FA07D8C00A47371 /* 58.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC9151FA07D8200A47371 /* 58.ttf */; };
-		9FDAC91A1FA0835B00A47371 /* RigisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC9191FA0835B00A47371 /* RigisterViewController.m */; };
 		9FDAC91D1FA0971700A47371 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */; };
 		AC8FD5221FA0D616001961A0 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */; };
 		AC8FD5231FA0D618001961A0 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5211FA0D5F6001961A0 /* SMS_SDK.framework */; };
@@ -185,6 +193,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F525BD71FA170F400DCCD87 /* knowingsnack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = knowingsnack.xcodeproj; path = /Users/xiehaojie/KnowingSnack/knowingsnack.xcodeproj; sourceTree = "<absolute>"; };
+		9F525BDC1FA172A100DCCD87 /* NSString+IsTelNum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+IsTelNum.h"; sourceTree = "<group>"; };
+		9F525BDD1FA172A100DCCD87 /* NSString+IsTelNum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+IsTelNum.m"; sourceTree = "<group>"; };
+		9F525BE01FA174D300DCCD87 /* XHToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XHToast.h; sourceTree = "<group>"; };
+		9F525BE11FA174D300DCCD87 /* XHToast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHToast.m; sourceTree = "<group>"; };
+		9F525BE71FA18CA600DCCD87 /* AVOSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVOSManager.h; sourceTree = "<group>"; };
+		9F525BE81FA18CA600DCCD87 /* AVOSManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVOSManager.m; sourceTree = "<group>"; };
+		9F525BEC1FA18D6600DCCD87 /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		9F525BED1FA18D6600DCCD87 /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		9F525BF01FA1AA1700DCCD87 /* UserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoManager.h; sourceTree = "<group>"; };
+		9F525BF11FA1AA1700DCCD87 /* UserInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoManager.m; sourceTree = "<group>"; };
+		9F525BF61FA1B6A900DCCD87 /* RigisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RigisterViewController.h; sourceTree = "<group>"; };
+		9F525BF71FA1B6A900DCCD87 /* RigisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RigisterViewController.m; sourceTree = "<group>"; };
+		9F525BFD1FA1B70100DCCD87 /* RealRigisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealRigisterViewController.h; sourceTree = "<group>"; };
+		9F525BFE1FA1B70100DCCD87 /* RealRigisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealRigisterViewController.m; sourceTree = "<group>"; };
+		9F525BFF1FA1B70100DCCD87 /* RealRigisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealRigisterViewController.xib; sourceTree = "<group>"; };
 		9FDAC80D1FA028E400A47371 /* knowingsnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knowingsnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FDAC8101FA028E400A47371 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9FDAC8111FA028E400A47371 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -207,8 +231,6 @@
 		9FDAC8821FA02CF200A47371 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9FDAC8841FA02CF900A47371 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9FDAC8861FA02D0000A47371 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		9FDAC8891FA02FB100A47371 /* AVOSCloudIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloudIM.framework; path = "objc-sdk/AVOS/build/AVOSCloudIM.framework"; sourceTree = "<group>"; };
-		9FDAC89A1FA02FB100A47371 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = "objc-sdk/AVOS/build/AVOSCloud.framework"; sourceTree = "<group>"; };
 		9FDAC8A61FA0367700A47371 /* WDCPlusButtonSubclass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDCPlusButtonSubclass.m; sourceTree = "<group>"; };
 		9FDAC8A71FA0367700A47371 /* WDCPlusButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDCPlusButton.m; sourceTree = "<group>"; };
 		9FDAC8A81FA0367700A47371 /* WDCPlusButtonSubclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDCPlusButtonSubclass.h; sourceTree = "<group>"; };
@@ -263,8 +285,6 @@
 		9FDAC9111FA071BC00A47371 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		9FDAC9121FA071BC00A47371 /* MyUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUtil.h; sourceTree = "<group>"; };
 		9FDAC9151FA07D8200A47371 /* 58.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 58.ttf; sourceTree = "<group>"; };
-		9FDAC9181FA0835B00A47371 /* RigisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RigisterViewController.h; sourceTree = "<group>"; };
-		9FDAC9191FA0835B00A47371 /* RigisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RigisterViewController.m; sourceTree = "<group>"; };
 		9FDAC91B1FA0971700A47371 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
@@ -277,6 +297,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F525BE51FA187F400DCCD87 /* AVOSCloud.framework in Frameworks */,
+				9F525BE61FA187F600DCCD87 /* AVOSCloudIM.framework in Frameworks */,
+				9F525BD61FA170F400DCCD87 /* knowingsnack.xcodeproj in Frameworks */,
 				AC8FD5251FA0D632001961A0 /* libstdc++.tbd in Frameworks */,
 				9FDAC8871FA02D0000A47371 /* CoreLocation.framework in Frameworks */,
 				9FDAC8851FA02CF900A47371 /* CoreTelephony.framework in Frameworks */,
@@ -288,8 +311,6 @@
 				9FDAC87D1FA02CD900A47371 /* libicucore.tbd in Frameworks */,
 				9FDAC87B1FA02CD100A47371 /* libc++.tbd in Frameworks */,
 				9FDAC8791FA02CC900A47371 /* libz.tbd in Frameworks */,
-				9FDAC8761FA02A3700A47371 /* AVOSCloud.framework in Frameworks */,
-				9FDAC8771FA02A3700A47371 /* AVOSCloudIM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +331,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F525BD81FA170F400DCCD87 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F525BDF1FA174C100DCCD87 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				9F525BE01FA174D300DCCD87 /* XHToast.h */,
+				9F525BE11FA174D300DCCD87 /* XHToast.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		9F525BEA1FA18D4700DCCD87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F525BEC1FA18D6600DCCD87 /* UserInfo.h */,
+				9F525BED1FA18D6600DCCD87 /* UserInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9FDAC8041FA028E400A47371 = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +379,7 @@
 		9FDAC80F1FA028E400A47371 /* knowingsnack */ = {
 			isa = PBXGroup;
 			children = (
+				9F525BEA1FA18D4700DCCD87 /* Model */,
 				9FDAC8A21FA0353600A47371 /* Supporting Files */,
 				9FDAC89B1FA034CB00A47371 /* Common */,
 				9FDAC89E1FA034CB00A47371 /* Extension */,
@@ -390,11 +435,10 @@
 		9FDAC8751FA02A3700A47371 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F525BD71FA170F400DCCD87 /* knowingsnack.xcodeproj */,
 				AC8FD5241FA0D632001961A0 /* libstdc++.tbd */,
 				AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */,
 				AC8FD5211FA0D5F6001961A0 /* SMS_SDK.framework */,
-				9FDAC89A1FA02FB100A47371 /* AVOSCloud.framework */,
-				9FDAC8891FA02FB100A47371 /* AVOSCloudIM.framework */,
 				9FDAC8861FA02D0000A47371 /* CoreLocation.framework */,
 				9FDAC8841FA02CF900A47371 /* CoreTelephony.framework */,
 				9FDAC8821FA02CF200A47371 /* MobileCoreServices.framework */,
@@ -410,6 +454,7 @@
 		9FDAC89B1FA034CB00A47371 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9F525BDF1FA174C100DCCD87 /* Toast */,
 				9FDAC8D91FA061F900A47371 /* Chameleon */,
 			);
 			path = Common;
@@ -418,6 +463,10 @@
 		9FDAC89C1FA034CB00A47371 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				9F525BE71FA18CA600DCCD87 /* AVOSManager.h */,
+				9F525BE81FA18CA600DCCD87 /* AVOSManager.m */,
+				9F525BF01FA1AA1700DCCD87 /* UserInfoManager.h */,
+				9F525BF11FA1AA1700DCCD87 /* UserInfoManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -436,6 +485,8 @@
 				9FDAC9031FA068FA00A47371 /* UIImage+ChangeImageColor.m */,
 				9FDAC91B1FA0971700A47371 /* UITextView+Placeholder.h */,
 				9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */,
+				9F525BDC1FA172A100DCCD87 /* NSString+IsTelNum.h */,
+				9F525BDD1FA172A100DCCD87 /* NSString+IsTelNum.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -602,8 +653,11 @@
 		9FDAC9171FA0821800A47371 /* Rigister(注册界面) */ = {
 			isa = PBXGroup;
 			children = (
-				9FDAC9181FA0835B00A47371 /* RigisterViewController.h */,
-				9FDAC9191FA0835B00A47371 /* RigisterViewController.m */,
+				9F525BF61FA1B6A900DCCD87 /* RigisterViewController.h */,
+				9F525BF71FA1B6A900DCCD87 /* RigisterViewController.m */,
+				9F525BFD1FA1B70100DCCD87 /* RealRigisterViewController.h */,
+				9F525BFE1FA1B70100DCCD87 /* RealRigisterViewController.m */,
+				9F525BFF1FA1B70100DCCD87 /* RealRigisterViewController.xib */,
 			);
 			path = "Rigister(注册界面)";
 			sourceTree = "<group>";
@@ -704,6 +758,10 @@
 				{
 					ProductGroup = 9FDAC8431FA029F400A47371 /* Products */;
 					ProjectRef = 9FDAC8421FA029F400A47371 /* AVOS.xcodeproj */;
+				},
+				{
+					ProductGroup = 9F525BD81FA170F400DCCD87 /* Products */;
+					ProjectRef = 9F525BD71FA170F400DCCD87 /* knowingsnack.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -838,6 +896,7 @@
 				9FDAC81D1FA028E400A47371 /* LaunchScreen.storyboard in Resources */,
 				9FDAC81A1FA028E400A47371 /* Assets.xcassets in Resources */,
 				9FDAC9161FA07D8C00A47371 /* 58.ttf in Resources */,
+				9F525C011FA1B70100DCCD87 /* RealRigisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,16 +925,20 @@
 				9FDAC8B31FA037AB00A47371 /* WDCPlusButton.m in Sources */,
 				9FDAC8B41FA037AB00A47371 /* WDCPlusButtonSubclass.m in Sources */,
 				9FDAC8F51FA0632200A47371 /* Chameleon_.m in Sources */,
+				9F525BDE1FA172A100DCCD87 /* NSString+IsTelNum.m in Sources */,
+				9F525BE21FA174EE00DCCD87 /* XHToast.m in Sources */,
 				9FDAC8F61FA0633E00A47371 /* ChameleonConstants.m in Sources */,
+				9F525BF81FA1B6AA00DCCD87 /* RigisterViewController.m in Sources */,
 				9FDAC8FC1FA0634C00A47371 /* UIImage+ChameleonPrivate.m in Sources */,
 				9FDAC8FE1FA0635100A47371 /* UINavigationController+Chameleon.m in Sources */,
 				9FDAC9001FA0635400A47371 /* UIViewController+Chameleon.m in Sources */,
 				9FDAC8FD1FA0634F00A47371 /* UILabel+Chameleon.m in Sources */,
 				9FDAC8FF1FA0635200A47371 /* UIView+ChameleonPrivate.m in Sources */,
 				9FDAC8BA1FA0387200A47371 /* MainViewController.m in Sources */,
+				9F525BF21FA1AA1700DCCD87 /* UserInfoManager.m in Sources */,
 				9FDAC8FA1FA0634500A47371 /* UIColor+Chameleon.m in Sources */,
 				9FDAC8F91FA0634300A47371 /* UIButton+Chameleon.m in Sources */,
-				9FDAC91A1FA0835B00A47371 /* RigisterViewController.m in Sources */,
+				9F525BEE1FA18D6600DCCD87 /* UserInfo.m in Sources */,
 				9FDAC8FB1FA0634600A47371 /* UIColor+ChameleonPrivate.m in Sources */,
 				9FDAC91D1FA0971700A47371 /* UITextView+Placeholder.m in Sources */,
 				9FDAC9101FA06EE000A47371 /* MainNavView.m in Sources */,
@@ -884,12 +947,14 @@
 				9FDAC8F81FA0634100A47371 /* UIAppearance+Swift.m in Sources */,
 				9FDAC8D61FA03C0F00A47371 /* StaringViewController.m in Sources */,
 				9FDAC8B01FA037A400A47371 /* WDCTabBarController.m in Sources */,
+				9F525BE91FA18CA600DCCD87 /* AVOSManager.m in Sources */,
 				9FDAC8D81FA03C1900A47371 /* GroupViewController.m in Sources */,
 				9FDAC8D51FA03A6F00A47371 /* MineViewController.m in Sources */,
 				9FDAC8D71FA03C1200A47371 /* PlusViewController.m in Sources */,
 				9FDAC8B11FA037A400A47371 /* WDCTabBarControllerConfig.m in Sources */,
 				9FDAC8201FA028E400A47371 /* main.m in Sources */,
 				9FDAC8121FA028E400A47371 /* AppDelegate.m in Sources */,
+				9F525C001FA1B70100DCCD87 /* RealRigisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,7 +1116,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/knowingsnack/Supporting Files\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/knowingsnack/Supporting Files\"",
+					"\"$(SRCROOT)/\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/knowingsnack/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1073,7 +1141,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/knowingsnack/Supporting Files\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/knowingsnack/Supporting Files\"",
+					"\"$(SRCROOT)/\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/knowingsnack/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

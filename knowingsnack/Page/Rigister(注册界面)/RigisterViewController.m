@@ -9,9 +9,14 @@
 #import "RigisterViewController.h"
 #import "Header.h"
 #import "UITextView+Placeholder.h"
+#import <AVOSCloud/AVUser.h>
+#import "RealRigisterViewController.h"
 
 @interface RigisterViewController ()
-
+{
+    UITextField *_username;
+    UITextField *_keyword;
+}
 @end
 
 @implementation RigisterViewController
@@ -48,30 +53,33 @@
     text.backgroundColor = ClearColor;
     text.center = CGPointMake(SCREEN_WEIGHT/2.0f, SCREEN_HEIGHT * (2.0f/8.0f ));
     
-    UITextView *username = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
-    username.layer.cornerRadius = 5.0f;
-    username.layer.masksToBounds = YES;
-    [username.layer setBorderWidth:1];
-    [username.layer setBorderColor:FlatBlack.CGColor];
-    username.center = CGPointMake(SCREEN_WEIGHT/2.0f, text.center.y + 30 +40);
-    username.placeholder = @"手机号";
+    _username = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
+    _username.layer.cornerRadius = 5.0f;
+    _username.layer.masksToBounds = YES;
+    [_username.layer setBorderWidth:1];
+    [_username.layer setBorderColor:FlatBlack.CGColor];
+    _username.center = CGPointMake(SCREEN_WEIGHT/2.0f, text.center.y + 30 +40);
+    _username.placeholder = @"手机号/邮箱";
     
-    //通过kvc来设置placeholder的字体和颜色
-    username.placeholderLabel.font = [UIFont boldSystemFontOfSize:16];
-    [self.view addSubview:username];
+    //为textview加入一个左视图  看起来不会太靠左
+    _username.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
+    _username.leftViewMode = UITextFieldViewModeAlways;
+    [self.view addSubview:_username];
     
     
-    UITextView *keyword = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
-    keyword.layer.cornerRadius = 5.0f;
-    keyword.layer.masksToBounds = YES;
-    [keyword.layer setBorderWidth:1];
-    [keyword.layer setBorderColor:FlatBlack.CGColor];
-    keyword.center = CGPointMake(SCREEN_WEIGHT/2.0f, username.center.y + 30 +20);
-    keyword.placeholder = @"密码";
+    _keyword = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
+    _keyword.layer.cornerRadius = 5.0f;
+    _keyword.layer.masksToBounds = YES;
+    [_keyword.layer setBorderWidth:1];
+    [_keyword.layer setBorderColor:FlatBlack.CGColor];
+    _keyword.center = CGPointMake(SCREEN_WEIGHT/2.0f, _username.center.y + 30 +20);
+    _keyword.placeholder = @"密码";
+    _keyword.secureTextEntry = YES;
+
     
-    //通过kvc来设置placeholder的字体和颜色
-    keyword.placeholderLabel.font = [UIFont boldSystemFontOfSize:16];
-    [self.view addSubview:keyword];
+    _keyword.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
+    _keyword.leftViewMode = UITextFieldViewModeAlways;
+    [self.view addSubview:_keyword];
     
     UIButton *uploadbtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
     uploadbtn.layer.cornerRadius = 5.0f;
@@ -79,7 +87,7 @@
     [uploadbtn setTitle:@"登录" forState:UIControlStateNormal];
     [uploadbtn setTitle:@"登录" forState:UIControlStateSelected];
     [self.view addSubview:uploadbtn];
-    uploadbtn.center = CGPointMake(SCREEN_WEIGHT/2.0f, keyword.center.y + 30 +20);
+    uploadbtn.center = CGPointMake(SCREEN_WEIGHT/2.0f, _keyword.center.y + 30 +20);
     [uploadbtn addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -92,7 +100,9 @@
     [registerbtn setTitleColor:FlatRed forState:UIControlStateSelected];
     registerbtn.titleLabel.font = [UIFont fontWithName:@"Arial" size:14];
     registerbtn.center = CGPointMake(SCREEN_WEIGHT/2.0f - SCREEN_WEIGHT * 0.24f/2.0f - 3 , uploadbtn.center.y + 30 +20);
-                             
+    [registerbtn addTarget:self action:@selector(registerUser) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     
     UIButton *forgetkey = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.24f, 30)];
     forgetkey.backgroundColor = ClearColor;
@@ -115,7 +125,49 @@
 
 
 -(void)upload{
+    if ([_username.text isEqualToString:@""]) {
+        [XHToast showTopWithText:@"请填写手机号或邮箱" topOffset:55.0f];
+        return;
+    }
+    if (![_username.text isTelNum] && ![_username.text isEmail]) {
+        [XHToast showTopWithText:@"请正确填写手机号或邮箱" topOffset:55.0f];
+        return;
+    }
+    if ([_keyword.text isEqualToString:@""]){
+        [XHToast showTopWithText:@"请填写密码" topOffset:55.0f];
+        return;
+    }
+    if (![_keyword.text isRightKeyWord]) {
+        [XHToast showTopWithText:@"密码只能由数字和字母组成" topOffset:55.0f];
+        return;
+    }
+    if(_keyword.text.length > 16 || _keyword.text.length < 6){
+        [XHToast showTopWithText:@"密码须为6到16位" topOffset:55.0f];
+        return;
+    }
     
+    [[AVOSManager shareAVOSManager] archiverUserInfoWithUserPhoneNum:_username.text];
+    
+    
+    NSString *dataPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"userinfo.archive"];
+    NSData *data = [NSData dataWithContentsOfFile:dataPath];
+    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    UserInfo *info = [unArchiver decodeObjectForKey:@"userinfo"];
+    [unArchiver finishDecoding];
+    
+    
+    if ([info.password isEqualToString:_keyword.text]){
+        [XHToast showTopWithText:@"登录成功" topOffset:55.0f];
+    }else{
+        [XHToast showTopWithText:@"密码错误" topOffset:55.0f];
+    }
+}
+
+- (void)registerUser{
+    RealRigisterViewController *rvc = [[RealRigisterViewController alloc] init];
+    [self presentViewController:rvc animated:YES completion:^{
+        
+    }];
 }
 
 -(void)close{
@@ -126,6 +178,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (![_username isExclusiveTouch]) {
+        [_username resignFirstResponder];
+    }
+    if (![_keyword isExclusiveTouch]) {
+        [_keyword resignFirstResponder];
+    }
 }
 
 /*

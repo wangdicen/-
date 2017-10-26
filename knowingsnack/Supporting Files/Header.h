@@ -22,5 +22,13 @@
 #endif
 
 #import "Chameleon.h"
+#import "NSString+IsTelNum.h"
+#import "XHToast.h"
+#import "UserInfo.h"
+#import <AVOSCloud/AVOSCloud.h>
+
+
+#import "AVOSManager.h"
+#import "UserInfoManager.h"
 
 #endif /* Header_h */
