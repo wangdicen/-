@@ -7,6 +7,7 @@
 //
 
 #import "WDCTabBar.h"
+#import "UIImage+ChangeImageColor.h"
 @interface WDCTabBar()
 
 @property (nonatomic, strong) UIButton<WDCPlusButtonDelegate> *plusButton;
@@ -46,10 +47,26 @@
         //获取到在WDCPlusButton中获取到的加号按钮.
         self.plusButton = WDCExternPushlishButton;
         [self addSubview:(UIButton *)self.plusButton];
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeColor:) name:@"changePlusBtnColor" object:nil];
     }
     
     [self setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:0.9f]]];
     return self;
+}
+
+- (void)changeColor:(NSNotification *)noti
+{
+    NSDictionary *data = [noti userInfo];
+    UIColor *color = [data objectForKey:@"color"];
+    UIImage *buttonImage = [[UIImage imageNamed:@"tab_publish_add"] imageWithColor:color];
+    UIImage *highlightImage = [[UIImage imageNamed:@"tab_publish_add_pressed"] imageWithColor:color];
+    UIImage *iconImage = [[UIImage imageNamed:@"tab_publish_add"] imageWithColor:color];
+    UIImage *highlightIconImage = [[UIImage imageNamed:@"tab_publish_add_pressed"] imageWithColor:color];
+    
+    [self.plusButton setImage:iconImage forState:UIControlStateNormal];
+    [self.plusButton setImage:highlightIconImage forState:UIControlStateHighlighted];
+    [self.plusButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.plusButton setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "WDCPlusButtonSubclass.h"
 #import "Chameleon.h"
+#import "UIImage+ChangeImageColor.h"
 
 @implementation WDCPlusButtonSubclass
 
@@ -56,6 +57,8 @@
     return button;
     ;
 }
+
+
 - (void)clickPublish {
     
 }

@@ -23,7 +23,7 @@
     self.title = @"主题";
     self.view.backgroundColor = FlatWhite;
     
-    NSArray *color = @[FlatWhite,FlatRed,FlatBlue,FlatGray,FlatLime,FlatMint,FlatPink,FlatPlum,FlatSand,FlatTeal,FlatBlack,FlatBrown,FlatGreen,FlatCoffee,FlatMaroon,FlatOrange,FlatPurple,FlatYellow,FlatMagenta,FlatRedDark,FlatSkyBlue,FlatBlueDark,FlatGrayDark,FlatLimeDark,FlatMintDark,FlatNavyBlue,FlatForestGreen,FlatWatermelon,FlatPowderBlue,FlatPinkDark,FlatPlumDark,FlatSandDark,FlatTealDark,FlatBlackDark,FlatBrownDark,FlatGreenDark,FlatWatermelonDark];
+    NSArray *color = @[FlatWhiteDark,FlatRed,FlatBlue,FlatGray,FlatLime,FlatMint,FlatPink,FlatPlum,FlatSand,FlatTeal,FlatBlack,FlatBrown,FlatGreen,FlatCoffee,FlatMaroon,FlatOrange,FlatPurple,FlatYellow,FlatMagenta,FlatRedDark,FlatSkyBlue,FlatBlueDark,FlatGrayDark,FlatLimeDark,FlatMintDark,FlatNavyBlue,FlatForestGreen,FlatWatermelon,FlatPowderBlue,FlatPinkDark,FlatPlumDark,FlatSandDark,FlatTealDark,FlatBlackDark,FlatBrownDark,FlatGreenDark,FlatWatermelonDark];
     
     ZAColorFullChooseView *colorView = [[ZAColorFullChooseView alloc]initGradientWithFrame:CGRectMake(kscreenWidth*0.1, 80, kscreenWidth*0.8, kscreenWidth*0.8) colorArray:color];
     colorView.delegate = self;
@@ -44,6 +44,37 @@
     
         [Chameleon setGlobalThemeUsingPrimaryColor:color withSecondaryColor:ClearColor andContentStyle:UIContentStyleContrast];
     
+        
+        if ([ContrastColor(color, YES) isEqual:FlatWhite]) {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        } else {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        }
+    
+      UIColor *contentColor;
+      contentColor = ContrastColor(color, NO);
+    
+    
+    [self.navigationController.navigationBar setBarTintColor:color];
+    [self.navigationController.navigationBar setTintColor:contentColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:contentColor}];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    
+
+//    [self.tabBarController.tabBar setBarTintColor:FlatWhite];
+//    [self.tabBarController.tabBar setTintColor:color];
+    
+    NSDictionary *dic = nil;
+  if (CGColorEqualToColor(color.CGColor , FlatWhite.CGColor)) {
+    dic = [NSDictionary dictionaryWithObject:FlatBlack forKey:@"color"];
+  }
+  else{
+    dic = [NSDictionary dictionaryWithObject:color forKey:@"color"];
+
+  }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTabbarColor" object:nil userInfo:dic];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changePlusBtnColor" object:nil userInfo:dic];
+
 }
 
 

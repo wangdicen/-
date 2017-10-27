@@ -2,18 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>MOBAppSecret</key>
-	<string>21e3e23825aef</string>
-	<key>MOBAppKey</key>
-	<string>f5677e296fe2713baa4a806271656464</string>
-	<key>NSContactsUsageDescription</key>
-	<string>开启通讯录好友</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>58.ttf</string>
-	</array>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -32,10 +20,22 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MOBAppKey</key>
+	<string>f5677e296fe2713baa4a806271656464</string>
+	<key>MOBAppSecret</key>
+	<string>21e3e23825aef</string>
+	<key>NSContactsUsageDescription</key>
+	<string>开启通讯录好友</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>58.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Launch Screen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

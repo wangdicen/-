@@ -10,9 +10,14 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "WDCTabBarControllerConfig.h"
 #import "Chameleon.h"
+#import "LunchView.h"
+#import "Header.h"
 
 @interface AppDelegate ()
-
+{
+    WDCTabBarControllerConfig *_tabBarControllerConfig;
+    LunchView *_launchview;
+}
 @end
 
 @implementation AppDelegate
@@ -27,9 +32,18 @@
     [self.window makeKeyAndVisible];
    
     
-    WDCTabBarControllerConfig *tabBarControllerConfig = [[WDCTabBarControllerConfig alloc] init];
-    [self.window setRootViewController:tabBarControllerConfig.tabBarController];
-   
+    _tabBarControllerConfig = [[WDCTabBarControllerConfig alloc] init];
+    [self.window setRootViewController:_tabBarControllerConfig.tabBarController];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeColor:) name:@"changeTabbarColor" object:nil];
+    
+    
+    _launchview = [[LunchView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT)];
+    [self.window addSubview:_launchview];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timer:) userInfo:nil repeats:YES];
+    [timer setFireDate:[NSDate date]];
+    
+    
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"IS_LOGIN"];
     
     //设置全局主题
@@ -43,6 +57,30 @@
     return YES;
 }
 
+
+int time_num = 0;
+-(void)timer:(NSTimer *)sender{
+    
+    if (time_num == 2) {
+        [sender setFireDate:[NSDate distantFuture]];
+        [sender invalidate];
+        sender = nil;
+        [UIView animateWithDuration:0.5 animations:^{
+            _launchview.alpha = 0.0f;
+        }];
+      
+    }
+    
+    
+    time_num ++;
+}
+
+- (void)changeColor:(NSNotification *)noti
+{
+    NSDictionary *data = [noti userInfo];
+    UIColor *color = [data objectForKey:@"color"];
+    [_tabBarControllerConfig setColorWithColor:color];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

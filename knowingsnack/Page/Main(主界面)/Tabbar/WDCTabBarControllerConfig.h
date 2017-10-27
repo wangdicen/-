@@ -13,5 +13,5 @@
 
 @property (nonatomic, readonly, strong) WDCTabBarController *tabBarController;
 
-
+- (void)setColorWithColor:(UIColor *)color;
 @end

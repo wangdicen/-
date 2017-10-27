@@ -13,6 +13,7 @@
 #import "GroupViewController.h"
 #import "MainNavView.h"
 #import "Header.h"
+#import "UIImage+ChangeImageColor.h"
 
 @interface WDCTabBarControllerConfig ()
 
@@ -114,5 +115,15 @@
     [tabBar setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
 //    UITabBar *tabBarAppearance = [UITabBar appearance];
 //    [tabBarAppearance setBackgroundImage:[UIImage imageNamed:@"tab_bar_bg"]];
+}
+
+
+- (void)setColorWithColor:(UIColor *)color{
+    NSUInteger idx = 0;
+    for(UIViewController *controller in self.tabBarController.viewControllers){
+        controller.tabBarItem.image = [IMAGE(self.tabBarController.tabBarItemsAttributes[idx][WDCTabBarItemImage]) imageWithColor:color];
+        controller.tabBarItem.selectedImage = [IMAGE(self.tabBarController.tabBarItemsAttributes[idx][WDCTabBarItemSelectedImage]) imageWithColor:color];
+        idx++;
+    };
 }
 @end

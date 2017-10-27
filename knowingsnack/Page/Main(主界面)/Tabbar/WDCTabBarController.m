@@ -9,6 +9,7 @@
 #import "WDCTabBarController.h"
 #import "WDCTabBar.h"
 #import <objc/runtime.h>
+#import "UIImage+ChangeImageColor.h"
 
 NSUInteger WDCTabbarItemsCount = 0;
 
