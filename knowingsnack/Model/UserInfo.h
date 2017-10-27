@@ -15,9 +15,6 @@
 
 @property (nonatomic, strong) NSData *image;
 
-@property (nonatomic, strong) NSString *mobilePhoneNumber;
-@property (nonatomic, assign) BOOL mobilePhoneVerified;
-
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, assign) BOOL emailVerified;
 

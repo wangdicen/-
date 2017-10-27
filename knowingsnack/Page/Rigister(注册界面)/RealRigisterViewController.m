@@ -22,7 +22,7 @@
     
     UILabel *_text_b;
     UIButton *_nextbtn_b;
-    UILabel *_text_b2;
+    UITextField *_yanzhengma;
     
     NSString *_final_username;
     NSString *_final_keyword;
@@ -43,11 +43,11 @@
 - (void)next
 {
     if ([_username.text isEqualToString:@""]) {
-        [XHToast showTopWithText:@"请填写手机号或邮箱" topOffset:55.0f];
+        [XHToast showTopWithText:@"请填写邮箱" topOffset:55.0f];
         return;
     }
-    if (![_username.text isTelNum] && ![_username.text isEmail]) {
-        [XHToast showTopWithText:@"请正确填写手机号或邮箱" topOffset:55.0f];
+    if (![_username.text isEmail]) {
+        [XHToast showTopWithText:@"请正确填写邮箱" topOffset:55.0f];
         return;
     }
     if ([_keyword.text isEqualToString:@""]){
@@ -76,24 +76,44 @@
     _final_nicheng = _nicheng.text;
     
     
-    //!!!!!!!!!!!!!    判断是否是 [已经被验证过的] 重复手机号 或者 邮箱;
-    
+    //!!!!!!!!!!!!!    判断是否是 [已经被验证过的]  邮箱;
     if([_final_username isEmail])
     {
-        [AVUser currentUser].email = _final_username;
-        [AVUser requestEmailVerify:_final_username withBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if(!succeeded){
-                [XHToast showTopWithText:@"验证邮件发送失败" topOffset:55.0f];
-            }
-            else{
-                //!!!!!!!!!!!!!!!!  把用户信息加入到后台.....
-            }
-        }];
+        if (_nicheng.text && _username.text && _keyword.text) {
+            AVUser *user = [AVUser user];
+            user.username = _nicheng.text;
+            user.email = _username.text;
+            user.password = _keyword.text;
+            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if (succeeded) {
+                    [XHToast showTopWithText:@"注册成功" topOffset:55.0f];
+                    //把后台用户信息取下来放到本地.
+                    [[AVOSManager shareAVOSManager] queryUserInfoAndArchierFromBackgroundWithEmail:_username.text];
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"IS_LOGIN"];
+                   
+                    [AVUser requestEmailVerify:_final_username withBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                        if(!succeeded){
+//                            [XHToast showTopWithText:[NSString stringWithFormat:@"稍后在个人信息页面出进行验证",[error localizedDescription]] topOffset:150.0f];
+                            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
+                                
+                            }];
+                        }
+                        else{
+                            [self removUI_A];
+                            [self addUI_B];
+                        }
+                    }];
+                }
+                else
+                {
+                    NSLog(@"注册失败 %@", error.description);
+                    [XHToast showTopWithText:[NSString stringWithFormat:@"注册失败 %@",[error localizedDescription]] topOffset:60.0f];
+                }
+            }];
+           
+           
     }
-    
-    
-    [self removUI_A];
-    [self addUI_B];
+    }
     
 }
 
@@ -107,7 +127,13 @@
             bool isemailVerified = [[object objectForKey:@"emailVerified"] boolValue];
             if (!isemailVerified) {
                 [XHToast showTopWithText:@"您还未验证,请前往邮箱验证" topOffset:100.0f];
-                return;
+            }
+            else
+            {
+                [XHToast showTopWithText:@"验证成功" topOffset:100.0f];
+                [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
             }
         }
     }];
@@ -115,11 +141,19 @@
    
 }
 
+
 - (IBAction)cancel:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOGIN"]) {
+        [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -161,7 +195,7 @@
     [_username.layer setBorderWidth:1];
     [_username.layer setBorderColor:FlatBlack.CGColor];
     _username.center = CGPointMake(SCREEN_WEIGHT/2.0f, _text.center.y + 30 +40);
-    _username.placeholder = @"手机号/邮箱";
+    _username.placeholder = @"邮箱";
     
     //为textview加入一个左视图  看起来不会太靠左
     _username.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
@@ -241,17 +275,10 @@
         _nextbtn_b.center = CGPointMake(SCREEN_WEIGHT/2.0f, _text_b.center.y + 30 +40);
         [_nextbtn_b addTarget:self action:@selector(next_B) forControlEvents:UIControlEventTouchUpInside];
         
-        _text_b2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT - 80.0f, 80)];
-        [self.view addSubview:_text_b2];
-        _text_b2.font = [UIFont fontWithName:@"Arial" size:12];
-        _text_b2.text = [NSString stringWithFormat:@"温馨提示:\n1.若弹出[验证邮件发送失败]弹框,可能是您的邮件填写错误,请按[取消]键回到上一步;\n2.每60秒只能为同一账号发送一封邮件,邮件48小时内有效,请不要重复提交."];
-        _text_b2.textColor = FlatGray;
-        _text_b2.textAlignment = NSTextAlignmentCenter;
-        _text_b2.backgroundColor = ClearColor;
-        _text_b2.numberOfLines = 5;
-        _text_b2.center = CGPointMake(SCREEN_WEIGHT/2.0f, _nextbtn_b.center.y + 30 +50);
     }
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

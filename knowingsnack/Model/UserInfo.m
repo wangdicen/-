@@ -20,8 +20,6 @@
     
     [aCoder encodeObject:self.image forKey:@"image"];
     
-    [aCoder encodeObject:self.mobilePhoneNumber forKey:@"mobilePhoneNumber"];
-    [aCoder encodeBool:self.mobilePhoneVerified forKey:@"mobilePhoneVerified"];
 
     [aCoder encodeObject:self.email forKey:@"email"];
     [aCoder encodeBool:self.emailVerified forKey:@"emailVerified"];
@@ -37,12 +35,9 @@
         self.password = [aDecoder decodeObjectForKey:@"password"];
         
         self.image = [aDecoder decodeObjectForKey:@"image"];
-        
-        self.mobilePhoneNumber = [aDecoder decodeObjectForKey:@"mobilePhoneNumber"];
-        self.mobilePhoneVerified = [aDecoder decodeBoolForKey:@"mobilePhoneVerified"];
     
-        self.mobilePhoneNumber = [aDecoder decodeObjectForKey:@"email"];
-        self.mobilePhoneVerified = [aDecoder decodeBoolForKey:@"emailVerified"];
+        self.email = [aDecoder decodeObjectForKey:@"email"];
+        self.emailVerified = [aDecoder decodeBoolForKey:@"emailVerified"];
     }
     return self;
 }

@@ -29,7 +29,8 @@
     
     WDCTabBarControllerConfig *tabBarControllerConfig = [[WDCTabBarControllerConfig alloc] init];
     [self.window setRootViewController:tabBarControllerConfig.tabBarController];
-    
+   
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"IS_LOGIN"];
     
     //设置全局主题
     [Chameleon setGlobalThemeUsingPrimaryColor:FlatRed  withSecondaryColor:ClearColor andContentStyle:UIContentStyleContrast];

@@ -18,6 +18,10 @@
 		9F525BF81FA1B6AA00DCCD87 /* RigisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BF71FA1B6A900DCCD87 /* RigisterViewController.m */; };
 		9F525C001FA1B70100DCCD87 /* RealRigisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BFE1FA1B70100DCCD87 /* RealRigisterViewController.m */; };
 		9F525C011FA1B70100DCCD87 /* RealRigisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F525BFF1FA1B70100DCCD87 /* RealRigisterViewController.xib */; };
+		9F6088CA1FA307B9006EA980 /* MyInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088C91FA307B9006EA980 /* MyInfoView.m */; };
+		9F6088CD1FA3108B006EA980 /* HeaderIconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088CC1FA3108B006EA980 /* HeaderIconImageView.m */; };
+		9F6088D31FA32B45006EA980 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088D21FA32B45006EA980 /* SettingViewController.m */; };
+		9F6088D71FA32B6E006EA980 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088D61FA32B6E006EA980 /* ThemeViewController.m */; };
 		9FDAC8121FA028E400A47371 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC8111FA028E400A47371 /* AppDelegate.m */; };
 		9FDAC81A1FA028E400A47371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC8191FA028E400A47371 /* Assets.xcassets */; };
 		9FDAC81D1FA028E400A47371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC81B1FA028E400A47371 /* LaunchScreen.storyboard */; };
@@ -29,7 +33,6 @@
 		9FDAC87D1FA02CD900A47371 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC87C1FA02CD900A47371 /* libicucore.tbd */; };
 		9FDAC87F1FA02CE400A47371 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC87E1FA02CE400A47371 /* libsqlite3.tbd */; };
 		9FDAC8811FA02CEC00A47371 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8801FA02CEC00A47371 /* SystemConfiguration.framework */; };
-		9FDAC8831FA02CF200A47371 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8821FA02CF200A47371 /* MobileCoreServices.framework */; };
 		9FDAC8851FA02CF900A47371 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8841FA02CF900A47371 /* CoreTelephony.framework */; };
 		9FDAC8871FA02D0000A47371 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FDAC8861FA02D0000A47371 /* CoreLocation.framework */; };
 		9FDAC8B01FA037A400A47371 /* WDCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC8AC1FA0370900A47371 /* WDCTabBarController.m */; };
@@ -58,8 +61,6 @@
 		9FDAC9101FA06EE000A47371 /* MainNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC90F1FA06EE000A47371 /* MainNavView.m */; };
 		9FDAC9161FA07D8C00A47371 /* 58.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC9151FA07D8200A47371 /* 58.ttf */; };
 		9FDAC91D1FA0971700A47371 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */; };
-		AC8FD5221FA0D616001961A0 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */; };
-		AC8FD5231FA0D618001961A0 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5211FA0D5F6001961A0 /* SMS_SDK.framework */; };
 		AC8FD5251FA0D632001961A0 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5241FA0D632001961A0 /* libstdc++.tbd */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +210,14 @@
 		9F525BFD1FA1B70100DCCD87 /* RealRigisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealRigisterViewController.h; sourceTree = "<group>"; };
 		9F525BFE1FA1B70100DCCD87 /* RealRigisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealRigisterViewController.m; sourceTree = "<group>"; };
 		9F525BFF1FA1B70100DCCD87 /* RealRigisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealRigisterViewController.xib; sourceTree = "<group>"; };
+		9F6088C81FA307B9006EA980 /* MyInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInfoView.h; sourceTree = "<group>"; };
+		9F6088C91FA307B9006EA980 /* MyInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInfoView.m; sourceTree = "<group>"; };
+		9F6088CB1FA3108B006EA980 /* HeaderIconImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderIconImageView.h; sourceTree = "<group>"; };
+		9F6088CC1FA3108B006EA980 /* HeaderIconImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderIconImageView.m; sourceTree = "<group>"; };
+		9F6088D11FA32B45006EA980 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		9F6088D21FA32B45006EA980 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		9F6088D51FA32B6E006EA980 /* ThemeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
+		9F6088D61FA32B6E006EA980 /* ThemeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
 		9FDAC80D1FA028E400A47371 /* knowingsnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knowingsnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FDAC8101FA028E400A47371 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9FDAC8111FA028E400A47371 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -228,7 +237,6 @@
 		9FDAC87C1FA02CD900A47371 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		9FDAC87E1FA02CE400A47371 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		9FDAC8801FA02CEC00A47371 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		9FDAC8821FA02CF200A47371 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9FDAC8841FA02CF900A47371 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9FDAC8861FA02D0000A47371 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9FDAC8A61FA0367700A47371 /* WDCPlusButtonSubclass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDCPlusButtonSubclass.m; sourceTree = "<group>"; };
@@ -287,8 +295,6 @@
 		9FDAC9151FA07D8200A47371 /* 58.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 58.ttf; sourceTree = "<group>"; };
 		9FDAC91B1FA0971700A47371 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
-		AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
-		AC8FD5211FA0D5F6001961A0 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		AC8FD5241FA0D632001961A0 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -303,11 +309,8 @@
 				AC8FD5251FA0D632001961A0 /* libstdc++.tbd in Frameworks */,
 				9FDAC8871FA02D0000A47371 /* CoreLocation.framework in Frameworks */,
 				9FDAC8851FA02CF900A47371 /* CoreTelephony.framework in Frameworks */,
-				9FDAC8831FA02CF200A47371 /* MobileCoreServices.framework in Frameworks */,
 				9FDAC8811FA02CEC00A47371 /* SystemConfiguration.framework in Frameworks */,
 				9FDAC87F1FA02CE400A47371 /* libsqlite3.tbd in Frameworks */,
-				AC8FD5231FA0D618001961A0 /* SMS_SDK.framework in Frameworks */,
-				AC8FD5221FA0D616001961A0 /* MOBFoundation.framework in Frameworks */,
 				9FDAC87D1FA02CD900A47371 /* libicucore.tbd in Frameworks */,
 				9FDAC87B1FA02CD100A47371 /* libc++.tbd in Frameworks */,
 				9FDAC8791FA02CC900A47371 /* libz.tbd in Frameworks */,
@@ -352,6 +355,35 @@
 				9F525BED1FA18D6600DCCD87 /* UserInfo.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9F6088C71FA30780006EA980 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9F6088C81FA307B9006EA980 /* MyInfoView.h */,
+				9F6088C91FA307B9006EA980 /* MyInfoView.m */,
+				9F6088CB1FA3108B006EA980 /* HeaderIconImageView.h */,
+				9F6088CC1FA3108B006EA980 /* HeaderIconImageView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9F6088CE1FA32AFC006EA980 /* Setting(设置界面) */ = {
+			isa = PBXGroup;
+			children = (
+				9F6088D11FA32B45006EA980 /* SettingViewController.h */,
+				9F6088D21FA32B45006EA980 /* SettingViewController.m */,
+			);
+			path = "Setting(设置界面)";
+			sourceTree = "<group>";
+		};
+		9F6088D41FA32B4D006EA980 /* Theme(主题界面) */ = {
+			isa = PBXGroup;
+			children = (
+				9F6088D51FA32B6E006EA980 /* ThemeViewController.h */,
+				9F6088D61FA32B6E006EA980 /* ThemeViewController.m */,
+			);
+			path = "Theme(主题界面)";
 			sourceTree = "<group>";
 		};
 		9FDAC8041FA028E400A47371 = {
@@ -437,11 +469,8 @@
 			children = (
 				9F525BD71FA170F400DCCD87 /* knowingsnack.xcodeproj */,
 				AC8FD5241FA0D632001961A0 /* libstdc++.tbd */,
-				AC8FD5201FA0D5F6001961A0 /* MOBFoundation.framework */,
-				AC8FD5211FA0D5F6001961A0 /* SMS_SDK.framework */,
 				9FDAC8861FA02D0000A47371 /* CoreLocation.framework */,
 				9FDAC8841FA02CF900A47371 /* CoreTelephony.framework */,
-				9FDAC8821FA02CF200A47371 /* MobileCoreServices.framework */,
 				9FDAC8801FA02CEC00A47371 /* SystemConfiguration.framework */,
 				9FDAC87E1FA02CE400A47371 /* libsqlite3.tbd */,
 				9FDAC87C1FA02CD900A47371 /* libicucore.tbd */,
@@ -504,6 +533,8 @@
 		9FDAC8A01FA034CC00A47371 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				9F6088D41FA32B4D006EA980 /* Theme(主题界面) */,
+				9F6088CE1FA32AFC006EA980 /* Setting(设置界面) */,
 				9FDAC9171FA0821800A47371 /* Rigister(注册界面) */,
 				9FDAC8C91FA03A5900A47371 /* GroupView(小组页) */,
 				9FDAC8D21FA03A5900A47371 /* MineView(我的) */,
@@ -601,6 +632,7 @@
 		9FDAC8D21FA03A5900A47371 /* MineView(我的) */ = {
 			isa = PBXGroup;
 			children = (
+				9F6088C71FA30780006EA980 /* View */,
 				9FDAC8D31FA03A6F00A47371 /* MineViewController.h */,
 				9FDAC8D41FA03A6F00A47371 /* MineViewController.m */,
 			);
@@ -933,6 +965,7 @@
 				9FDAC8FE1FA0635100A47371 /* UINavigationController+Chameleon.m in Sources */,
 				9FDAC9001FA0635400A47371 /* UIViewController+Chameleon.m in Sources */,
 				9FDAC8FD1FA0634F00A47371 /* UILabel+Chameleon.m in Sources */,
+				9F6088CD1FA3108B006EA980 /* HeaderIconImageView.m in Sources */,
 				9FDAC8FF1FA0635200A47371 /* UIView+ChameleonPrivate.m in Sources */,
 				9FDAC8BA1FA0387200A47371 /* MainViewController.m in Sources */,
 				9F525BF21FA1AA1700DCCD87 /* UserInfoManager.m in Sources */,
@@ -942,9 +975,11 @@
 				9FDAC8FB1FA0634600A47371 /* UIColor+ChameleonPrivate.m in Sources */,
 				9FDAC91D1FA0971700A47371 /* UITextView+Placeholder.m in Sources */,
 				9FDAC9101FA06EE000A47371 /* MainNavView.m in Sources */,
+				9F6088D71FA32B6E006EA980 /* ThemeViewController.m in Sources */,
 				9FDAC8F71FA0634000A47371 /* NSArray+Chameleon.m in Sources */,
 				9FDAC9041FA068FA00A47371 /* UIImage+ChangeImageColor.m in Sources */,
 				9FDAC8F81FA0634100A47371 /* UIAppearance+Swift.m in Sources */,
+				9F6088CA1FA307B9006EA980 /* MyInfoView.m in Sources */,
 				9FDAC8D61FA03C0F00A47371 /* StaringViewController.m in Sources */,
 				9FDAC8B01FA037A400A47371 /* WDCTabBarController.m in Sources */,
 				9F525BE91FA18CA600DCCD87 /* AVOSManager.m in Sources */,
@@ -954,6 +989,7 @@
 				9FDAC8B11FA037A400A47371 /* WDCTabBarControllerConfig.m in Sources */,
 				9FDAC8201FA028E400A47371 /* main.m in Sources */,
 				9FDAC8121FA028E400A47371 /* AppDelegate.m in Sources */,
+				9F6088D31FA32B45006EA980 /* SettingViewController.m in Sources */,
 				9F525C001FA1B70100DCCD87 /* RealRigisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

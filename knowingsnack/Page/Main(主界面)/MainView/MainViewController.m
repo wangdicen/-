@@ -40,10 +40,13 @@
 
 - (void)goToRigister:(UIButton *)sender
 {
-    RigisterViewController *rvc = [[RigisterViewController alloc] init];
-    [self presentViewController:rvc animated:YES completion:^{
-        
-    }];
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOGIN"]) {
+        RigisterViewController *rvc = [[RigisterViewController alloc] init];
+        [self presentViewController:rvc animated:YES completion:^{
+            
+        }];
+//    }
+
 }
 
 - (void)didReceiveMemoryWarning {

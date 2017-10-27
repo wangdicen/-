@@ -12,18 +12,13 @@
 
 SingleM(AVOSManager)
 
-- (void)archiverUserInfoWithUserPhoneNum:(NSString *)phonenum{
+- (void)queryUserInfoAndArchierFromBackgroundWithEmail:(NSString *)email{
     UserInfo *userinfo = [[UserInfo alloc] init];
     
     AVQuery *query = [AVQuery queryWithClassName:@"_User"];
-    if ([phonenum isEmail]) {
-        [query whereKey:@"email" equalTo:phonenum];
+    if ([email isEmail]) {
+        [query whereKey:@"email" equalTo:email];
     }
-    else if([phonenum isTelNum])
-    {
-        [query whereKey:@"mobilePhoneNumber" equalTo:phonenum];
-    }
-
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         if(objects.count != 0)
@@ -36,8 +31,6 @@ SingleM(AVOSManager)
         userinfo.email =[object objectForKey:@"email"];
         userinfo.emailVerified = [object objectForKey:@"emailVerified"];
         
-        userinfo.mobilePhoneNumber =[object objectForKey:@"mobilePhoneNumber"];
-        userinfo.mobilePhoneVerified = [object objectForKey:@"mobilePhoneVerified"];
         
         NSMutableData *data = [NSMutableData data];
         NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];

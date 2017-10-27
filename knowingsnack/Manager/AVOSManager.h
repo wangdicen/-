@@ -14,6 +14,6 @@
 
 SingleH(AVOSManager)
 
-- (void)archiverUserInfoWithUserPhoneNum:(NSString *)phonenum;
+- (void)queryUserInfoAndArchierFromBackgroundWithEmail:(NSString *)email;
 
 @end

@@ -59,7 +59,7 @@
     [_username.layer setBorderWidth:1];
     [_username.layer setBorderColor:FlatBlack.CGColor];
     _username.center = CGPointMake(SCREEN_WEIGHT/2.0f, text.center.y + 30 +40);
-    _username.placeholder = @"手机号/邮箱";
+    _username.placeholder = @"邮箱";
     
     //为textview加入一个左视图  看起来不会太靠左
     _username.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
@@ -126,11 +126,11 @@
 
 -(void)upload{
     if ([_username.text isEqualToString:@""]) {
-        [XHToast showTopWithText:@"请填写手机号或邮箱" topOffset:55.0f];
+        [XHToast showTopWithText:@"请填写邮箱" topOffset:55.0f];
         return;
     }
-    if (![_username.text isTelNum] && ![_username.text isEmail]) {
-        [XHToast showTopWithText:@"请正确填写手机号或邮箱" topOffset:55.0f];
+    if (![_username.text isEmail]) {
+        [XHToast showTopWithText:@"请正确填写邮箱" topOffset:55.0f];
         return;
     }
     if ([_keyword.text isEqualToString:@""]){
@@ -146,7 +146,7 @@
         return;
     }
     
-    [[AVOSManager shareAVOSManager] archiverUserInfoWithUserPhoneNum:_username.text];
+    [[AVOSManager shareAVOSManager] queryUserInfoAndArchierFromBackgroundWithEmail:_username.text];
     
     
     NSString *dataPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"userinfo.archive"];
