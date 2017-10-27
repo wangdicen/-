@@ -8,8 +8,10 @@
 
 #import "ThemeViewController.h"
 #import "Header.h"
+#import "ZAColorFullChooseView.h"
 
-@interface ThemeViewController ()
+
+@interface ThemeViewController ()<ColorChangeDelegate>
 
 @end
 
@@ -20,7 +22,30 @@
     // Do any additional setup after loading the view.
     self.title = @"主题";
     self.view.backgroundColor = FlatWhite;
+    
+    NSArray *color = @[FlatWhite,FlatRed,FlatBlue,FlatGray,FlatLime,FlatMint,FlatPink,FlatPlum,FlatSand,FlatTeal,FlatBlack,FlatBrown,FlatGreen,FlatCoffee,FlatMaroon,FlatOrange,FlatPurple,FlatYellow,FlatMagenta,FlatRedDark,FlatSkyBlue,FlatBlueDark,FlatGrayDark,FlatLimeDark,FlatMintDark,FlatNavyBlue,FlatForestGreen,FlatWatermelon,FlatPowderBlue,FlatPinkDark,FlatPlumDark,FlatSandDark,FlatTealDark,FlatBlackDark,FlatBrownDark,FlatGreenDark,FlatWatermelonDark];
+    
+    ZAColorFullChooseView *colorView = [[ZAColorFullChooseView alloc]initGradientWithFrame:CGRectMake(kscreenWidth*0.1, 80, kscreenWidth*0.8, kscreenWidth*0.8) colorArray:color];
+    colorView.delegate = self;
+    [self.view addSubview:colorView];
+    
+    [colorView setColor:[UIColor colorWithRed:255/255.0 green:0 blue:0 alpha:1 ]];
+    
 }
+
+-(void)colorChangeWithColor:(UIColor *)color colorChooseView:(ZAColorChooseView *)colorChooseView
+{
+
+}
+
+
+-(void)colorChangeStopWithColor:(UIColor *)color colorChooseView:(ZAColorChooseView *)colorChooseView
+{
+    
+        [Chameleon setGlobalThemeUsingPrimaryColor:color withSecondaryColor:ClearColor andContentStyle:UIContentStyleContrast];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

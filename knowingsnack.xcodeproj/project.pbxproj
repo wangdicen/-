@@ -22,6 +22,10 @@
 		9F6088CD1FA3108B006EA980 /* HeaderIconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088CC1FA3108B006EA980 /* HeaderIconImageView.m */; };
 		9F6088D31FA32B45006EA980 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088D21FA32B45006EA980 /* SettingViewController.m */; };
 		9F6088D71FA32B6E006EA980 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088D61FA32B6E006EA980 /* ThemeViewController.m */; };
+		9F6088F51FA339C1006EA980 /* ZAColorChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088E21FA3399D006EA980 /* ZAColorChooseView.m */; };
+		9F6088F61FA339C2006EA980 /* HSV.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088DF1FA3399D006EA980 /* HSV.c */; };
+		9F6088F71FA339C4006EA980 /* ZAColorFullChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6088E41FA3399D006EA980 /* ZAColorFullChooseView.m */; };
+		9F6088F81FA339CF006EA980 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F6088DC1FA3399D006EA980 /* image.xcassets */; };
 		9FDAC8121FA028E400A47371 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC8111FA028E400A47371 /* AppDelegate.m */; };
 		9FDAC81A1FA028E400A47371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC8191FA028E400A47371 /* Assets.xcassets */; };
 		9FDAC81D1FA028E400A47371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC81B1FA028E400A47371 /* LaunchScreen.storyboard */; };
@@ -218,6 +222,13 @@
 		9F6088D21FA32B45006EA980 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		9F6088D51FA32B6E006EA980 /* ThemeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
 		9F6088D61FA32B6E006EA980 /* ThemeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
+		9F6088DC1FA3399D006EA980 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
+		9F6088DF1FA3399D006EA980 /* HSV.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = HSV.c; sourceTree = "<group>"; };
+		9F6088E01FA3399D006EA980 /* HSV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSV.h; sourceTree = "<group>"; };
+		9F6088E11FA3399D006EA980 /* ZAColorChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZAColorChooseView.h; sourceTree = "<group>"; };
+		9F6088E21FA3399D006EA980 /* ZAColorChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZAColorChooseView.m; sourceTree = "<group>"; };
+		9F6088E31FA3399D006EA980 /* ZAColorFullChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZAColorFullChooseView.h; sourceTree = "<group>"; };
+		9F6088E41FA3399D006EA980 /* ZAColorFullChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZAColorFullChooseView.m; sourceTree = "<group>"; };
 		9FDAC80D1FA028E400A47371 /* knowingsnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knowingsnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FDAC8101FA028E400A47371 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9FDAC8111FA028E400A47371 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -386,6 +397,36 @@
 			path = "Theme(主题界面)";
 			sourceTree = "<group>";
 		};
+		9F6088DA1FA3399D006EA980 /* ZAColorChooseView */ = {
+			isa = PBXGroup;
+			children = (
+				9F6088DB1FA3399D006EA980 /* Assets */,
+				9F6088DD1FA3399D006EA980 /* Classes */,
+			);
+			path = ZAColorChooseView;
+			sourceTree = "<group>";
+		};
+		9F6088DB1FA3399D006EA980 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9F6088DC1FA3399D006EA980 /* image.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		9F6088DD1FA3399D006EA980 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9F6088DF1FA3399D006EA980 /* HSV.c */,
+				9F6088E01FA3399D006EA980 /* HSV.h */,
+				9F6088E11FA3399D006EA980 /* ZAColorChooseView.h */,
+				9F6088E21FA3399D006EA980 /* ZAColorChooseView.m */,
+				9F6088E31FA3399D006EA980 /* ZAColorFullChooseView.h */,
+				9F6088E41FA3399D006EA980 /* ZAColorFullChooseView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		9FDAC8041FA028E400A47371 = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +524,7 @@
 		9FDAC89B1FA034CB00A47371 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9F6088DA1FA3399D006EA980 /* ZAColorChooseView */,
 				9F525BDF1FA174C100DCCD87 /* Toast */,
 				9FDAC8D91FA061F900A47371 /* Chameleon */,
 			);
@@ -925,6 +967,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F6088F81FA339CF006EA980 /* image.xcassets in Resources */,
 				9FDAC81D1FA028E400A47371 /* LaunchScreen.storyboard in Resources */,
 				9FDAC81A1FA028E400A47371 /* Assets.xcassets in Resources */,
 				9FDAC9161FA07D8C00A47371 /* 58.ttf in Resources */,
@@ -954,8 +997,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FDAC8B21FA037AB00A47371 /* WDCTabBar.m in Sources */,
+				9F6088F51FA339C1006EA980 /* ZAColorChooseView.m in Sources */,
+				9F6088F61FA339C2006EA980 /* HSV.c in Sources */,
 				9FDAC8B31FA037AB00A47371 /* WDCPlusButton.m in Sources */,
 				9FDAC8B41FA037AB00A47371 /* WDCPlusButtonSubclass.m in Sources */,
+				9F6088F71FA339C4006EA980 /* ZAColorFullChooseView.m in Sources */,
 				9FDAC8F51FA0632200A47371 /* Chameleon_.m in Sources */,
 				9F525BDE1FA172A100DCCD87 /* NSString+IsTelNum.m in Sources */,
 				9F525BE21FA174EE00DCCD87 /* XHToast.m in Sources */,
@@ -1155,6 +1201,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/knowingsnack/Supporting Files\"",
 					"\"$(SRCROOT)/\"",
+					"\"$(SRCROOT)/knowingsnack/Common/ZAColorChooseView/Classes\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/knowingsnack/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1180,6 +1227,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/knowingsnack/Supporting Files\"",
 					"\"$(SRCROOT)/\"",
+					"\"$(SRCROOT)/knowingsnack/Common/ZAColorChooseView/Classes\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/knowingsnack/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
