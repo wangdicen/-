@@ -64,6 +64,21 @@
 		9FDAC9101FA06EE000A47371 /* MainNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC90F1FA06EE000A47371 /* MainNavView.m */; };
 		9FDAC9161FA07D8C00A47371 /* 58.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FDAC9151FA07D8200A47371 /* 58.ttf */; };
 		9FDAC91D1FA0971700A47371 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */; };
+		AC2B06011FA491DD006305E8 /* AppIconImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B06001FA491DD006305E8 /* AppIconImage.m */; };
+		AC2B06131FA4AD80006305E8 /* Image1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B06051FA4AD54006305E8 /* Image1@2x.png */; };
+		AC2B06141FA4AD80006305E8 /* Image1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B06061FA4AD54006305E8 /* Image1@3x.png */; };
+		AC2B06151FA4AD80006305E8 /* Image2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B06071FA4AD54006305E8 /* Image2@2x.png */; };
+		AC2B06161FA4AD80006305E8 /* Image2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B06081FA4AD54006305E8 /* Image2@3x.png */; };
+		AC2B06171FA4AD80006305E8 /* Image3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B06091FA4AD54006305E8 /* Image3@2x.png */; };
+		AC2B06181FA4AD80006305E8 /* Image3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B060A1FA4AD54006305E8 /* Image3@3x.png */; };
+		AC2B06191FA4AD80006305E8 /* Image4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B060B1FA4AD54006305E8 /* Image4@2x.png */; };
+		AC2B061A1FA4AD80006305E8 /* Image4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B060C1FA4AD54006305E8 /* Image4@3x.png */; };
+		AC2B061B1FA4AD80006305E8 /* Image5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B060D1FA4AD54006305E8 /* Image5@2x.png */; };
+		AC2B061C1FA4AD80006305E8 /* Image5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B060E1FA4AD54006305E8 /* Image5@3x.png */; };
+		AC2B061D1FA4AD80006305E8 /* Image6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B060F1FA4AD54006305E8 /* Image6@2x.png */; };
+		AC2B061E1FA4AD80006305E8 /* Image6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B06101FA4AD54006305E8 /* Image6@3x.png */; };
+		AC2B061F1FA4AD80006305E8 /* Image7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B06111FA4AD54006305E8 /* Image7@2x.png */; };
+		AC2B06201FA4AD80006305E8 /* Image7@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2B06121FA4AD54006305E8 /* Image7@3x.png */; };
 		AC8FD5251FA0D632001961A0 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8FD5241FA0D632001961A0 /* libstdc++.tbd */; };
 		AC8FD5291FA38069001961A0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8FD5281FA38069001961A0 /* Launch Screen.storyboard */; };
 		AC8FD53C1FA3848D001961A0 /* LunchView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8FD53B1FA3848D001961A0 /* LunchView.m */; };
@@ -306,6 +321,22 @@
 		9FDAC9151FA07D8200A47371 /* 58.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 58.ttf; sourceTree = "<group>"; };
 		9FDAC91B1FA0971700A47371 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		9FDAC91C1FA0971700A47371 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		AC2B05FF1FA491DD006305E8 /* AppIconImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppIconImage.h; sourceTree = "<group>"; };
+		AC2B06001FA491DD006305E8 /* AppIconImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppIconImage.m; sourceTree = "<group>"; };
+		AC2B06051FA4AD54006305E8 /* Image1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image1@2x.png"; sourceTree = "<group>"; };
+		AC2B06061FA4AD54006305E8 /* Image1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image1@3x.png"; sourceTree = "<group>"; };
+		AC2B06071FA4AD54006305E8 /* Image2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image2@2x.png"; sourceTree = "<group>"; };
+		AC2B06081FA4AD54006305E8 /* Image2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image2@3x.png"; sourceTree = "<group>"; };
+		AC2B06091FA4AD54006305E8 /* Image3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image3@2x.png"; sourceTree = "<group>"; };
+		AC2B060A1FA4AD54006305E8 /* Image3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image3@3x.png"; sourceTree = "<group>"; };
+		AC2B060B1FA4AD54006305E8 /* Image4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image4@2x.png"; sourceTree = "<group>"; };
+		AC2B060C1FA4AD54006305E8 /* Image4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image4@3x.png"; sourceTree = "<group>"; };
+		AC2B060D1FA4AD54006305E8 /* Image5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image5@2x.png"; sourceTree = "<group>"; };
+		AC2B060E1FA4AD54006305E8 /* Image5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image5@3x.png"; sourceTree = "<group>"; };
+		AC2B060F1FA4AD54006305E8 /* Image6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image6@2x.png"; sourceTree = "<group>"; };
+		AC2B06101FA4AD54006305E8 /* Image6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image6@3x.png"; sourceTree = "<group>"; };
+		AC2B06111FA4AD54006305E8 /* Image7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image7@2x.png"; sourceTree = "<group>"; };
+		AC2B06121FA4AD54006305E8 /* Image7@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image7@3x.png"; sourceTree = "<group>"; };
 		AC8FD5241FA0D632001961A0 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC8FD5281FA38069001961A0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AC8FD53A1FA3848D001961A0 /* LunchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LunchView.h; sourceTree = "<group>"; };
@@ -394,6 +425,7 @@
 		9F6088D41FA32B4D006EA980 /* Theme(主题界面) */ = {
 			isa = PBXGroup;
 			children = (
+				AC2B05FE1FA491AD006305E8 /* view */,
 				9F6088D51FA32B6E006EA980 /* ThemeViewController.h */,
 				9F6088D61FA32B6E006EA980 /* ThemeViewController.m */,
 			);
@@ -569,6 +601,7 @@
 		9FDAC89F1FA034CB00A47371 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AC2B06041FA4AD54006305E8 /* icon */,
 				9FDAC9151FA07D8200A47371 /* 58.ttf */,
 				9FDAC8191FA028E400A47371 /* Assets.xcassets */,
 			);
@@ -739,6 +772,36 @@
 				9F525BFF1FA1B70100DCCD87 /* RealRigisterViewController.xib */,
 			);
 			path = "Rigister(注册界面)";
+			sourceTree = "<group>";
+		};
+		AC2B05FE1FA491AD006305E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				AC2B05FF1FA491DD006305E8 /* AppIconImage.h */,
+				AC2B06001FA491DD006305E8 /* AppIconImage.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		AC2B06041FA4AD54006305E8 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				AC2B06051FA4AD54006305E8 /* Image1@2x.png */,
+				AC2B06061FA4AD54006305E8 /* Image1@3x.png */,
+				AC2B06071FA4AD54006305E8 /* Image2@2x.png */,
+				AC2B06081FA4AD54006305E8 /* Image2@3x.png */,
+				AC2B06091FA4AD54006305E8 /* Image3@2x.png */,
+				AC2B060A1FA4AD54006305E8 /* Image3@3x.png */,
+				AC2B060B1FA4AD54006305E8 /* Image4@2x.png */,
+				AC2B060C1FA4AD54006305E8 /* Image4@3x.png */,
+				AC2B060D1FA4AD54006305E8 /* Image5@2x.png */,
+				AC2B060E1FA4AD54006305E8 /* Image5@3x.png */,
+				AC2B060F1FA4AD54006305E8 /* Image6@2x.png */,
+				AC2B06101FA4AD54006305E8 /* Image6@3x.png */,
+				AC2B06111FA4AD54006305E8 /* Image7@2x.png */,
+				AC2B06121FA4AD54006305E8 /* Image7@3x.png */,
+			);
+			path = icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -972,6 +1035,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2B06131FA4AD80006305E8 /* Image1@2x.png in Resources */,
+				AC2B06141FA4AD80006305E8 /* Image1@3x.png in Resources */,
+				AC2B06151FA4AD80006305E8 /* Image2@2x.png in Resources */,
+				AC2B06161FA4AD80006305E8 /* Image2@3x.png in Resources */,
+				AC2B06171FA4AD80006305E8 /* Image3@2x.png in Resources */,
+				AC2B06181FA4AD80006305E8 /* Image3@3x.png in Resources */,
+				AC2B06191FA4AD80006305E8 /* Image4@2x.png in Resources */,
+				AC2B061A1FA4AD80006305E8 /* Image4@3x.png in Resources */,
+				AC2B061B1FA4AD80006305E8 /* Image5@2x.png in Resources */,
+				AC2B061C1FA4AD80006305E8 /* Image5@3x.png in Resources */,
+				AC2B061D1FA4AD80006305E8 /* Image6@2x.png in Resources */,
+				AC2B061E1FA4AD80006305E8 /* Image6@3x.png in Resources */,
+				AC2B061F1FA4AD80006305E8 /* Image7@2x.png in Resources */,
+				AC2B06201FA4AD80006305E8 /* Image7@3x.png in Resources */,
 				AC8FD5291FA38069001961A0 /* Launch Screen.storyboard in Resources */,
 				9F6088F81FA339CF006EA980 /* image.xcassets in Resources */,
 				9FDAC81A1FA028E400A47371 /* Assets.xcassets in Resources */,
@@ -1031,6 +1108,7 @@
 				9FDAC8F71FA0634000A47371 /* NSArray+Chameleon.m in Sources */,
 				9FDAC9041FA068FA00A47371 /* UIImage+ChangeImageColor.m in Sources */,
 				9FDAC8F81FA0634100A47371 /* UIAppearance+Swift.m in Sources */,
+				AC2B06011FA491DD006305E8 /* AppIconImage.m in Sources */,
 				9F6088CA1FA307B9006EA980 /* MyInfoView.m in Sources */,
 				9FDAC8D61FA03C0F00A47371 /* StaringViewController.m in Sources */,
 				9FDAC8B01FA037A400A47371 /* WDCTabBarController.m in Sources */,

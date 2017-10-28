@@ -184,7 +184,7 @@
     [self.view addSubview:_text];
     _text.font = [UIFont boldSystemFontOfSize:40];
     _text.text = @"欢迎加入知食";
-    _text.textColor = FlatRed;
+    _text.textColor = MainColor;
     _text.textAlignment = NSTextAlignmentCenter;
     _text.backgroundColor = ClearColor;
     _text.center = CGPointMake(SCREEN_WEIGHT/2.0f, SCREEN_HEIGHT * (2.0f/8.0f ));
@@ -234,7 +234,7 @@
     
     _uploadbtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
     _uploadbtn.layer.cornerRadius = 5.0f;
-    _uploadbtn.backgroundColor = FlatRed;
+    _uploadbtn.backgroundColor = MainColor;
     [_uploadbtn setTitle:@"下一步" forState:UIControlStateNormal];
     [_uploadbtn setTitle:@"下一步" forState:UIControlStateSelected];
     [self.view addSubview:_uploadbtn];
@@ -268,7 +268,7 @@
         
         _nextbtn_b = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
         _nextbtn_b.layer.cornerRadius = 5.0f;
-        _nextbtn_b.backgroundColor = FlatRed;
+        _nextbtn_b.backgroundColor = MainColor;
         [_nextbtn_b setTitle:@"下一步" forState:UIControlStateNormal];
         [_nextbtn_b setTitle:@"下一步" forState:UIControlStateSelected];
         [self.view addSubview:_nextbtn_b];

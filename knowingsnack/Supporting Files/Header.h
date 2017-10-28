@@ -18,6 +18,8 @@
 #define EDGE_NUM 3.0
 #define IMAGE(a) [UIImage imageNamed:a]
 
+#define MainColor [UIColor colorWithHexString:[[NSUserDefaults standardUserDefaults] objectForKey:@"Main_Color"]]
+
 
 #endif
 

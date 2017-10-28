@@ -48,7 +48,7 @@
     [self.view addSubview:text];
     text.font = [UIFont boldSystemFontOfSize:40];
     text.text = @"欢迎来到知食";
-    text.textColor = FlatRed;
+    text.textColor = MainColor;
     text.textAlignment = NSTextAlignmentCenter;
     text.backgroundColor = ClearColor;
     text.center = CGPointMake(SCREEN_WEIGHT/2.0f, SCREEN_HEIGHT * (2.0f/8.0f ));
@@ -83,7 +83,7 @@
     
     UIButton *uploadbtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT * 0.8f, 40)];
     uploadbtn.layer.cornerRadius = 5.0f;
-    uploadbtn.backgroundColor = FlatRed;
+    uploadbtn.backgroundColor = MainColor;
     [uploadbtn setTitle:@"登录" forState:UIControlStateNormal];
     [uploadbtn setTitle:@"登录" forState:UIControlStateSelected];
     [self.view addSubview:uploadbtn];
@@ -96,8 +96,8 @@
     [registerbtn setTitle:@"注册知食" forState:UIControlStateNormal];
     [registerbtn setTitle:@"注册知食" forState:UIControlStateSelected];
     [self.view addSubview:registerbtn];
-    [registerbtn setTitleColor:FlatRed forState:UIControlStateNormal];
-    [registerbtn setTitleColor:FlatRed forState:UIControlStateSelected];
+    [registerbtn setTitleColor:MainColor forState:UIControlStateNormal];
+    [registerbtn setTitleColor:MainColor forState:UIControlStateSelected];
     registerbtn.titleLabel.font = [UIFont fontWithName:@"Arial" size:14];
     registerbtn.center = CGPointMake(SCREEN_WEIGHT/2.0f - SCREEN_WEIGHT * 0.24f/2.0f - 3 , uploadbtn.center.y + 30 +20);
     [registerbtn addTarget:self action:@selector(registerUser) forControlEvents:UIControlEventTouchUpInside];

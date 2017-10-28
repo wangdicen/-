@@ -42,10 +42,14 @@
     
     [self addSubview:searchbar];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
+//    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
 //    btn.backgroundColor = FlatBlue;
-    [searchbar addSubview:btn];
-    btn.center = CGPointMake(searchbar.frame.size.width - 28/2.0, searchbar.frame.size.height /2.0f);
+////    btn.backgroundColor = ClearColor;
+//    [btn setImage:IMAGE(@"setting_review") forState:UIControlStateNormal];
+//    [btn setImage:IMAGE(@"setting_review") forState:UIControlStateSelected];
+//
+//    [searchbar addSubview:btn];
+//    btn.center = CGPointMake(searchbar.frame.size.width - 28/2.0, searchbar.frame.size.height /2.0f);
     
 }
 

@@ -29,12 +29,16 @@
     [self.navigationItem setLeftBarButtonItem:navLeft];
     
 
-    UIButton *chatBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
-    chatBtn.backgroundColor = FlatMagenta;
+    UIButton *chatBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.navigationBar.frame.size.height, self.navigationController.navigationBar.frame.size.height)];
+    chatBtn.center = CGPointMake(SCREEN_WEIGHT - self.navigationController.navigationBar.frame.size.height/2.0 - 5.0f, self.navigationController.navigationBar.frame.size.height/2.0f);
+    chatBtn.backgroundColor = ClearColor;
     [chatBtn addTarget:self action:@selector(goToRigister:) forControlEvents:UIControlEventTouchUpInside];
+    [chatBtn setImage:IMAGE(@"setting_theme") forState:UIControlStateNormal];
+    [chatBtn setImage:IMAGE(@"setting_theme") forState:UIControlStateSelected];
 
-    UIBarButtonItem *navRight = [[UIBarButtonItem alloc] initWithCustomView:chatBtn];
-    [self.navigationItem setRightBarButtonItem:navRight];
+    [self.navigationController.navigationBar addSubview:chatBtn];
+//    UIBarButtonItem *navRight = [[UIBarButtonItem alloc] initWithCustomView:chatBtn];
+//    [self.navigationItem setRightBarButtonItem:navRight];
 
 }
 

@@ -19,7 +19,7 @@
         
         UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_WEIGHT)];
         [self addSubview:imageview];
-        imageview.image = IMAGE(@"Image");
+        imageview.image = IMAGE(@"lunch");
         
         UILabel *lbl = [[UILabel alloc]initWithFrame:CGRectMake(10, SCREEN_WEIGHT + 90, 97, 53)];
         lbl.text = @"知食";

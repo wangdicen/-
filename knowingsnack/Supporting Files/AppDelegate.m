@@ -44,10 +44,33 @@
     [timer setFireDate:[NSDate date]];
     
     
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"IS_LOGIN"];
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"once"]) {
+        /**
+         *  做你想在整个APP生命里只做一次的事
+         */
+        [[NSUserDefaults standardUserDefaults] setObject:FlatRed.hexValue forKey:@"Main_Color"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"IS_LOGIN"];
+        [[NSUserDefaults standardUserDefaults] setInteger:3  forKey:@"ICON_ID"];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"once"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
     
     //设置全局主题
-    [Chameleon setGlobalThemeUsingPrimaryColor:FlatRed  withSecondaryColor:ClearColor andContentStyle:UIContentStyleContrast];
+    [Chameleon setGlobalThemeUsingPrimaryColor:MainColor  withSecondaryColor:ClearColor andContentStyle:UIContentStyleContrast];
+    NSDictionary *dic = nil;
+    if (CGColorEqualToColor(MainColor.CGColor , FlatWhite.CGColor)) {
+        dic = [NSDictionary dictionaryWithObject:FlatBlack forKey:@"color"];
+    }
+    else{
+        dic = [NSDictionary dictionaryWithObject:MainColor forKey:@"color"];
+        
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTabbarColor" object:nil userInfo:dic];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changePlusBtnColor" object:nil userInfo:dic];
     
     //打开leancloud后台服务
     [AVOSCloud setApplicationId:@"IvIeHgl0vQy5Q0U32dXVxHEB-gzGzoHsz" clientKey:@"toMwLOrJhs0Pe68blBsak6La"];
