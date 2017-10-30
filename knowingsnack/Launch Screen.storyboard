@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-MN-zTb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lunch" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-MN-zTb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="376"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="376" id="wlB-fg-LrO"/>
@@ -66,6 +66,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="512" height="512"/>
+        <image name="lunch" width="512" height="512"/>
     </resources>
 </document>

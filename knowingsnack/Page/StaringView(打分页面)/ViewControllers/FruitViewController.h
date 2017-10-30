@@ -1,0 +1,14 @@
+//
+//  FruitViewController.h
+//  knowingsnack
+//
+//  Created by 谢豪杰 on 2017/10/30.
+//  Copyright © 2017年 汪迪岑. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import"SnackBaseViewController.h"
+
+@interface FruitViewController : SnackBaseViewController
+
+@end

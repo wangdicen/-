@@ -11,6 +11,7 @@
 #import "MainNavView.h"
 #import "Header.h"
 #import "RigisterViewController.h"
+#import "Snack.h"
 
 @interface MainViewController ()
 
@@ -44,12 +45,16 @@
 
 - (void)goToRigister:(UIButton *)sender
 {
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOGIN"]) {
-        RigisterViewController *rvc = [[RigisterViewController alloc] init];
-        [self presentViewController:rvc animated:YES completion:^{
-            
-        }];
-//    }
+////    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOGIN"]) {
+//        RigisterViewController *rvc = [[RigisterViewController alloc] init];
+//        [self presentViewController:rvc animated:YES completion:^{
+//
+//        }];
+////    }
+    
+    Snack *snack = [Snack objectWithClassName:@"Snack" objectId:@"59f68a05756571004531192d"];
+    
+    [snack commentSnackWithShortComment:@"看起来还不错" image:[UIImage imageNamed:@"nullImage"] starnum:5];
 
 }
 
