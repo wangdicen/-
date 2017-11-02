@@ -15,6 +15,9 @@
 @implementation SweetViewController
 
 - (void)viewDidLoad {
+    
+    self.viewcontrollerName = NameSweetViewController;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

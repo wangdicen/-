@@ -13,6 +13,13 @@
 #import "MJRefreshHeader.h"
 #import "MJRefreshAutoFooter.h"
 #import "YNPageScrollViewController.h"
+#import "RecommendView.h"
+#import "OneRecommendView.h"
+#import "FindNLikeView.h"
+#import "HotRoNewView.h"
+
+#import "Header.h"
+
 //是否带刷新
 #define HasHeaderRefresh 0
 //是否有loading和无数据view
@@ -38,16 +45,7 @@
     self.isFirst = YES;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        for (int i = 0; i < 20; i++) {
-            [self.datasArrayM addObject:[NSString stringWithFormat:@" 原始数据 %zd",i]];
-        }
-        if (HasLoadingAndNotDataView) {
-            [self.datasArrayM removeAllObjects];
-            [self.indicatorView stopAnimating];
-            self.label.hidden = NO;
-        }
-        [self.tableView reloadData];
-        [self.ynPageScrollViewController reloadPlaceHoderViewFrame];
+        [self setDataSource];
     });
     
     __weak typeof (SnackBaseViewController *)weakself = self;
@@ -93,6 +91,56 @@
         });
     }];
 }
+
+
+- (void)setDataSource
+{
+    
+    if (self.viewcontrollerName == NameSnackViewController){
+        [self.datasArrayM addObject:@"recommend"];
+        [self.datasArrayM addObject:@"find&like"];
+        [self.datasArrayM addObject:@"hot"];
+        [self.datasArrayM addObject:@"ads"];
+        [self.datasArrayM addObject:@"new"];
+        [self.datasArrayM addObject:@"rank"];
+    }
+    else if (self.viewcontrollerName == NameDrinkViewController)
+    {
+        
+    }
+    else if (self.viewcontrollerName == NameFangBianViewController)
+    {
+        
+    }
+    else if (self.viewcontrollerName == NameFruitViewController)
+    {
+        
+    }
+    else if (self.viewcontrollerName == NameSweetViewController)
+    {
+        
+    }
+    else if (self.viewcontrollerName == NameSpicyViewController)
+    {
+        
+    }
+    else if (self.viewcontrollerName == NameMeatViewController)
+    {
+        
+    }
+    for (int i = 0; i < 10; i++) {
+        [self.datasArrayM addObject:@"guesseyoulike"];
+    }
+    if (HasLoadingAndNotDataView) {
+        [self.datasArrayM removeAllObjects];
+        [self.indicatorView stopAnimating];
+        self.label.hidden = NO;
+    }
+    [self.tableView reloadData];
+    [self.ynPageScrollViewController reloadPlaceHoderViewFrame];
+}
+
+
 
 - (void)viewDidLayoutSubviews{
     
@@ -163,7 +211,20 @@
 //cell-height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ( indexPath.section == 0 && indexPath.row == 0) {
+    if ( indexPath.section == 0 ) {
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
+        {
+            return SCREEN_HEIGHT * 5.0f/12.0f;
+        }
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"find&like"])
+        {
+            return SCREEN_HEIGHT /8.5f;
+        }
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"] || [[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"new"])
+        {
+            return SCREEN_HEIGHT / 3.0f;
+        }
+        
         return 80;
     }
     else
@@ -182,11 +243,45 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
+    [cell.subviews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
+        UIView *subView = (UIView *)obj;
+        [subView removeFromSuperview];
+    }];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        
+    if (indexPath.section == 0) {
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
+        {
+            RecommendView *rv = [[RecommendView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT *5.0/12.0f)];
+            [cell addSubview:rv];
+            if (self.viewcontrollerName == NameSnackViewController) {
+                rv.type = NameSnackViewController;
+                [rv fetchDataInBackground];
+            }
+        }
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"find&like"])
+        {
+            FindNLikeView *rv = [[FindNLikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /8.5f)];
+            [cell addSubview:rv];
+            if (self.viewcontrollerName == NameSnackViewController) {
+                rv.type = NameSnackViewController;
+            }
+        }
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"] || [[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"new"])
+        {
+            HotRoNewView *hrn = [[HotRoNewView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT / 3.0f)];
+            [cell addSubview:hrn];
+            
+            hrn.viewcontrollertype = self.viewcontrollerName;
+            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"]){
+                hrn.type = Hot;
+            }else{
+                hrn.type = New;
+            }
+            
+            [hrn fetchDataInBackground];
+        }
     }
-//    cell.textLabel.text = [NSString stringWithFormat:@"section : %zd row : %zd  %@",indexPath.section,indexPath.row,self.datasArrayM[indexPath.row]];
     return cell;
     
 }
@@ -206,6 +301,7 @@
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
     }
     return _tableView;

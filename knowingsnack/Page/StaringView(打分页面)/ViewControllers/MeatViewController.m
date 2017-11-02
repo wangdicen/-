@@ -15,8 +15,12 @@
 @implementation MeatViewController
 
 - (void)viewDidLoad {
+    
+    self.viewcontrollerName = NameMeatViewController;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {

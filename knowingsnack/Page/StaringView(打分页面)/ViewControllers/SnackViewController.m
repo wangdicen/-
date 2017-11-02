@@ -15,8 +15,13 @@
 @implementation SnackViewController
 
 - (void)viewDidLoad {
+    
+    self.viewcontrollerName = NameSnackViewController;
+    
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {

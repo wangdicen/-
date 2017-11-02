@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1E5FBB1FA81CCD00D2F3F7 /* RecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */; };
+		9F1E5FBE1FA825E900D2F3F7 /* OneRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FBD1FA825E900D2F3F7 /* OneRecommendView.m */; };
+		9F1E5FC21FA8624A00D2F3F7 /* TopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FC11FA8624A00D2F3F7 /* TopLeftLabel.m */; };
+		9F1E5FE01FA96C1A00D2F3F7 /* FindNLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FDE1FA96C1900D2F3F7 /* FindNLikeView.m */; };
+		9F1E5FE41FA976CB00D2F3F7 /* HotRoNewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FE31FA976CB00D2F3F7 /* HotRoNewView.m */; };
+		9F1E5FEA1FA996F400D2F3F7 /* OneHotRoNewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FE91FA996F400D2F3F7 /* OneHotRoNewView.m */; };
+		9F1E5FF01FA9B2E200D2F3F7 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FEE1FA9B28500D2F3F7 /* CWStarRateView.m */; };
+		9F1E5FF11FA9B2E700D2F3F7 /* b27_icon_star_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1E5FED1FA9B28500D2F3F7 /* b27_icon_star_gray@2x.png */; };
+		9F1E5FF21FA9B2E900D2F3F7 /* b27_icon_star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1E5FEC1FA9B28500D2F3F7 /* b27_icon_star_yellow@2x.png */; };
 		9F525BD61FA170F400DCCD87 /* knowingsnack.xcodeproj in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F525BD71FA170F400DCCD87 /* knowingsnack.xcodeproj */; };
 		9F525BDE1FA172A100DCCD87 /* NSString+IsTelNum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BDD1FA172A100DCCD87 /* NSString+IsTelNum.m */; };
 		9F525BE21FA174EE00DCCD87 /* XHToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F525BE11FA174D300DCCD87 /* XHToast.m */; };
@@ -251,6 +260,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F1E5FB91FA81CCD00D2F3F7 /* RecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendView.h; sourceTree = "<group>"; };
+		9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendView.m; sourceTree = "<group>"; };
+		9F1E5FBC1FA825E900D2F3F7 /* OneRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneRecommendView.h; sourceTree = "<group>"; };
+		9F1E5FBD1FA825E900D2F3F7 /* OneRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneRecommendView.m; sourceTree = "<group>"; };
+		9F1E5FC01FA8624A00D2F3F7 /* TopLeftLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopLeftLabel.h; sourceTree = "<group>"; };
+		9F1E5FC11FA8624A00D2F3F7 /* TopLeftLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopLeftLabel.m; sourceTree = "<group>"; };
+		9F1E5FDD1FA96C1900D2F3F7 /* FindNLikeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindNLikeView.h; sourceTree = "<group>"; };
+		9F1E5FDE1FA96C1900D2F3F7 /* FindNLikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindNLikeView.m; sourceTree = "<group>"; };
+		9F1E5FE21FA976CB00D2F3F7 /* HotRoNewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotRoNewView.h; sourceTree = "<group>"; };
+		9F1E5FE31FA976CB00D2F3F7 /* HotRoNewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotRoNewView.m; sourceTree = "<group>"; };
+		9F1E5FE81FA996F400D2F3F7 /* OneHotRoNewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneHotRoNewView.h; sourceTree = "<group>"; };
+		9F1E5FE91FA996F400D2F3F7 /* OneHotRoNewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneHotRoNewView.m; sourceTree = "<group>"; };
+		9F1E5FEC1FA9B28500D2F3F7 /* b27_icon_star_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b27_icon_star_yellow@2x.png"; sourceTree = "<group>"; };
+		9F1E5FED1FA9B28500D2F3F7 /* b27_icon_star_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b27_icon_star_gray@2x.png"; sourceTree = "<group>"; };
+		9F1E5FEE1FA9B28500D2F3F7 /* CWStarRateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
+		9F1E5FEF1FA9B28500D2F3F7 /* CWStarRateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
 		9F525BD71FA170F400DCCD87 /* knowingsnack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = knowingsnack.xcodeproj; path = /Users/xiehaojie/KnowingSnack/knowingsnack.xcodeproj; sourceTree = "<absolute>"; };
 		9F525BDC1FA172A100DCCD87 /* NSString+IsTelNum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+IsTelNum.h"; sourceTree = "<group>"; };
 		9F525BDD1FA172A100DCCD87 /* NSString+IsTelNum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+IsTelNum.m"; sourceTree = "<group>"; };
@@ -491,6 +516,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F1E5FB71FA818AB00D2F3F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9F1E5FB91FA81CCD00D2F3F7 /* RecommendView.h */,
+				9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */,
+				9F1E5FBC1FA825E900D2F3F7 /* OneRecommendView.h */,
+				9F1E5FBD1FA825E900D2F3F7 /* OneRecommendView.m */,
+				9F1E5FC01FA8624A00D2F3F7 /* TopLeftLabel.h */,
+				9F1E5FC11FA8624A00D2F3F7 /* TopLeftLabel.m */,
+				9F1E5FDD1FA96C1900D2F3F7 /* FindNLikeView.h */,
+				9F1E5FDE1FA96C1900D2F3F7 /* FindNLikeView.m */,
+				9F1E5FE21FA976CB00D2F3F7 /* HotRoNewView.h */,
+				9F1E5FE31FA976CB00D2F3F7 /* HotRoNewView.m */,
+				9F1E5FE81FA996F400D2F3F7 /* OneHotRoNewView.h */,
+				9F1E5FE91FA996F400D2F3F7 /* OneHotRoNewView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9F1E5FE51FA9968100D2F3F7 /* StarView */ = {
+			isa = PBXGroup;
+			children = (
+				9F1E5FED1FA9B28500D2F3F7 /* b27_icon_star_gray@2x.png */,
+				9F1E5FEC1FA9B28500D2F3F7 /* b27_icon_star_yellow@2x.png */,
+				9F1E5FEF1FA9B28500D2F3F7 /* CWStarRateView.h */,
+				9F1E5FEE1FA9B28500D2F3F7 /* CWStarRateView.m */,
+			);
+			path = StarView;
+			sourceTree = "<group>";
+		};
 		9F525BD81FA170F400DCCD87 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
@@ -813,6 +868,7 @@
 		9FDAC89B1FA034CB00A47371 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9F1E5FE51FA9968100D2F3F7 /* StarView */,
 				9F60894A1FA71D8E006EA980 /* MJRefresh */,
 				9F6089181FA712DB006EA980 /* YNPageScrollViewController */,
 				9F6088DA1FA3399D006EA980 /* ZAColorChooseView */,
@@ -949,6 +1005,7 @@
 		9FDAC8CC1FA03A5900A47371 /* StaringView(打分页面) */ = {
 			isa = PBXGroup;
 			children = (
+				9F1E5FB71FA818AB00D2F3F7 /* Views */,
 				9F6089311FA7151F006EA980 /* ViewControllers */,
 				9F60892E1FA7148A006EA980 /* YNJianShuDemoViewController.h */,
 				9F60892F1FA7148A006EA980 /* YNJianShuDemoViewController.m */,
@@ -1293,6 +1350,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F1E5FF11FA9B2E700D2F3F7 /* b27_icon_star_gray@2x.png in Resources */,
+				9F1E5FF21FA9B2E900D2F3F7 /* b27_icon_star_yellow@2x.png in Resources */,
 				AC2B06131FA4AD80006305E8 /* Image1@2x.png in Resources */,
 				AC2B06141FA4AD80006305E8 /* Image1@3x.png in Resources */,
 				AC2B06151FA4AD80006305E8 /* Image2@2x.png in Resources */,
@@ -1336,6 +1395,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F1E5FF01FA9B2E200D2F3F7 /* CWStarRateView.m in Sources */,
+				9F1E5FE01FA96C1A00D2F3F7 /* FindNLikeView.m in Sources */,
 				9F60897E1FA71E38006EA980 /* MJRefreshAutoGifFooter.m in Sources */,
 				9F60897F1FA71E38006EA980 /* MJRefreshAutoNormalFooter.m in Sources */,
 				9F6089801FA71E38006EA980 /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1350,6 +1411,7 @@
 				9F6089891FA71E38006EA980 /* UIScrollView+MJExtension.m in Sources */,
 				9F60898A1FA71E38006EA980 /* UIScrollView+MJRefresh.m in Sources */,
 				9F60898B1FA71E38006EA980 /* UIView+MJExtension.m in Sources */,
+				9F1E5FBE1FA825E900D2F3F7 /* OneRecommendView.m in Sources */,
 				9F6089791FA71E25006EA980 /* MJRefreshAutoFooter.m in Sources */,
 				9F60897A1FA71E25006EA980 /* MJRefreshBackFooter.m in Sources */,
 				9F60897B1FA71E25006EA980 /* MJRefreshComponent.m in Sources */,
@@ -1370,6 +1432,7 @@
 				9F60893A1FA71660006EA980 /* FangBianViewController.m in Sources */,
 				9F6089401FA716A5006EA980 /* SweetViewController.m in Sources */,
 				9FDAC8B31FA037AB00A47371 /* WDCPlusButton.m in Sources */,
+				9F1E5FC21FA8624A00D2F3F7 /* TopLeftLabel.m in Sources */,
 				9F6089461FA716C1006EA980 /* MeatViewController.m in Sources */,
 				9FDAC8B41FA037AB00A47371 /* WDCPlusButtonSubclass.m in Sources */,
 				9F6088F71FA339C4006EA980 /* ZAColorFullChooseView.m in Sources */,
@@ -1379,16 +1442,19 @@
 				9F525BE21FA174EE00DCCD87 /* XHToast.m in Sources */,
 				9FDAC8F61FA0633E00A47371 /* ChameleonConstants.m in Sources */,
 				9F525BF81FA1B6AA00DCCD87 /* RigisterViewController.m in Sources */,
+				9F1E5FE41FA976CB00D2F3F7 /* HotRoNewView.m in Sources */,
 				9FDAC8FC1FA0634C00A47371 /* UIImage+ChameleonPrivate.m in Sources */,
 				9FDAC8FE1FA0635100A47371 /* UINavigationController+Chameleon.m in Sources */,
 				9FDAC9001FA0635400A47371 /* UIViewController+Chameleon.m in Sources */,
 				9FDAC8FD1FA0634F00A47371 /* UILabel+Chameleon.m in Sources */,
+				9F1E5FBB1FA81CCD00D2F3F7 /* RecommendView.m in Sources */,
 				9F6088CD1FA3108B006EA980 /* HeaderIconImageView.m in Sources */,
 				9FDAC8FF1FA0635200A47371 /* UIView+ChameleonPrivate.m in Sources */,
 				9FDAC8BA1FA0387200A47371 /* MainViewController.m in Sources */,
 				9F525BF21FA1AA1700DCCD87 /* UserInfoManager.m in Sources */,
 				AC8FD53C1FA3848D001961A0 /* LunchView.m in Sources */,
 				9FDAC8FA1FA0634500A47371 /* UIColor+Chameleon.m in Sources */,
+				9F1E5FEA1FA996F400D2F3F7 /* OneHotRoNewView.m in Sources */,
 				9FDAC8F91FA0634300A47371 /* UIButton+Chameleon.m in Sources */,
 				9F525BEE1FA18D6600DCCD87 /* UserInfo.m in Sources */,
 				9FDAC8FB1FA0634600A47371 /* UIColor+ChameleonPrivate.m in Sources */,

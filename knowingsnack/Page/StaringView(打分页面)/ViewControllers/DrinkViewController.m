@@ -15,6 +15,9 @@
 @implementation DrinkViewController
 
 - (void)viewDidLoad {
+    
+    self.viewcontrollerName = NameDrinkViewController;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

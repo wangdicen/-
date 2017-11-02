@@ -21,6 +21,9 @@
 #define MainColor [UIColor colorWithHexString:[[NSUserDefaults standardUserDefaults] objectForKey:@"Main_Color"]]
 
 
+#define OneRecommendView_TAG 20000
+#define OneHotOrNewView_TAG 30000
+
 #endif
 
 #import "Chameleon.h"

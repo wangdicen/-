@@ -8,10 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, SnackViewControllerName) {
+    NameSnackViewController,
+    NameDrinkViewController,
+    NameFangBianViewController,
+    NameFruitViewController,
+    NameSweetViewController,
+    NameSpicyViewController,
+    NameMeatViewController,
+};
+
+
+
 extern NSInteger viewcontroller_type;
 
 @interface SnackBaseViewController : UIViewController<UITableViewDataSource , UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, assign) SnackViewControllerName viewcontrollerName;
+
 
 @end

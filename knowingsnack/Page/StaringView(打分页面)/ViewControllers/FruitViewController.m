@@ -15,8 +15,12 @@
 @implementation FruitViewController
 
 - (void)viewDidLoad {
+    
+    self.viewcontrollerName = NameFruitViewController;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -15,6 +15,9 @@
 @implementation FangBianViewController
 
 - (void)viewDidLoad {
+    
+    self.viewcontrollerName = NameFangBianViewController;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
