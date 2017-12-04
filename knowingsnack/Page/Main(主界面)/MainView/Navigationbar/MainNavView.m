@@ -2,7 +2,7 @@
 //  MainNavView.m
 //  knowingsnack
 //
-//  Created by 谢豪杰 on 2017/10/25.
+//  Created by 汪迪岑 on 2017/10/25.
 //  Copyright © 2017年 汪迪岑. All rights reserved.
 //
 
@@ -26,6 +26,7 @@
 - (void)addUI{
     UISearchBar *searchbar = [[UISearchBar alloc] init];
     searchbar.delegate = self;
+    searchbar.backgroundColor = [UIColor whiteColor];
     searchbar.frame = CGRectMake(0, 0, SCREEN_WEIGHT *0.80f, 28);
     searchbar.layer.cornerRadius = 5;
     searchbar.layer.masksToBounds = YES;

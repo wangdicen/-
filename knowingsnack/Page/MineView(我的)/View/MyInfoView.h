@@ -2,7 +2,7 @@
 //  MyInfoView.h
 //  knowingsnack
 //
-//  Created by 谢豪杰 on 2017/10/27.
+//  Created by 汪迪岑 on 2017/10/27.
 //  Copyright © 2017年 汪迪岑. All rights reserved.
 //
 
