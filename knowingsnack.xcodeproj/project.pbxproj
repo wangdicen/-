@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210FE89D1FE0BC790094C4E8 /* RankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE89C1FE0BC790094C4E8 /* RankView.m */; };
+		210FE8A11FE0BCA20094C4E8 /* GuassULikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE8A01FE0BCA20094C4E8 /* GuassULikeView.m */; };
+		210FE8A71FE0BE4E0094C4E8 /* OneRankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE8A61FE0BE4E0094C4E8 /* OneRankView.m */; };
 		9F1E5FBB1FA81CCD00D2F3F7 /* RecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */; };
 		9F1E5FBE1FA825E900D2F3F7 /* OneRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FBD1FA825E900D2F3F7 /* OneRecommendView.m */; };
 		9F1E5FC21FA8624A00D2F3F7 /* TopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FC11FA8624A00D2F3F7 /* TopLeftLabel.m */; };
@@ -260,6 +263,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210FE89B1FE0BC790094C4E8 /* RankView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankView.h; sourceTree = "<group>"; };
+		210FE89C1FE0BC790094C4E8 /* RankView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankView.m; sourceTree = "<group>"; };
+		210FE89F1FE0BCA20094C4E8 /* GuassULikeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuassULikeView.h; sourceTree = "<group>"; };
+		210FE8A01FE0BCA20094C4E8 /* GuassULikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuassULikeView.m; sourceTree = "<group>"; };
+		210FE8A51FE0BE4E0094C4E8 /* OneRankView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneRankView.h; sourceTree = "<group>"; };
+		210FE8A61FE0BE4E0094C4E8 /* OneRankView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneRankView.m; sourceTree = "<group>"; };
 		9F1E5FB91FA81CCD00D2F3F7 /* RecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendView.h; sourceTree = "<group>"; };
 		9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendView.m; sourceTree = "<group>"; };
 		9F1E5FBC1FA825E900D2F3F7 /* OneRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneRecommendView.h; sourceTree = "<group>"; };
@@ -531,6 +540,12 @@
 				9F1E5FE31FA976CB00D2F3F7 /* HotRoNewView.m */,
 				9F1E5FE81FA996F400D2F3F7 /* OneHotRoNewView.h */,
 				9F1E5FE91FA996F400D2F3F7 /* OneHotRoNewView.m */,
+				210FE89B1FE0BC790094C4E8 /* RankView.h */,
+				210FE89C1FE0BC790094C4E8 /* RankView.m */,
+				210FE89F1FE0BCA20094C4E8 /* GuassULikeView.h */,
+				210FE8A01FE0BCA20094C4E8 /* GuassULikeView.m */,
+				210FE8A51FE0BE4E0094C4E8 /* OneRankView.h */,
+				210FE8A61FE0BE4E0094C4E8 /* OneRankView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1470,8 +1485,11 @@
 				9F6088CA1FA307B9006EA980 /* MyInfoView.m in Sources */,
 				9FDAC8D61FA03C0F00A47371 /* StaringViewController.m in Sources */,
 				9FDAC8B01FA037A400A47371 /* WDCTabBarController.m in Sources */,
+				210FE8A71FE0BE4E0094C4E8 /* OneRankView.m in Sources */,
+				210FE8A11FE0BCA20094C4E8 /* GuassULikeView.m in Sources */,
 				9F525BE91FA18CA600DCCD87 /* AVOSManager.m in Sources */,
 				9FDAC8D81FA03C1900A47371 /* GroupViewController.m in Sources */,
+				210FE89D1FE0BC790094C4E8 /* RankView.m in Sources */,
 				9FDAC8D51FA03A6F00A47371 /* MineViewController.m in Sources */,
 				9FDAC8D71FA03C1200A47371 /* PlusViewController.m in Sources */,
 				9F6089371FA71636006EA980 /* DrinkViewController.m in Sources */,

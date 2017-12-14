@@ -23,6 +23,7 @@
 
 #define OneRecommendView_TAG 20000
 #define OneHotOrNewView_TAG 30000
+#define OneRankView_TAG 40000
 
 #endif
 

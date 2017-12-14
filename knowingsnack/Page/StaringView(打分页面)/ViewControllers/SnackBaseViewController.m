@@ -17,6 +17,7 @@
 #import "OneRecommendView.h"
 #import "FindNLikeView.h"
 #import "HotRoNewView.h"
+#import "RankView.h"
 
 #import "Header.h"
 
@@ -69,23 +70,23 @@
     if (!HasHeaderRefresh) {
         self.tableView.mj_header = nil;
     }
-    
-    
+
+
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        
+
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
+
             NSInteger count = weakself.datasArrayM.count;
             for (int i = 0; i < 20; i++) {
                 [weakself.datasArrayM addObject:[NSString stringWithFormat:@" 加载数据 %zd",count + i]];
             }
             NSLog(@"下拉加载完成");
             [weakself.tableView.mj_footer endRefreshing];
-            
+
             [weakself.tableView reloadData];
             //调整占位图footer
             [weakself.ynPageScrollViewController reloadPlaceHoderViewFrame];
-            
+
             [weakself.indicatorView stopAnimating];
             weakself.label.hidden = NO;
         });
@@ -201,7 +202,7 @@
 //sections-tableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 2;
+    return 1;
 }
 //rows-section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -211,7 +212,7 @@
 //cell-height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ( indexPath.section == 0 ) {
+    if ( (int)indexPath.section == 0 ) {
         if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
         {
             return SCREEN_HEIGHT * 5.0f/12.0f;
@@ -222,10 +223,14 @@
         }
         if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"] || [[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"new"])
         {
-            return SCREEN_HEIGHT / 3.0f;
+            return SCREEN_HEIGHT / 3.0f +10;
+        }
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"rank"])
+        {
+            return SCREEN_HEIGHT /3.0f + 50 +30;
         }
         
-        return 80;
+        return 110;
     }
     else
     {
@@ -236,52 +241,130 @@
 //cell-tableview
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *identifier = @"identifier";
+//    NSLog(@"\n section-%d,row-%d \n",(int)indexPath.section,(int)indexPath.row);
+    
+    static NSString *identifier = nil;
+    if (indexPath.row <= 6) {
+        identifier = [NSString stringWithFormat:@"identifier-%d",(int)indexPath.row];
+    }
+    else{
+        identifier = @"identifier";
+    }
+
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        
+        if ((int)indexPath.section == 0 && (int)indexPath.row <=6) {
+            
+            NSLog(@"\n section-%d,row-%d \n",(int)indexPath.section,(int)indexPath.row);
+
+            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
+            {
+                RecommendView *rv = [[RecommendView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT *5.0/12.0f)];
+                [cell addSubview:rv];
+                if (self.viewcontrollerName == NameSnackViewController) {
+                    rv.type = NameSnackViewController;
+                    [rv fetchDataInBackground];
+                }
+            }
+            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"find&like"])
+            {
+                FindNLikeView *rv = [[FindNLikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /8.5f)];
+                [cell addSubview:rv];
+                if (self.viewcontrollerName == NameSnackViewController) {
+                    rv.type = NameSnackViewController;
+                }
+            }
+            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"] || [[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"new"])
+            {
+                HotRoNewView *hrn = [[HotRoNewView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT/3.0f)];
+                [cell addSubview:hrn];
+                
+                hrn.viewcontrollertype = self.viewcontrollerName;
+                if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"]){
+                    hrn.type = Hot;
+                }else{
+                    hrn.type = New;
+                }
+                
+                [hrn fetchDataInBackground];
+            }
+            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"ads"])
+            {
+                UIImageView *adsimage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ads_placeholder"]];
+                [cell addSubview:adsimage];
+                adsimage.frame = CGRectMake(20, 5, SCREEN_WEIGHT - 40,110 - 10);
+            }
+            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"rank"])
+            {
+                RankView *rv = [[RankView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /3.0f +50)];
+                [cell addSubview:rv];
+                if (self.viewcontrollerName == NameSnackViewController) {
+                    rv.viewcontrollertype = NameSnackViewController;
+                }
+                
+            }
+        }
+        else
+        {
+            
+        }
     }
+
+//    if (indexPath.section >=1) {
+//        [cell.subviews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
+//            UIView *subView = (UIView *)obj;
+//            [subView removeFromSuperview];
+//        }];
+//    }
+   
     
-    [cell.subviews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
-        UIView *subView = (UIView *)obj;
-        [subView removeFromSuperview];
-    }];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    if (indexPath.section == 0) {
-        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
-        {
-            RecommendView *rv = [[RecommendView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT *5.0/12.0f)];
-            [cell addSubview:rv];
-            if (self.viewcontrollerName == NameSnackViewController) {
-                rv.type = NameSnackViewController;
-                [rv fetchDataInBackground];
-            }
-        }
-        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"find&like"])
-        {
-            FindNLikeView *rv = [[FindNLikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /8.5f)];
-            [cell addSubview:rv];
-            if (self.viewcontrollerName == NameSnackViewController) {
-                rv.type = NameSnackViewController;
-            }
-        }
-        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"] || [[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"new"])
-        {
-            HotRoNewView *hrn = [[HotRoNewView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT / 3.0f)];
-            [cell addSubview:hrn];
-            
-            hrn.viewcontrollertype = self.viewcontrollerName;
-            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"]){
-                hrn.type = Hot;
-            }else{
-                hrn.type = New;
-            }
-            
-            [hrn fetchDataInBackground];
-        }
-    }
+//    if (indexPath.section == 0) {
+//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
+//        {
+//            RecommendView *rv = [[RecommendView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT *5.0/12.0f)];
+//            [cell addSubview:rv];
+//            if (self.viewcontrollerName == NameSnackViewController) {
+//                rv.type = NameSnackViewController;
+//                [rv fetchDataInBackground];
+//            }
+//        }
+//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"find&like"])
+//        {
+//            FindNLikeView *rv = [[FindNLikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /8.5f)];
+//            [cell addSubview:rv];
+//            if (self.viewcontrollerName == NameSnackViewController) {
+//                rv.type = NameSnackViewController;
+//            }
+//        }
+//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"] || [[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"new"])
+//        {
+//            HotRoNewView *hrn = [[HotRoNewView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT / 3.0f)];
+//            [cell addSubview:hrn];
+//
+//            hrn.viewcontrollertype = self.viewcontrollerName;
+//            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"]){
+//                hrn.type = Hot;
+//            }else{
+//                hrn.type = New;
+//            }
+//
+//            [hrn fetchDataInBackground];
+//        }
+//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"ads"])
+//        {
+//            UIImageView *adsimage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ads_placeholder"]];
+//            [cell addSubview:adsimage];
+//            adsimage.frame = CGRectMake(20, 5, SCREEN_WEIGHT - 40, 80 - 10);
+//        }
+//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"rank"])
+//        {
+//
+//        }
     return cell;
     
 }

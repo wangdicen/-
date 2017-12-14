@@ -28,21 +28,27 @@
     self = [super initWithFrame:frame];
     if(self)
     {
+        
+        self.layer.borderWidth = 1;
+        self.layer.borderColor = [FlatWhiteDark CGColor];
+//        self.layer.cornerRadius = 10;
+        
         _imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         [self addSubview:_imageview];
         _imageview.backgroundColor = FlatWhite;
         
-        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 80, frame.size.width, 50)];
+        UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 40, frame.size.width, 40)];
         [self addSubview:background];
-        background.backgroundColor = FlatTealDark;
+//        background.layer.cornerRadius = 10;
+        background.backgroundColor = RGB(241,236,226,1);
         
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(5, 3, frame.size.width, 30)];
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(5, 3, frame.size.width, 20)];
         [background addSubview:_label];
-        _label.font = [UIFont boldSystemFontOfSize:12.0f];
-        _label.textColor = [UIColor whiteColor];
+        _label.font = [UIFont boldSystemFontOfSize:11.0f];
+        _label.textColor = RGB(166,147,108,1);
         _label.text = @"旺旺雪饼";
         
-        _starview = [[CWStarRateView alloc] initWithFrame:CGRectMake(5, 27, frame.size.width /2.0f, 15)];
+        _starview = [[CWStarRateView alloc] initWithFrame:CGRectMake(5, 20, frame.size.width /3.0f, 20)];
 //        _starview.scorePercent = 0.8;
         _starview.allowIncompleteStar = YES;
         _starview.delegate = self;
@@ -50,10 +56,10 @@
         [background addSubview:_starview];
         
         
-        _starNum = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width /2.0f + 10, 27, frame.size.width/2.0, 15)];
+        _starNum = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width /3.0f + 15, 20, frame.size.width/3.0, 20)];
         [background addSubview:_starNum];
-        _starNum.textColor = FlatWhite;
-        _starNum.font = [UIFont systemFontOfSize:10.0f];
+        _starNum.textColor = RGB(166,147,108,1);
+        _starNum.font = [UIFont systemFontOfSize:7.0f];
         _starNum.text = @"8.0";
     }
     return self;

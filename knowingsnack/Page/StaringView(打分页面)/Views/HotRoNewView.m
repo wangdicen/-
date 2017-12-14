@@ -47,7 +47,7 @@
         
         
         for (int i = 0; i < 10; i++) {
-              OneHotRoNewView *orv = [[OneHotRoNewView alloc] initWithFrame:CGRectMake(20 + (20 + hei - 20 -60)*i, 10, hei -20 - 60 , hei - 20)];
+              OneHotRoNewView *orv = [[OneHotRoNewView alloc] initWithFrame:CGRectMake(20 + (20 + hei - 20 -60)*i, 5, hei -20 - 60 , hei - 50)];
               orv.tag = OneHotOrNewView_TAG + i;
               [_scroll addSubview:orv];
         }
@@ -65,10 +65,12 @@
     if(self.type == Hot)
     {
         [query whereKey:@"isHot" equalTo:@(YES)];
+        _lbl.text = @"知食热门";
     }
     else if(self.type == New)
     {
          [query whereKey:@"isNew" equalTo:@(YES)];
+        _lbl.text = @"新品推荐";
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
