@@ -50,6 +50,7 @@
               OneHotRoNewView *orv = [[OneHotRoNewView alloc] initWithFrame:CGRectMake(20 + (20 + hei - 20 -60)*i, 5, hei -20 - 60 , hei - 50)];
               orv.tag = OneHotOrNewView_TAG + i;
               [_scroll addSubview:orv];
+            orv.alpha = 0.0f;
         }
         
         [self addSubview:_scroll];
@@ -85,6 +86,7 @@
                 view.image = [UIImage imageWithData:data];
                 view.title = object[@"name"];
                 view.starfloatNum = [object[@"stars"] floatValue];
+                view.alpha = 1.0f;
                 
             }];
             

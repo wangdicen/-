@@ -47,6 +47,7 @@
         for (int i = 0; i < 10; i++) {
             OneRecommendView *orv = [[OneRecommendView alloc] initWithFrame:CGRectMake(20 + (20 + hei - 80 + 10)*i, 10, hei -80 + 10, hei - 80)];
             orv.tag = OneRecommendView_TAG + i;
+            orv.alpha = 0.0;
             [_scroll addSubview:orv];
         }
         
@@ -68,14 +69,13 @@
         for (AVObject *object in objects) {
 
             OneRecommendView *view = [_scroll viewWithTag:OneRecommendView_TAG + i];
-            
             AVFile *file = object[@"image"];
 
             [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
                 view.image = [UIImage imageWithData:data];
                 view.title = object[@"title"];
                 view.text = object[@"text"];
-
+                view.alpha = 1;
             }];
 
             i ++;

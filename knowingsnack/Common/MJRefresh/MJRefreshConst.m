@@ -24,9 +24,9 @@ NSString *const MJRefreshAutoFooterRefreshingText = @"MJRefreshAutoFooterRefresh
 NSString *const MJRefreshAutoFooterNoMoreDataText = @"MJRefreshAutoFooterNoMoreDataText";
 
 NSString *const MJRefreshBackFooterIdleText = @"MJRefreshBackFooterIdleText";
-NSString *const MJRefreshBackFooterPullingText = @"MJRefreshBackFooterPullingText";
-NSString *const MJRefreshBackFooterRefreshingText = @"MJRefreshBackFooterRefreshingText";
-NSString *const MJRefreshBackFooterNoMoreDataText = @"MJRefreshBackFooterNoMoreDataText";
+NSString *const MJRefreshBackFooterPullingText = @"零食搬运中……(^_^)v";
+NSString *const MJRefreshBackFooterRefreshingText = @"零食搬运中……(^_^)v";
+NSString *const MJRefreshBackFooterNoMoreDataText = @"没有更多啦";
 
 NSString *const MJRefreshHeaderLastTimeText = @"MJRefreshHeaderLastTimeText";
 NSString *const MJRefreshHeaderDateTodayText = @"MJRefreshHeaderDateTodayText";

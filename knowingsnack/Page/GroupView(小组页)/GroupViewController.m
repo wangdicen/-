@@ -7,16 +7,60 @@
 //
 
 #import "GroupViewController.h"
+#import "PulsingHaloLayer.h"
+#import "Header.h"
+#import "IconAnimationView.h"
 
 @interface GroupViewController ()
-
+{
+    PulsingHaloLayer *_halo;
+    
+    UITableView *_tableview;
+}
 @end
 
 @implementation GroupViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    [self.view addSubview:_tableview];
+
     // Do any additional setup after loading the view.
+    PulsingHaloLayer *layer = [PulsingHaloLayer layer];
+    _halo = layer;
+    _halo.haloLayerNumber = 5;
+    _halo.radius = 0.4 * 200;
+    _halo.animationDuration = 0.5 * 10;
+    [_halo setBackgroundColor:RandomFlatColor.CGColor];
+    
+
+    
+    UIButton *shiwordbtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WEIGHT -70, SCREEN_HEIGHT -160, 40, 40)];
+    shiwordbtn.backgroundColor = ClearColor;
+    [shiwordbtn setImage:[UIImage imageNamed:@"食"] forState:UIControlStateNormal];
+    [shiwordbtn setImage:[UIImage imageNamed:@"食"] forState:UIControlStateHighlighted];
+    [self.view addSubview:shiwordbtn];
+    
+    shiwordbtn.layer.shadowOpacity = 0.7;
+    shiwordbtn.layer.shadowColor = FlatGray.CGColor;
+    shiwordbtn.layer.shadowRadius = 5;
+    shiwordbtn.layer.shadowOffset = CGSizeMake(6, 6);
+    
+    _halo.position = shiwordbtn.center;
+    
+    
+    [self.view.layer insertSublayer:_halo below:shiwordbtn.layer];
+    
+    [_halo start];
+    
+    
+    
+    IconAnimationView *iav = [[IconAnimationView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 79.0f, SCREEN_WEIGHT, 30)];
+    [self.view addSubview:iav];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

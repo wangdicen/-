@@ -18,6 +18,7 @@
 #import "FindNLikeView.h"
 #import "HotRoNewView.h"
 #import "RankView.h"
+#import "GuassULikeView.h"
 
 #import "Header.h"
 
@@ -107,27 +108,57 @@
     }
     else if (self.viewcontrollerName == NameDrinkViewController)
     {
-        
+        [self.datasArrayM addObject:@"recommend"];
+        [self.datasArrayM addObject:@"find&like"];
+        [self.datasArrayM addObject:@"hot"];
+//        [self.datasArrayM addObject:@"ads"];
+        [self.datasArrayM addObject:@"new"];
+        [self.datasArrayM addObject:@"rank"];
     }
     else if (self.viewcontrollerName == NameFangBianViewController)
     {
-        
+        [self.datasArrayM addObject:@"recommend"];
+        [self.datasArrayM addObject:@"find&like"];
+        [self.datasArrayM addObject:@"hot"];
+//        [self.datasArrayM addObject:@"ads"];
+        [self.datasArrayM addObject:@"new"];
+        [self.datasArrayM addObject:@"rank"];
     }
     else if (self.viewcontrollerName == NameFruitViewController)
     {
-        
+//        [self.datasArrayM addObject:@"recommend"];
+        [self.datasArrayM addObject:@"find&like"];
+        [self.datasArrayM addObject:@"hot"];
+//        [self.datasArrayM addObject:@"ads"];
+        [self.datasArrayM addObject:@"new"];
+        [self.datasArrayM addObject:@"rank"];
     }
     else if (self.viewcontrollerName == NameSweetViewController)
     {
-        
+//        [self.datasArrayM addObject:@"recommend"];
+        [self.datasArrayM addObject:@"find&like"];
+        [self.datasArrayM addObject:@"hot"];
+//        [self.datasArrayM addObject:@"ads"];
+        [self.datasArrayM addObject:@"new"];
+        [self.datasArrayM addObject:@"rank"];
     }
     else if (self.viewcontrollerName == NameSpicyViewController)
     {
-        
+//        [self.datasArrayM addObject:@"recommend"];
+        [self.datasArrayM addObject:@"find&like"];
+        [self.datasArrayM addObject:@"hot"];
+//        [self.datasArrayM addObject:@"ads"];
+        [self.datasArrayM addObject:@"new"];
+        [self.datasArrayM addObject:@"rank"];
     }
     else if (self.viewcontrollerName == NameMeatViewController)
     {
-        
+//        [self.datasArrayM addObject:@"recommend"];
+        [self.datasArrayM addObject:@"find&like"];
+        [self.datasArrayM addObject:@"hot"];
+//        [self.datasArrayM addObject:@"ads"];
+        [self.datasArrayM addObject:@"new"];
+        [self.datasArrayM addObject:@"rank"];
     }
     for (int i = 0; i < 10; i++) {
         [self.datasArrayM addObject:@"guesseyoulike"];
@@ -212,7 +243,6 @@
 //cell-height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ( (int)indexPath.section == 0 ) {
         if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
         {
             return SCREEN_HEIGHT * 5.0f/12.0f;
@@ -229,13 +259,12 @@
         {
             return SCREEN_HEIGHT /3.0f + 50 +30;
         }
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"guesseyoulike"])
+        {
+            return SCREEN_HEIGHT /4.0f;
+        }
         
-        return 110;
-    }
-    else
-    {
-        return 80;
-    }
+        return SCREEN_HEIGHT /4.0f;
 }
 
 //cell-tableview
@@ -255,10 +284,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        
-        if ((int)indexPath.section == 0 && (int)indexPath.row <=6) {
-            
-            NSLog(@"\n section-%d,row-%d \n",(int)indexPath.section,(int)indexPath.row);
 
             if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
             {
@@ -306,10 +331,13 @@
                 }
                 
             }
-        }
-        else
+        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"guesseyoulike"])
         {
-            
+            GuassULikeView *gulv = [[GuassULikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /4.0f)];
+            [cell addSubview:gulv];
+            if (self.viewcontrollerName == NameSnackViewController) {
+                gulv.viewcontrollertype = NameSnackViewController;
+            }
         }
     }
 

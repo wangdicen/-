@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SnackBaseViewController.h"
 
 @interface GuassULikeView : UIView
+
+@property (nonatomic, assign) SnackViewControllerName viewcontrollertype;
 
 @end

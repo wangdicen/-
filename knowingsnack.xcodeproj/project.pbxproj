@@ -10,6 +10,9 @@
 		210FE89D1FE0BC790094C4E8 /* RankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE89C1FE0BC790094C4E8 /* RankView.m */; };
 		210FE8A11FE0BCA20094C4E8 /* GuassULikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE8A01FE0BCA20094C4E8 /* GuassULikeView.m */; };
 		210FE8A71FE0BE4E0094C4E8 /* OneRankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE8A61FE0BE4E0094C4E8 /* OneRankView.m */; };
+		216AA3F21FE2596000002E77 /* OneCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 216AA3F11FE2596000002E77 /* OneCellView.m */; };
+		2185E13D1FE3B5870071BE5A /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2185E12B1FE3B5870071BE5A /* PulsingHaloLayer.m */; };
+		2185E1411FE3BCB50071BE5A /* IconAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2185E1401FE3BCB50071BE5A /* IconAnimationView.m */; };
 		9F1E5FBB1FA81CCD00D2F3F7 /* RecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */; };
 		9F1E5FBE1FA825E900D2F3F7 /* OneRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FBD1FA825E900D2F3F7 /* OneRecommendView.m */; };
 		9F1E5FC21FA8624A00D2F3F7 /* TopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FC11FA8624A00D2F3F7 /* TopLeftLabel.m */; };
@@ -269,6 +272,13 @@
 		210FE8A01FE0BCA20094C4E8 /* GuassULikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuassULikeView.m; sourceTree = "<group>"; };
 		210FE8A51FE0BE4E0094C4E8 /* OneRankView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneRankView.h; sourceTree = "<group>"; };
 		210FE8A61FE0BE4E0094C4E8 /* OneRankView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneRankView.m; sourceTree = "<group>"; };
+		216AA3F01FE2596000002E77 /* OneCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneCellView.h; sourceTree = "<group>"; };
+		216AA3F11FE2596000002E77 /* OneCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneCellView.m; sourceTree = "<group>"; };
+		2185E1281FE3B5870071BE5A /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
+		2185E12A1FE3B5870071BE5A /* PulsingHalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHalo.h; sourceTree = "<group>"; };
+		2185E12B1FE3B5870071BE5A /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
+		2185E13F1FE3BCB50071BE5A /* IconAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IconAnimationView.h; sourceTree = "<group>"; };
+		2185E1401FE3BCB50071BE5A /* IconAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IconAnimationView.m; sourceTree = "<group>"; };
 		9F1E5FB91FA81CCD00D2F3F7 /* RecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendView.h; sourceTree = "<group>"; };
 		9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendView.m; sourceTree = "<group>"; };
 		9F1E5FBC1FA825E900D2F3F7 /* OneRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneRecommendView.h; sourceTree = "<group>"; };
@@ -525,6 +535,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		216AA3DF1FE2590300002E77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				216AA3F01FE2596000002E77 /* OneCellView.h */,
+				216AA3F11FE2596000002E77 /* OneCellView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2185E1271FE3B5870071BE5A /* PulsingHalo */ = {
+			isa = PBXGroup;
+			children = (
+				2185E1281FE3B5870071BE5A /* PulsingHaloLayer.h */,
+				2185E12A1FE3B5870071BE5A /* PulsingHalo.h */,
+				2185E12B1FE3B5870071BE5A /* PulsingHaloLayer.m */,
+			);
+			path = PulsingHalo;
+			sourceTree = "<group>";
+		};
+		2185E13E1FE3BC980071BE5A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2185E13F1FE3BCB50071BE5A /* IconAnimationView.h */,
+				2185E1401FE3BCB50071BE5A /* IconAnimationView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		9F1E5FB71FA818AB00D2F3F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +921,7 @@
 		9FDAC89B1FA034CB00A47371 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2185E1271FE3B5870071BE5A /* PulsingHalo */,
 				9F1E5FE51FA9968100D2F3F7 /* StarView */,
 				9F60894A1FA71D8E006EA980 /* MJRefresh */,
 				9F6089181FA712DB006EA980 /* YNPageScrollViewController */,
@@ -1001,6 +1040,7 @@
 		9FDAC8B51FA0383700A47371 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				216AA3DF1FE2590300002E77 /* View */,
 				9FDAC90D1FA06EAE00A47371 /* Navigationbar */,
 				9FDAC8B81FA0387200A47371 /* MainViewController.h */,
 				9FDAC8B91FA0387200A47371 /* MainViewController.m */,
@@ -1011,6 +1051,7 @@
 		9FDAC8C91FA03A5900A47371 /* GroupView(小组页) */ = {
 			isa = PBXGroup;
 			children = (
+				2185E13E1FE3BC980071BE5A /* view */,
 				9FDAC8CA1FA03A5900A47371 /* GroupViewController.h */,
 				9FDAC8CB1FA03A5900A47371 /* GroupViewController.m */,
 			);
@@ -1429,6 +1470,7 @@
 				9F1E5FBE1FA825E900D2F3F7 /* OneRecommendView.m in Sources */,
 				9F6089791FA71E25006EA980 /* MJRefreshAutoFooter.m in Sources */,
 				9F60897A1FA71E25006EA980 /* MJRefreshBackFooter.m in Sources */,
+				2185E13D1FE3B5870071BE5A /* PulsingHaloLayer.m in Sources */,
 				9F60897B1FA71E25006EA980 /* MJRefreshComponent.m in Sources */,
 				9F60897C1FA71E25006EA980 /* MJRefreshFooter.m in Sources */,
 				9F60897D1FA71E25006EA980 /* MJRefreshHeader.m in Sources */,
@@ -1449,6 +1491,7 @@
 				9FDAC8B31FA037AB00A47371 /* WDCPlusButton.m in Sources */,
 				9F1E5FC21FA8624A00D2F3F7 /* TopLeftLabel.m in Sources */,
 				9F6089461FA716C1006EA980 /* MeatViewController.m in Sources */,
+				216AA3F21FE2596000002E77 /* OneCellView.m in Sources */,
 				9FDAC8B41FA037AB00A47371 /* WDCPlusButtonSubclass.m in Sources */,
 				9F6088F71FA339C4006EA980 /* ZAColorFullChooseView.m in Sources */,
 				9FDAC8F51FA0632200A47371 /* Chameleon_.m in Sources */,
@@ -1478,6 +1521,7 @@
 				9F6088D71FA32B6E006EA980 /* ThemeViewController.m in Sources */,
 				9FDAC8F71FA0634000A47371 /* NSArray+Chameleon.m in Sources */,
 				9FDAC9041FA068FA00A47371 /* UIImage+ChangeImageColor.m in Sources */,
+				2185E1411FE3BCB50071BE5A /* IconAnimationView.m in Sources */,
 				9FDAC8F81FA0634100A47371 /* UIAppearance+Swift.m in Sources */,
 				9F6089431FA716B2006EA980 /* SpicyViewController.m in Sources */,
 				9F6089301FA7148B006EA980 /* YNJianShuDemoViewController.m in Sources */,

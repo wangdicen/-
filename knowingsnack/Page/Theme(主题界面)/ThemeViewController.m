@@ -75,7 +75,7 @@
     _imageView.center = CGPointMake(SCREEN_WEIGHT/2.0, lbl.center.y + 10 +SCREEN_WEIGHT/6.0 +25);
     
     
-    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT/8.0)];
+    _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT/8.0 + 10)];
     _scroll.center = CGPointMake(SCREEN_WEIGHT/2.0, _imageView.center.y+_imageView.frame.size.height/2.0 + 8 +_scroll.frame.size.height /2.0f);
     _scroll.contentSize = CGSizeMake((SCREEN_HEIGHT/8.0 +8.0f) * 7.0 + 8.0f, SCREEN_HEIGHT/8.0);
 //    [_scroll setContentOffset:CGPointMake(_scroll.contentSize.width/2.0 - SCREEN_WEIGHT/2.0 -8.0, 0)];
@@ -83,10 +83,21 @@
         _scroll.showsHorizontalScrollIndicator = NO;
 
     [self.view addSubview:_scroll];
+        
+        NSArray *array = @[@"鸿运当头",@"美好生活",@"蜂蜜柚子",@"知食知味",@"唯爱饮品",@"吃货无敌",@"极简之美"];
     
     for (int i = 0; i < 7;i ++) {
         NSString *imagename = [NSString stringWithFormat:@"Image%d",i+1];
         AppIconImage *image = [[AppIconImage alloc] initWithFrame:CGRectMake(8.0 *i + i *SCREEN_HEIGHT/8.0, 0.0, SCREEN_HEIGHT/8.0, SCREEN_HEIGHT/8.0)];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT/8.0, 10)];
+        label.center = CGPointMake(image.center.x, image.center.y + SCREEN_HEIGHT/16 +3);
+        [_scroll addSubview:label];
+        label.text = array[i];
+        label.font = [UIFont systemFontOfSize:10];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = FlatGrayDark;
+        
         image.tag = 10000+i;
         image.isSelected = NO;
         if (i == [[NSUserDefaults standardUserDefaults] integerForKey:@"ICON_ID"]) {

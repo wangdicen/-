@@ -48,7 +48,7 @@
                                                                              SCREEN_WEIGHT - 40,
                                                                              scrollheight/4.0)];
             orv.tag = OneHotOrNewView_TAG + i;
-            orv.rankNum = i;
+            orv.rankNum = i +1;
             [_scroll addSubview:orv];
         }
         for (int i = 4; i<8; i++) {
@@ -57,7 +57,7 @@
                                                                              SCREEN_WEIGHT - 40,
                                                                              scrollheight/4.0)];
             orv.tag = OneHotOrNewView_TAG + i;
-            orv.rankNum = i;
+            orv.rankNum = i +1;
             [_scroll addSubview:orv];
         }
         for (int i = 8; i<12; i++) {
@@ -66,7 +66,7 @@
                                                                              SCREEN_WEIGHT,
                                                                              scrollheight/4.0)];
             orv.tag = OneHotOrNewView_TAG + i;
-            orv.rankNum = i;
+            orv.rankNum = i +1;
             [_scroll addSubview:orv];
         }
         
