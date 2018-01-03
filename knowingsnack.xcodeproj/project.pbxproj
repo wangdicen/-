@@ -10,6 +10,8 @@
 		210FE89D1FE0BC790094C4E8 /* RankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE89C1FE0BC790094C4E8 /* RankView.m */; };
 		210FE8A11FE0BCA20094C4E8 /* GuassULikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE8A01FE0BCA20094C4E8 /* GuassULikeView.m */; };
 		210FE8A71FE0BE4E0094C4E8 /* OneRankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210FE8A61FE0BE4E0094C4E8 /* OneRankView.m */; };
+		212580CE1FFCD05D00F3204B /* StaringVIewInSD.m in Sources */ = {isa = PBXBuildFile; fileRef = 212580CD1FFCD05D00F3204B /* StaringVIewInSD.m */; };
+		21432FF21FE7583E007AD747 /* SnackDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21432FF11FE7583E007AD747 /* SnackDetailViewController.m */; };
 		216AA3F21FE2596000002E77 /* OneCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 216AA3F11FE2596000002E77 /* OneCellView.m */; };
 		2185E13D1FE3B5870071BE5A /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2185E12B1FE3B5870071BE5A /* PulsingHaloLayer.m */; };
 		2185E1411FE3BCB50071BE5A /* IconAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2185E1401FE3BCB50071BE5A /* IconAnimationView.m */; };
@@ -272,6 +274,10 @@
 		210FE8A01FE0BCA20094C4E8 /* GuassULikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuassULikeView.m; sourceTree = "<group>"; };
 		210FE8A51FE0BE4E0094C4E8 /* OneRankView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneRankView.h; sourceTree = "<group>"; };
 		210FE8A61FE0BE4E0094C4E8 /* OneRankView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneRankView.m; sourceTree = "<group>"; };
+		212580CC1FFCD05D00F3204B /* StaringVIewInSD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaringVIewInSD.h; sourceTree = "<group>"; };
+		212580CD1FFCD05D00F3204B /* StaringVIewInSD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaringVIewInSD.m; sourceTree = "<group>"; };
+		21432FF01FE7583E007AD747 /* SnackDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnackDetailViewController.h; sourceTree = "<group>"; };
+		21432FF11FE7583E007AD747 /* SnackDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnackDetailViewController.m; sourceTree = "<group>"; };
 		216AA3F01FE2596000002E77 /* OneCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneCellView.h; sourceTree = "<group>"; };
 		216AA3F11FE2596000002E77 /* OneCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneCellView.m; sourceTree = "<group>"; };
 		2185E1281FE3B5870071BE5A /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
@@ -535,6 +541,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		212580BB1FFCCEC800F3204B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				212580CC1FFCD05D00F3204B /* StaringVIewInSD.h */,
+				212580CD1FFCD05D00F3204B /* StaringVIewInSD.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		21432FDF1FE75769007AD747 /* SnackDetail(零食详情页) */ = {
+			isa = PBXGroup;
+			children = (
+				212580BB1FFCCEC800F3204B /* views */,
+				21432FF01FE7583E007AD747 /* SnackDetailViewController.h */,
+				21432FF11FE7583E007AD747 /* SnackDetailViewController.m */,
+			);
+			path = "SnackDetail(零食详情页)";
+			sourceTree = "<group>";
+		};
 		216AA3DF1FE2590300002E77 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -976,6 +1001,7 @@
 		9FDAC8A01FA034CC00A47371 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				21432FDF1FE75769007AD747 /* SnackDetail(零食详情页) */,
 				9F6088D41FA32B4D006EA980 /* Theme(主题界面) */,
 				9F6088CE1FA32AFC006EA980 /* Setting(设置界面) */,
 				9FDAC9171FA0821800A47371 /* Rigister(注册界面) */,
@@ -1488,6 +1514,7 @@
 				9F6089341FA71623006EA980 /* SnackViewController.m in Sources */,
 				9F60893A1FA71660006EA980 /* FangBianViewController.m in Sources */,
 				9F6089401FA716A5006EA980 /* SweetViewController.m in Sources */,
+				21432FF21FE7583E007AD747 /* SnackDetailViewController.m in Sources */,
 				9FDAC8B31FA037AB00A47371 /* WDCPlusButton.m in Sources */,
 				9F1E5FC21FA8624A00D2F3F7 /* TopLeftLabel.m in Sources */,
 				9F6089461FA716C1006EA980 /* MeatViewController.m in Sources */,
@@ -1501,6 +1528,7 @@
 				9FDAC8F61FA0633E00A47371 /* ChameleonConstants.m in Sources */,
 				9F525BF81FA1B6AA00DCCD87 /* RigisterViewController.m in Sources */,
 				9F1E5FE41FA976CB00D2F3F7 /* HotRoNewView.m in Sources */,
+				212580CE1FFCD05D00F3204B /* StaringVIewInSD.m in Sources */,
 				9FDAC8FC1FA0634C00A47371 /* UIImage+ChameleonPrivate.m in Sources */,
 				9FDAC8FE1FA0635100A47371 /* UINavigationController+Chameleon.m in Sources */,
 				9FDAC9001FA0635400A47371 /* UIViewController+Chameleon.m in Sources */,

@@ -15,7 +15,7 @@
 {
     PulsingHaloLayer *_halo;
     
-    UITableView *_tableview;
+    UIScrollView *_scrollview;
 }
 @end
 
@@ -24,8 +24,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT) style:UITableViewStylePlain];
-    [self.view addSubview:_tableview];
+    _scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT)];
+    _scrollview.contentSize = CGSizeMake(SCREEN_WEIGHT, SCREEN_HEIGHT/4.0f * 10);
+    [self.view addSubview:_scrollview];
+    
+    
+    for (int i = 0; i < 10; i ++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, SCREEN_HEIGHT/4.0f * i +5, SCREEN_WEIGHT - 10, SCREEN_HEIGHT/4.0f - 10)];
+        [_scrollview addSubview:button];
+        [button setBackgroundColor:FlatGrayDark];
+        button.layer.cornerRadius = 15.0f;
+        
+    }
+    
+    
 
     // Do any additional setup after loading the view.
     PulsingHaloLayer *layer = [PulsingHaloLayer layer];
