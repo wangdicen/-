@@ -10,4 +10,7 @@
 
 @interface StaringVIewInSD : UIView
 
+
+@property (nonatomic,assign) float starNum;
+
 @end

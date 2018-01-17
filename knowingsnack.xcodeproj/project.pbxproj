@@ -15,6 +15,7 @@
 		216AA3F21FE2596000002E77 /* OneCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 216AA3F11FE2596000002E77 /* OneCellView.m */; };
 		2185E13D1FE3B5870071BE5A /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2185E12B1FE3B5870071BE5A /* PulsingHaloLayer.m */; };
 		2185E1411FE3BCB50071BE5A /* IconAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2185E1401FE3BCB50071BE5A /* IconAnimationView.m */; };
+		21FCD7F4200EF3D30018BD14 /* TwoButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FCD7F3200EF3D30018BD14 /* TwoButtonsView.m */; };
 		9F1E5FBB1FA81CCD00D2F3F7 /* RecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */; };
 		9F1E5FBE1FA825E900D2F3F7 /* OneRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FBD1FA825E900D2F3F7 /* OneRecommendView.m */; };
 		9F1E5FC21FA8624A00D2F3F7 /* TopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1E5FC11FA8624A00D2F3F7 /* TopLeftLabel.m */; };
@@ -285,6 +286,8 @@
 		2185E12B1FE3B5870071BE5A /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
 		2185E13F1FE3BCB50071BE5A /* IconAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IconAnimationView.h; sourceTree = "<group>"; };
 		2185E1401FE3BCB50071BE5A /* IconAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IconAnimationView.m; sourceTree = "<group>"; };
+		21FCD7F2200EF3D30018BD14 /* TwoButtonsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoButtonsView.h; sourceTree = "<group>"; };
+		21FCD7F3200EF3D30018BD14 /* TwoButtonsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoButtonsView.m; sourceTree = "<group>"; };
 		9F1E5FB91FA81CCD00D2F3F7 /* RecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendView.h; sourceTree = "<group>"; };
 		9F1E5FBA1FA81CCD00D2F3F7 /* RecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendView.m; sourceTree = "<group>"; };
 		9F1E5FBC1FA825E900D2F3F7 /* OneRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneRecommendView.h; sourceTree = "<group>"; };
@@ -546,6 +549,8 @@
 			children = (
 				212580CC1FFCD05D00F3204B /* StaringVIewInSD.h */,
 				212580CD1FFCD05D00F3204B /* StaringVIewInSD.m */,
+				21FCD7F2200EF3D30018BD14 /* TwoButtonsView.h */,
+				21FCD7F3200EF3D30018BD14 /* TwoButtonsView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1477,6 +1482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21FCD7F4200EF3D30018BD14 /* TwoButtonsView.m in Sources */,
 				9F1E5FF01FA9B2E200D2F3F7 /* CWStarRateView.m in Sources */,
 				9F1E5FE01FA96C1A00D2F3F7 /* FindNLikeView.m in Sources */,
 				9F60897E1FA71E38006EA980 /* MJRefreshAutoGifFooter.m in Sources */,

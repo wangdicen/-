@@ -36,6 +36,7 @@
         
         _imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         [self addSubview:_imageview];
+        _imageview.contentMode = UIViewContentModeScaleToFill;
         _imageview.backgroundColor = FlatWhite;
         
         UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 40, frame.size.width, 40)];
