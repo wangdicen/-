@@ -9,6 +9,7 @@
 #import "OneRecommendView.h"
 #import "Header.h"
 #import "TopLeftLabel.h"
+#import "ArticleViewController.h"
 
 @interface OneRecommendView()
 {
@@ -98,6 +99,26 @@
     _imageview.image = image;
 }
 
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    ArticleViewController *avc = [[ArticleViewController alloc] init];
+    avc.urlString = @"https://www.zybuluo.com/styx/note/1024731";
+    [avc setHidesBottomBarWhenPushed:YES];
+
+    [[self viewController].navigationController pushViewController:avc animated:YES];
+}
+
+//获得view所在的controller
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

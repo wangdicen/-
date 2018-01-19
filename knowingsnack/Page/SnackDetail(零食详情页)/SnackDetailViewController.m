@@ -9,9 +9,11 @@
 #import "SnackDetailViewController.h"
 #import "Header.h"
 #import "StaringVIewInSD.h"
+#import "TwoButtonsView.h"
+#import "CommonCommandView.h"
 
 
-@interface SnackDetailViewController ()<UIScrollViewDelegate>
+@interface SnackDetailViewController ()<UIScrollViewDelegate,TwoButtonsViewDelegate>
 {
     UIImageView *_mainImageView;
     UIView *_mainImageViewBackground;
@@ -23,7 +25,11 @@
     UILabel *_titleView;
     UIView *_newTitleView;
     
-    UIView *_twoButton;
+    TwoButtonsView *_twoButton;
+    
+    
+    UIView *_commandView;
+    UIView *_grounpView;
 }
 @end
 
@@ -79,14 +85,113 @@
     _titleView =(UILabel *)self.navigationItem.titleView;
     self.navigationItem.titleView = _newTitleView;
     
-    _twoButton = [[UIView alloc] initWithFrame:CGRectMake(0, _staringViewInSD.center.y + _staringViewInSD.frame.size.height/2.0f + 20, SCREEN_WEIGHT, 60)];
+    _twoButton = [[TwoButtonsView alloc] initWithFrame:CGRectMake(0, _staringViewInSD.center.y + _staringViewInSD.frame.size.height/2.0f + 20, SCREEN_WEIGHT, 60)];
     [self.view addSubview:_twoButton];
+    _twoButton.delegate = self;
     _twoButton.backgroundColor = rgb(236, 241, 237);
     
+    
+    _commandView = [[UIView alloc] initWithFrame:CGRectMake(0, _twoButton.frame.origin.y + 60.0f, SCREEN_WEIGHT, SCREEN_HEIGHT *3.0f - (_twoButton.frame.origin.y + 60.0f))];
+    [_scrollview addSubview:_commandView];
+    
+    [self addCommands];
+    _commandView.backgroundColor = rgb(244, 249, 242);
+    
+    _grounpView = [[UIView alloc] initWithFrame:CGRectMake(0, _twoButton.frame.origin.y + 60.0f, SCREEN_WEIGHT, SCREEN_HEIGHT *3.0f - (_twoButton.frame.origin.y + 60.0f))];
+    [_scrollview addSubview:_grounpView];
+    
+    [self addgroups];
+    _grounpView.backgroundColor = rgb(244, 249, 242);
+    _grounpView.hidden = YES;
     
     
 }
 
+
+CGFloat COMMON_HEIGHT = 0;
+
+- (void)addCommands
+{
+    float gHeight = _commandView.frame.size.height - 60;
+    float oneHeight = gHeight/7.0f - 10;
+    float oneWidth = SCREEN_WEIGHT - 10;
+    
+    float aHeight = 0;
+    for (int i =0; i<10; i++) {
+        CommonCommandView *command = [[CommonCommandView alloc] initWithFrame:CGRectMake(5, i * aHeight + 5, oneWidth, oneHeight)];
+        [_commandView addSubview:command];
+        command.image = [UIImage imageNamed:@"Image2.png"];
+        command.nametext = @"会飞的猪";
+        command.text = @"着迷于你眼睛,银河有迹可循,穿过时间的缝隙,它依然真实地,吸引我轨迹,这瞬眼的光景,最亲密的距离沿着你皮肤纹理 走过曲折手臂,做个梦给你 做个梦给你,等到你银色满级,等到分不清季节跟个体才敢说成立.";
+        command.starNum = 7.6;
+        
+        aHeight = command.frame.size.height;
+        COMMON_HEIGHT = COMMON_HEIGHT + aHeight;
+    }
+    
+    _scrollview.contentSize = CGSizeMake(_scrollview.contentSize.width, _commandView.frame.origin.y + COMMON_HEIGHT + 60);
+    
+    UIImageView *imageview = [UIImageView new];
+    imageview.frame = CGRectMake(0, 0, SCREEN_WEIGHT -20, 40);
+    imageview.layer.borderColor = FlatOrange.CGColor;
+    imageview.layer.borderWidth = 2.0f;
+    imageview.layer.cornerRadius = 8.0f;
+    imageview.center = CGPointMake(SCREEN_WEIGHT/2.0f, _scrollview.contentSize.height - 30 - (_twoButton.frame.origin.y + 60.0f));
+    [_commandView addSubview:imageview];
+    
+    UIButton *btn = [UIButton new];
+    btn.frame = CGRectMake(0, 0, SCREEN_WEIGHT - 20, 40);
+    btn.backgroundColor = [UIColor clearColor];
+    [imageview addSubview:btn];
+    [btn setTitle:@"更多评论  >>>" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+    [btn setTitleColor:FlatOrange forState:UIControlStateNormal];
+}
+
+- (void)addgroups
+{
+    float gHeight = _grounpView.frame.size.height - 60;
+    float oneHeight = gHeight/7.0f - 10;
+    float oneWidth = SCREEN_WEIGHT - 10;
+    int maxNum = COMMON_HEIGHT/oneHeight - 1;
+    
+    for (int i =0; i<maxNum; i++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, i * (oneHeight +10) + 5, oneWidth, oneHeight)];
+        [_grounpView addSubview:button];
+        [button setBackgroundColor:FlatGrayDark];
+        button.layer.cornerRadius = 15.0f;
+    }
+    
+    
+    UIImageView *imageview = [UIImageView new];
+    imageview.frame = CGRectMake(0, 0, SCREEN_WEIGHT -20, 40);
+    imageview.layer.borderColor = FlatGreen.CGColor;
+    imageview.layer.borderWidth = 2.0f;
+    imageview.layer.cornerRadius = 8.0f;
+    imageview.center = CGPointMake(SCREEN_WEIGHT/2.0f, _scrollview.contentSize.height - 30 - (_twoButton.frame.origin.y + 60.0f));
+    [_grounpView addSubview:imageview];
+    
+    UIButton *btn = [UIButton new];
+    btn.frame = CGRectMake(0, 0, SCREEN_WEIGHT - 20, 40);
+    btn.backgroundColor = [UIColor clearColor];
+    [imageview addSubview:btn];
+    [btn setTitle:@"相关零食 >>>" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+    [btn setTitleColor:FlatGreen forState:UIControlStateNormal];
+}
+
+- (void)afterButton1Select
+{
+    _commandView.hidden = NO;
+    _grounpView.hidden = YES;
+}
+
+- (void)afterButton2Select
+{
+    _commandView.hidden = YES;
+    _grounpView.hidden = NO;
+
+}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
