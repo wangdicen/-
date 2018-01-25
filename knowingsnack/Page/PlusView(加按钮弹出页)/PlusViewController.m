@@ -7,6 +7,9 @@
 //
 
 #import "PlusViewController.h"
+//#import "XLBubbleTransition.h"
+#import "Header.h"
+
 
 @interface PlusViewController ()
 
@@ -17,8 +20,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = MainColor;
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    button.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMaxY(self.view.frame) - 60);
+    [button setImage:[UIImage imageNamed:@"Close_icn"] forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor whiteColor]];
+    button.layer.cornerRadius = button.bounds.size.width/2.0f;
+    [button addTarget:self action:@selector(popMethod) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    //在ViewControllerB中添加Present和Dismiss的动画
+//    self.xl_presentTranstion = [XLBubbleTransition transitionWithAnchorRect:button.frame];
+//    self.xl_dismissTranstion = [XLBubbleTransition transitionWithAnchorRect:button.frame];
 }
 
+-(void)popMethod{
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:true];
+    }else{
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

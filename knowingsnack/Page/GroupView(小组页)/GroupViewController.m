@@ -10,6 +10,8 @@
 #import "PulsingHaloLayer.h"
 #import "Header.h"
 #import "IconAnimationView.h"
+#import "UINavigationController+WXSTransition.h"
+#import "GroupDetailViewController.h"
 
 @interface GroupViewController ()
 {
@@ -24,13 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT)];
+    _scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WEIGHT, SCREEN_HEIGHT - 64 -44)];
     _scrollview.contentSize = CGSizeMake(SCREEN_WEIGHT, SCREEN_HEIGHT/4.0f * 10);
     [self.view addSubview:_scrollview];
     
     
     for (int i = 0; i < 10; i ++) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, SCREEN_HEIGHT/4.0f * i +5, SCREEN_WEIGHT - 10, SCREEN_HEIGHT/4.0f - 10)];
+        [button setImage:[UIImage imageNamed:@"groupimage"] forState:UIControlStateNormal];
+        [button.imageView setContentMode:UIViewContentModeScaleToFill];
+        button.clipsToBounds = YES;
+        [button addTarget:self action:@selector(goToDetail:) forControlEvents:UIControlEventTouchUpInside];
+        button.tag = 200000+i;
         [_scrollview addSubview:button];
         [button setBackgroundColor:FlatGrayDark];
         button.layer.cornerRadius = 15.0f;
@@ -74,6 +81,22 @@
     
     
 }
+
+
+- (void)goToDetail:(UIButton *)sender
+{
+    GroupDetailViewController *gdvc = [GroupDetailViewController new];
+    __weak GroupDetailViewController *weakgdvc = gdvc;
+
+    gdvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController wxs_pushViewController:weakgdvc makeTransition:^(WXSTransitionProperty *transition) {
+        transition.animationType = WXSTransitionAnimationTypeViewMoveNormalToNextVC;
+        transition.animationTime = 0.64;
+        transition.startView  = sender;
+        transition.targetView = weakgdvc.mainImageView;
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

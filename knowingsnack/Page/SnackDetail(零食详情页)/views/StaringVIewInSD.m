@@ -8,6 +8,7 @@
 
 #import "StaringVIewInSD.h"
 #import "CWStarRateView.h"
+#import "StaringDetailViewController.h"
 
 @interface StaringVIewInSD(){
     UILabel *_starnumlbl;
@@ -63,6 +64,25 @@
     _starnumlbl.text = [NSString stringWithFormat:@"%.1f",starNum/5.0f *10.0f];
 }
 
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    StaringDetailViewController *sdvc = [[StaringDetailViewController alloc] init];
+    [[self viewController] presentViewController:sdvc animated:YES completion:^{
+        
+    }];
+}
+
+//获得view所在的controller
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

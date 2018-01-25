@@ -10,11 +10,16 @@
 #import "WDCTabBar.h"
 #import <objc/runtime.h>
 #import "UIImage+ChangeImageColor.h"
+#import "BHBPopView.h"
+#import "ZSSLargeViewController.h"
+#import "UIApplication+Visible.h"
+
 
 NSUInteger WDCTabbarItemsCount = 0;
 
 
 @interface UIViewController (WDCTabBarControllerItemInternal)
+
 
 - (void)wdc_setTabBarController:(WDCTabBarController *)tabBarController;
 
@@ -35,8 +40,35 @@ NSUInteger WDCTabbarItemsCount = 0;
     // Do any additional setup after loading the view.
     [self setUpTabBar];
     self.delegate = self;
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addButtonClicked) name:@"AddButtonClicked" object:nil];
 }
 
+
+- (void)addButtonClicked
+{
+    BHBItem * item0 = [[BHBItem alloc]initWithTitle:@"Text" Icon:@"images.bundle/tabbar_compose_idea"];
+    BHBItem * item1 = [[BHBItem alloc]initWithTitle:@"Albums" Icon:@"images.bundle/tabbar_compose_photo"];
+    BHBItem * item2 = [[BHBItem alloc]initWithTitle:@"Camera" Icon:@"images.bundle/tabbar_compose_camera"];
+    
+    [BHBPopView showToView:self.view.window withItems:@[item0,item1,item2] andSelectBlock:^(BHBItem *item) {
+        if ([item isKindOfClass:[BHBGroup class]]) {
+            NSLog(@"选中%@分组",item.title);
+            
+        }else{
+            NSLog(@"选中%@项",item.title);
+            if ([item.title isEqualToString:@"Text"]) {
+                ZSSLargeViewController *viewController = [[ZSSLargeViewController alloc] init];
+
+                viewController.hidesBottomBarWhenPushed = YES;
+                
+                UINavigationController *nav = [[UIApplication sharedApplication] visibleNavigationController];
+                [nav pushViewController:viewController animated:YES];
+            }
+        }
+    }];
+}
 
 /**
  *  利用 KVC 把 系统的 tabBar 类型改为自定义类型。

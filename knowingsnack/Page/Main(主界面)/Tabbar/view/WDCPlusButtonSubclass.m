@@ -9,6 +9,8 @@
 #import "WDCPlusButtonSubclass.h"
 #import "Chameleon.h"
 #import "UIImage+ChangeImageColor.h"
+#import "PlusViewController.h"
+
 
 @implementation WDCPlusButtonSubclass
 
@@ -28,6 +30,7 @@
     if (self = [super initWithFrame:frame]) {
         //        self.titleLabel.textAlignment = NSTextAlignmentCenter;
         //        self.adjustsImageWhenHighlighted = NO;
+        
     }
     
     return self;
@@ -61,6 +64,19 @@
 
 - (void)clickPublish {
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddButtonClicked" object:nil];
+    
+}
+
+//获得view所在的controller
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
 }
 
 @end

@@ -18,10 +18,21 @@
 #import "UIViewController+YNCategory.h"
 #import "YNPageScrollViewController.h"
 #import "OneCellView.h"
+#import "PlusViewController.h"
+#import "AppDelegate.h"
+#import "UINavigationController+WXSTransition.h"
 
+#import "BHBPopView.h"
+
+#import "ZSSLargeViewController.h"
+#import "ArticleViewController.h"
 
 @interface MainViewController ()
-
+{
+    UIButton *chatBtn;
+    
+    NSString *_html;
+}
 @property (nonatomic, strong) NSMutableArray *datasArrayM;
 
 @property (nonatomic, weak) UIActivityIndicatorView *indicatorView ;
@@ -29,6 +40,7 @@
 @property (nonatomic, strong) UILabel *label;
 
 @property (nonatomic, assign) BOOL isFirst;
+
 
 
 @end
@@ -49,7 +61,7 @@
     [self.navigationItem setLeftBarButtonItem:navLeft];
     
 
-    UIButton *chatBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.navigationBar.frame.size.height, self.navigationController.navigationBar.frame.size.height)];
+    chatBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.navigationBar.frame.size.height, self.navigationController.navigationBar.frame.size.height)];
     chatBtn.center = CGPointMake(SCREEN_WEIGHT - self.navigationController.navigationBar.frame.size.height/2.0 - 5.0f, self.navigationController.navigationBar.frame.size.height/2.0f);
     chatBtn.backgroundColor = ClearColor;
     [chatBtn addTarget:self action:@selector(goToRigister:) forControlEvents:UIControlEventTouchUpInside];
@@ -109,10 +121,21 @@
     }];
     
     
-
-
+    
+    _html = @"<h1>为您的长评设置一个响当当的标题吧~</h1><p>请在这里输入 <strong>任何</strong>您想要输入的测评文字.</p><p>下方可以修改颜色,增加图片或链接</p><p>注意排版,可以吸引跟多人阅读哦</p><p><strong>一些可能发生的问题:</strong></p><p><strong>1.由于技术水平限制,目前长文评论只能加载一张图片</strong></p><p><strong>2.使用过程可能有些卡顿,我们会在之后的版本尽可能改进</strong></p><h1><em>觉得不错~可以打赏一下~</em>.</h1><div><br /></div><p><i>德国方法</i></p><p style=\"text-align: right;\"><i>如果多层次</i></p><p style=\"text-align: left;\"><i>嘘拜拜吧</i></p><p style=\"text-align: justify;\"><i>vhffgg</i></p><p style=\"text-align: justify;\"><i><br /></i></p><p style=\"text-align: center;\"><i>复合肥刚刚好</i></p><img src=\"wangdicen.png\" /><p style=\"text-align: center;\"><i><u>dgdfgggggb<sup>b</sup><font size=\"2\"><sup>fgv</sup></font></u><strike></strike></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sup><u>dgg</u><strike style=\"text-decoration: underline;\">gg ggvbb</strike></sup></font></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sup><strike>dffffgたなみや</strike></sup></font></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sub>仁万やな</sub>ょにまた</font></i></p><blockquote style=\"margin: 0px 0px 0px 40px;\"><p><i><font color=\"#b3cc50\">斜めなんです</font></i></p><p><i><font color=\"#b3cc50\" style=\"background-color: rgb(89, 21, 142);\">マナ棚よ</font></i></p></blockquote><p><i><br /></i></p><p><i><br /></i></p><p></p><p></p><p></p>";
+    
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    chatBtn.alpha = 1.0f;
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    chatBtn.alpha = 0.0f;
+}
 
 - (void)setDataSource
 {
@@ -226,9 +249,23 @@
         
         onecellview.kind = @"饮料&饮品";
         onecellview.name = @"天喔蜂蜜柚子茶";
-        onecellview.title = @"健康美丽黑纱哟";
-        onecellview.comment = @"传说有一个美丽的地方。他的名字个麻辣。个麻辣呀个麻辣。打很长看看会怎么样。……有点小饿啦。如月疑云，洗净的诞生。这么长应该够了吧。";
+        onecellview.title = [WDCHtmlEditor stringOfH1:_html];//@"健康美丽黑纱哟";
+        onecellview.comment = [WDCHtmlEditor stringOfP:_html];//@"传说有一个美丽的地方。他的名字个麻辣。个麻辣呀个麻辣。打很长看看会怎么样。……有点小饿啦。如月疑云，洗净的诞生。这么长应该够了吧。";
         onecellview.username = @"酷酷的腾";
+        onecellview.headerimage = [UIImage imageNamed:@"header.png"];
+        
+        
+        NSArray *imagename = [WDCHtmlEditor arrayOfImg:_html];
+        if (imagename.count >=1) {
+            NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"] stringByAppendingPathComponent:[imagename objectAtIndex:0]];
+            UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
+            onecellview.articleimage = savedImage;
+        }
+        else
+        {
+            onecellview.articleimage = [UIImage imageNamed:@"lunch"];
+        }
+        
     }
     
     
@@ -243,6 +280,11 @@
     
     //    YNTestOneViewController *vc = [[YNTestOneViewController alloc]init];
     //    [self.navigationController pushViewController:vc animated:YES];
+    ArticleViewController *avc = [[ArticleViewController alloc] init];
+    avc.urlString = _html;
+    [avc setHidesBottomBarWhenPushed:YES];
+    
+    [self.navigationController pushViewController:avc animated:YES];
     
 }
 

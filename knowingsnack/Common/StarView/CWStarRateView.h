@@ -12,6 +12,9 @@
 @protocol CWStarRateViewDelegate <NSObject>
 @optional
 - (void)starRateView:(CWStarRateView *)starRateView scroePercentDidChange:(CGFloat)newScorePercent;
+
+- (void)touchPosition:(CGPoint)position;
+
 @end
 
 @interface CWStarRateView : UIView

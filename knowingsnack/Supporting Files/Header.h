@@ -36,5 +36,5 @@
 
 #import "AVOSManager.h"
 #import "UserInfoManager.h"
-
+#import "WDCHtmlEditor.h"
 #endif /* Header_h */

@@ -12,6 +12,7 @@
 #import "UIImageView+YYWebImage.h"
 #import "YYAnimatedImageView.h"
 #import <WebKit/WebKit.h>
+
 @interface ArticleViewController ()<UIWebViewDelegate>
 {
     
@@ -29,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
 }
 
 
@@ -77,10 +78,19 @@
 
 -(void)setUrlString:(NSString *)urlString
 {
-    _urlString = urlString;
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [_webview loadRequest:request];
+//    _urlString = urlString;
+//    NSURL *url = [NSURL URLWithString:urlString];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    [_webview loadRequest:request];
+    
+    NSString *CSS= @"<style type=\"text/css\">img{ width:100%;}h1{font-size:100px;color:#333333;}p{font-size:30px;color:#333333;}</style>";
+    NSString * htmlString = [NSString stringWithFormat:@"<html><meta charset=\"UTF-8\"><header>%@</header><body>%@</body></html>",CSS,urlString];
+    
+    // 获取当前应用的根目录
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
+    //body是服务器返回的html格式的文章代码
+    [_webview loadHTMLString:htmlString baseURL:baseURL];
 }
 
 
