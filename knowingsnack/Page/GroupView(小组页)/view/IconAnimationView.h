@@ -10,4 +10,5 @@
 
 @interface IconAnimationView : UIView
 
+-(void)animate;
 @end

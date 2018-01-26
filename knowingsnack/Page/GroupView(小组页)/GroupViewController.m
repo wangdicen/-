@@ -13,11 +13,13 @@
 #import "UINavigationController+WXSTransition.h"
 #import "GroupDetailViewController.h"
 
-@interface GroupViewController ()
+@interface GroupViewController ()<UIScrollViewDelegate>
 {
     PulsingHaloLayer *_halo;
     
     UIScrollView *_scrollview;
+    
+    IconAnimationView *_iav;
 }
 @end
 
@@ -27,6 +29,7 @@
     [super viewDidLoad];
     
     _scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WEIGHT, SCREEN_HEIGHT - 64 -44)];
+    _scrollview.delegate = self;
     _scrollview.contentSize = CGSizeMake(SCREEN_WEIGHT, SCREEN_HEIGHT/4.0f * 10);
     [self.view addSubview:_scrollview];
     
@@ -76,10 +79,15 @@
     
     
     
-    IconAnimationView *iav = [[IconAnimationView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 79.0f, SCREEN_WEIGHT, 30)];
-    [self.view addSubview:iav];
+    _iav = [[IconAnimationView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 79.0f, SCREEN_WEIGHT, 30)];
+    [self.view addSubview:_iav];
     
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_iav animate];
 }
 
 
