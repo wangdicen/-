@@ -131,7 +131,7 @@
         label.text = array[i];
         label.font = [UIFont systemFontOfSize:10];
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = FlatWhite;
+        label.textColor = FlatBlack;
         
         image.tag = 10000+i;
         image.isSelected = NO;
@@ -183,6 +183,7 @@
             AppIconImage *temp = (AppIconImage *)image;
             if (image.tag == index + 10000) {
                 temp.isSelected = YES;
+                _imageView.image = temp.image;
             }
             else
             {
@@ -190,7 +191,6 @@
             }
         }
     }
-    
     _index = index;
     
 }

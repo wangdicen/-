@@ -11,12 +11,10 @@
 @interface Snack : AVObject<AVSubclassing>
 
 @property (nonatomic, copy, nullable) NSString *name;
-@property (nonatomic, copy, nullable) NSString *firm;
 @property (nonatomic, copy, nullable) NSNumber *stars;
-@property (nonatomic, copy, nullable) NSData *image;
+
 
 -(void)commentSnackWithShortComment:(NSString *_Nullable)shortcomment
-                              image:(UIImage *_Nonnull)image
                             starnum:(int)num;
 -(void)updateSnackStarNum;
 

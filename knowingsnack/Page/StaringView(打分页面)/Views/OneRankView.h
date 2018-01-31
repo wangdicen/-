@@ -18,6 +18,8 @@
 
 @property (nonatomic,assign) CGFloat starfloatNum;
 
+@property (nonatomic,strong) NSString *objectID;
+
 @property (nonatomic,assign) CGFloat numOfCommentPeople;
 
 @end

@@ -11,6 +11,8 @@
 #import "StaringVIewInSD.h"
 #import "TwoButtonsView.h"
 #import "CommonCommandView.h"
+#import "UIImage+YYWebImage.h"
+#import "UIImageView+YYWebImage.h"
 
 
 @interface SnackDetailViewController ()<UIScrollViewDelegate,TwoButtonsViewDelegate>
@@ -35,10 +37,24 @@
 
 @implementation SnackDetailViewController
 
+
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self initUI];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+}
+
+-(void)initUI{
     _scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT)];
     [self.view addSubview:_scrollview];
     _scrollview.contentSize = CGSizeMake(SCREEN_WEIGHT, SCREEN_HEIGHT *3.0f);
@@ -73,7 +89,7 @@
     _newTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
     _newTitleView.layer.cornerRadius = 14.0f;
     _newTitleView.backgroundColor = [UIColor whiteColor];
-
+    
     
     UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(5, 3, 100, 24)];
     lbl.text = @"🔥757人正在热议..";
@@ -81,7 +97,7 @@
     lbl.font = [UIFont systemFontOfSize:11.0f];
     [_newTitleView addSubview:lbl];
     
-
+    
     _titleView =(UILabel *)self.navigationItem.titleView;
     self.navigationItem.titleView = _newTitleView;
     
@@ -90,6 +106,46 @@
     _twoButton.delegate = self;
     _twoButton.backgroundColor = rgb(236, 241, 237);
     
+    
+//    _commandView = [[UIView alloc] initWithFrame:CGRectMake(0, _twoButton.frame.origin.y + 60.0f, SCREEN_WEIGHT, SCREEN_HEIGHT *3.0f - (_twoButton.frame.origin.y + 60.0f))];
+//    [_scrollview addSubview:_commandView];
+//
+//    [self addCommands];
+//    _commandView.backgroundColor = rgb(244, 249, 242);
+//    
+//    _grounpView = [[UIView alloc] initWithFrame:CGRectMake(0, _twoButton.frame.origin.y + 60.0f, SCREEN_WEIGHT, SCREEN_HEIGHT *3.0f - (_twoButton.frame.origin.y + 60.0f))];
+//    [_scrollview addSubview:_grounpView];
+//
+//    [self addgroups];
+//    _grounpView.backgroundColor = rgb(244, 249, 242);
+//    _grounpView.hidden = YES;
+}
+
+- (void)setImage:(UIImage *)image
+{
+    _image = image;
+    _mainImageView.image = image;
+}
+
+-(void)setStars:(float)stars
+{
+    _stars = stars;
+    _staringViewInSD.starNum = stars;
+}
+
+-(void)setName:(NSString *)name
+{
+    _name = name;
+    _SnackName.text = name;
+}
+
+-(void)setObjectId:(NSString *)objectId
+{
+    _objectId = objectId;
+    _staringViewInSD.objectID = objectId;
+    
+    [_commandView removeFromSuperview];
+    [_grounpView removeFromSuperview];
     
     _commandView = [[UIView alloc] initWithFrame:CGRectMake(0, _twoButton.frame.origin.y + 60.0f, SCREEN_WEIGHT, SCREEN_HEIGHT *3.0f - (_twoButton.frame.origin.y + 60.0f))];
     [_scrollview addSubview:_commandView];
@@ -100,13 +156,10 @@
     _grounpView = [[UIView alloc] initWithFrame:CGRectMake(0, _twoButton.frame.origin.y + 60.0f, SCREEN_WEIGHT, SCREEN_HEIGHT *3.0f - (_twoButton.frame.origin.y + 60.0f))];
     [_scrollview addSubview:_grounpView];
     
-    [self addgroups];
+//    [self addgroups];
     _grounpView.backgroundColor = rgb(244, 249, 242);
     _grounpView.hidden = YES;
-    
-    
 }
-
 
 CGFloat COMMON_HEIGHT = 0;
 
@@ -116,36 +169,65 @@ CGFloat COMMON_HEIGHT = 0;
     float oneHeight = gHeight/7.0f - 10;
     float oneWidth = SCREEN_WEIGHT - 10;
     
-    float aHeight = 0;
-    for (int i =0; i<10; i++) {
-        CommonCommandView *command = [[CommonCommandView alloc] initWithFrame:CGRectMake(5, i * aHeight + 5, oneWidth, oneHeight)];
-        [_commandView addSubview:command];
-        command.image = [UIImage imageNamed:@"Image2.png"];
-        command.nametext = @"会飞的猪";
-        command.text = @"着迷于你眼睛,银河有迹可循,穿过时间的缝隙,它依然真实地,吸引我轨迹,这瞬眼的光景,最亲密的距离沿着你皮肤纹理 走过曲折手臂,做个梦给你 做个梦给你,等到你银色满级,等到分不清季节跟个体才敢说成立.";
-        command.starNum = 7.6;
+
+    
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"snack_staring"];
+    AVObject *object = [AVObject objectWithObjectId:self.objectId];
+    [query whereKey:@"snackpointer" equalTo:object];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
-        aHeight = command.frame.size.height;
-        COMMON_HEIGHT = COMMON_HEIGHT + aHeight;
-    }
-    
-    _scrollview.contentSize = CGSizeMake(_scrollview.contentSize.width, _commandView.frame.origin.y + COMMON_HEIGHT + 60);
-    
-    UIImageView *imageview = [UIImageView new];
-    imageview.frame = CGRectMake(0, 0, SCREEN_WEIGHT -20, 40);
-    imageview.layer.borderColor = FlatOrange.CGColor;
-    imageview.layer.borderWidth = 2.0f;
-    imageview.layer.cornerRadius = 8.0f;
-    imageview.center = CGPointMake(SCREEN_WEIGHT/2.0f, _scrollview.contentSize.height - 30 - (_twoButton.frame.origin.y + 60.0f));
-    [_commandView addSubview:imageview];
-    
-    UIButton *btn = [UIButton new];
-    btn.frame = CGRectMake(0, 0, SCREEN_WEIGHT - 20, 40);
-    btn.backgroundColor = [UIColor clearColor];
-    [imageview addSubview:btn];
-    [btn setTitle:@"更多评论  >>>" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-    [btn setTitleColor:FlatOrange forState:UIControlStateNormal];
+        float aHeight = 0;
+        
+        for (int i =0; i<10; i++) {
+            if (i>=objects.count) {
+                break;
+            }
+            NSDictionary *object = objects[i];
+
+            CommonCommandView *command = [[CommonCommandView alloc] initWithFrame:CGRectMake(5, COMMON_HEIGHT + 5, oneWidth, oneHeight)];
+            [_commandView addSubview:command];
+            AVUser *user = object[@"userpointer"];
+            AVQuery *query2 = [AVQuery queryWithClassName:@"_User"];
+            [query2 whereKey:@"objectId" equalTo:user.objectId];
+            [query2 findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                NSDictionary *object2 = objects[0];
+                AVFile *file = object2[@"image"];
+                command.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:file.url]]];
+                command.nametext = object2[@"username"];
+
+            }];
+            
+            
+            command.text = object[@"shortcomment"];
+            command.starNum = [object[@"starnum"] floatValue] *2.0f;
+            
+            aHeight = command.frame.size.height;
+            COMMON_HEIGHT = COMMON_HEIGHT + aHeight;
+            
+            NSLog(@"%f",COMMON_HEIGHT);
+        }
+        _scrollview.contentSize = CGSizeMake(_scrollview.contentSize.width, _commandView.frame.origin.y + COMMON_HEIGHT + 60);
+        
+        UIImageView *imageview = [UIImageView new];
+        imageview.frame = CGRectMake(0, 0, SCREEN_WEIGHT -20, 40);
+        imageview.layer.borderColor = FlatOrange.CGColor;
+        imageview.layer.borderWidth = 2.0f;
+        imageview.layer.cornerRadius = 8.0f;
+        imageview.center = CGPointMake(SCREEN_WEIGHT/2.0f, _scrollview.contentSize.height - 30 - (_twoButton.frame.origin.y + 60.0f));
+        [_commandView addSubview:imageview];
+        
+        UIButton *btn = [UIButton new];
+        btn.frame = CGRectMake(0, 0, SCREEN_WEIGHT - 20, 40);
+        btn.backgroundColor = [UIColor clearColor];
+        [imageview addSubview:btn];
+        [btn setTitle:@"更多评论  >>>" forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+        [btn setTitleColor:FlatOrange forState:UIControlStateNormal];
+        
+        [self addgroups];
+    }];
+
 }
 
 - (void)addgroups
@@ -230,6 +312,11 @@ CGFloat COMMON_HEIGHT = 0;
 //    scale = (scale >= 1) ? scale : 1;
 //    self.imageView.transform = CGAffineTransformMakeScale(scale, scale);
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    COMMON_HEIGHT = 0;
 }
 
 - (void)didReceiveMemoryWarning {

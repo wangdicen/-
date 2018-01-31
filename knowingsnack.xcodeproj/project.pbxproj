@@ -62,6 +62,7 @@
 		216041942015D1B50070A5A8 /* music.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 216041762015D1B50070A5A8 /* music.bundle */; };
 		216041952015D1B50070A5A8 /* BHBCustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 216041782015D1B50070A5A8 /* BHBCustomBtn.m */; };
 		216AA3F21FE2596000002E77 /* OneCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 216AA3F11FE2596000002E77 /* OneCellView.m */; };
+		21809AB32021A92000A9FFA8 /* LikeRoDislikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21809AB22021A92000A9FFA8 /* LikeRoDislikeView.m */; };
 		2185E13D1FE3B5870071BE5A /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2185E12B1FE3B5870071BE5A /* PulsingHaloLayer.m */; };
 		2185E1411FE3BCB50071BE5A /* IconAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2185E1401FE3BCB50071BE5A /* IconAnimationView.m */; };
 		2189BBE220108EB500E09B55 /* CommonCommandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2189BBE120108EB500E09B55 /* CommonCommandView.m */; };
@@ -531,6 +532,8 @@
 		216041782015D1B50070A5A8 /* BHBCustomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBCustomBtn.m; sourceTree = "<group>"; };
 		216AA3F01FE2596000002E77 /* OneCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneCellView.h; sourceTree = "<group>"; };
 		216AA3F11FE2596000002E77 /* OneCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneCellView.m; sourceTree = "<group>"; };
+		21809AB12021A92000A9FFA8 /* LikeRoDislikeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikeRoDislikeView.h; sourceTree = "<group>"; };
+		21809AB22021A92000A9FFA8 /* LikeRoDislikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LikeRoDislikeView.m; sourceTree = "<group>"; };
 		2185E1281FE3B5870071BE5A /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
 		2185E12A1FE3B5870071BE5A /* PulsingHalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHalo.h; sourceTree = "<group>"; };
 		2185E12B1FE3B5870071BE5A /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
@@ -950,6 +953,7 @@
 		2103AAF22011A0F100D057C1 /* AritcleDetail(文章详情) */ = {
 			isa = PBXGroup;
 			children = (
+				21809AA02021A8E300A9FFA8 /* Views */,
 				2103AB032011A12E00D057C1 /* ArticleViewController.h */,
 				2103AB042011A12E00D057C1 /* ArticleViewController.m */,
 			);
@@ -1143,6 +1147,15 @@
 				216AA3F11FE2596000002E77 /* OneCellView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		21809AA02021A8E300A9FFA8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21809AB12021A92000A9FFA8 /* LikeRoDislikeView.h */,
+				21809AB22021A92000A9FFA8 /* LikeRoDislikeView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2185E1271FE3B5870071BE5A /* PulsingHalo */ = {
@@ -2492,6 +2505,7 @@
 				21A3453F2016CCA700CDF2DB /* HRColorPickerViewController.m in Sources */,
 				21A3453E2016CCA700CDF2DB /* HRCgUtil.m in Sources */,
 				9F525C001FA1B70100DCCD87 /* RealRigisterViewController.m in Sources */,
+				21809AB32021A92000A9FFA8 /* LikeRoDislikeView.m in Sources */,
 				21A5477C2015B574004FBC96 /* UINavigationController+WXSTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

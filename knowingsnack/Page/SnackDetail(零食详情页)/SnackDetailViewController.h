@@ -10,6 +10,14 @@
 
 @interface SnackDetailViewController : UIViewController
 
+@property (nonatomic,retain) UIImage *image;
+
+
+@property (nonatomic,assign) NSString *name;
+
+@property (nonatomic,assign) float stars;
+
+@property (nonatomic,strong) NSString *objectId;
 
 
 @end

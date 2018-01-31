@@ -95,7 +95,69 @@
 }
 
 
+-(void)setViewcontrollertype:(SnackViewControllerName)viewcontrollertype
+{
+    _viewcontrollertype = viewcontrollertype;
+    [self getInfoFromBackground];
 
+}
+
+
+-(void)getInfoFromBackground
+{
+    AVQuery *query = [AVQuery queryWithClassName:@"Snack"];
+    [query whereKey:@"classification" equalTo:[self typeString]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSSortDescriptor *des = [NSSortDescriptor sortDescriptorWithKey:@"stars" ascending:NO];
+        NSArray *sortedArr = [objects sortedArrayUsingDescriptors:[NSArray arrayWithObject:des]];
+        for (int i = 0; i< 12; i++) {
+            if (i>=sortedArr.count) {
+                break;
+            }
+            NSDictionary *object = sortedArr[i];
+            OneRankView *orv = [_scroll viewWithTag:i + OneHotOrNewView_TAG];
+            AVFile *file = object[@"image"];
+            [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                orv.image = [UIImage imageWithData:data];
+                orv.starfloatNum = [object[@"stars"] floatValue];
+                orv.title = object[@"name"];
+                orv.objectID = object[@"objectId"];
+            }];
+        }
+
+    }];
+}
+
+-(NSString *)typeString
+{
+    switch (self.viewcontrollertype) {
+        case NameSnackViewController:
+            return @"snack";
+            break;
+        case NameDrinkViewController:
+            return @"drink";
+            break;
+        case NameMeatViewController:
+            return @"meat";
+            break;
+        case NameFruitViewController:
+            return @"fruit";
+            break;
+        case NameSpicyViewController:
+            return @"spicy";
+            break;
+        case NameSweetViewController:
+            return @"sweet";
+            break;
+        case NameFangBianViewController:
+            return @"fangbian";
+            break;
+        default:
+            break;
+    }
+    
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -14,6 +14,17 @@
 
 @implementation MeatViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.viewcontrollerName = NameMeatViewController;
+    }
+    return self;
+}
+
+
+
 - (void)viewDidLoad {
     
     self.viewcontrollerName = NameMeatViewController;

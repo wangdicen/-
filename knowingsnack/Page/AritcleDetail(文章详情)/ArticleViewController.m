@@ -12,8 +12,9 @@
 #import "UIImageView+YYWebImage.h"
 #import "YYAnimatedImageView.h"
 #import <WebKit/WebKit.h>
+#import "LikeRoDislikeView.h"
 
-@interface ArticleViewController ()<UIWebViewDelegate>
+@interface ArticleViewController ()<UIWebViewDelegate,UIScrollViewDelegate>
 {
     
     WKWebView *_webview;
@@ -22,6 +23,8 @@
     
     UIView *_progress;
     YYAnimatedImageView *_progressView;
+    
+    LikeRoDislikeView *_likeOrDislikeView;
 }
 @end
 
@@ -40,6 +43,7 @@
     if (self) {
         _webview = [WKWebView new];
         _webview.frame = self.view.frame;
+        _webview.scrollView.delegate = self;
         [self.view addSubview:_webview];
         
         _progress = [UIView new];
@@ -57,8 +61,24 @@
                        forKeyPath:@"loading"
                           options:NSKeyValueObservingOptionNew
                           context:nil];
+        
+        _likeOrDislikeView = [[LikeRoDislikeView alloc] initWithFrame:CGRectMake( 0, SCREEN_HEIGHT - 40.0f, SCREEN_WEIGHT, 40.f)];
+        [self.view addSubview:_likeOrDislikeView];
     }
     return self;
+}
+
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT, SCREEN_WEIGHT, 40.f);
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT - 40, SCREEN_WEIGHT, 40.f);
+    }];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
@@ -78,11 +98,11 @@
 
 -(void)setUrlString:(NSString *)urlString
 {
-//    _urlString = urlString;
-//    NSURL *url = [NSURL URLWithString:urlString];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    [_webview loadRequest:request];
+    [self performSelector:@selector(delay:) withObject:urlString afterDelay:1];
     
+}
+
+- (void)delay:(NSString *)urlString{
     NSString *CSS= @"<style type=\"text/css\">img{ width:100%;}h1{font-size:100px;color:#333333;}p{font-size:30px;color:#333333;}</style>";
     NSString * htmlString = [NSString stringWithFormat:@"<html><meta charset=\"UTF-8\"><header>%@</header><body>%@</body></html>",CSS,urlString];
     
@@ -93,6 +113,9 @@
     [_webview loadHTMLString:htmlString baseURL:baseURL];
 }
 
+- (void)webviewReload{
+    [_webview reload];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

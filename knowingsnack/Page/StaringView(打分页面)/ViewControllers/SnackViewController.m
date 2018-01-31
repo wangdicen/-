@@ -14,6 +14,16 @@
 
 @implementation SnackViewController
 
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.viewcontrollerName = NameSnackViewController;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     
     self.viewcontrollerName = NameSnackViewController;

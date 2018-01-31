@@ -62,7 +62,22 @@
 -(void)fetchDataInBackground
 {
     AVQuery *query = [AVQuery queryWithClassName:@"Recommand_Daily"];
-    [query whereKey:@"type" equalTo:@"snack"];
+    
+    NSLog(@"%ld",(long)self.type);
+    
+    
+    switch (self.type) {
+        case NameSnackViewController:
+            [query whereKey:@"type" equalTo:@"snack"];
+            break;
+        case NameDrinkViewController:
+            [query whereKey:@"type" equalTo:@"drink"];
+        default:
+            [query whereKey:@"type" equalTo:@"snack"];
+            break;
+    }
+    
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
 
         int i = 0;

@@ -14,6 +14,16 @@
 
 @implementation DrinkViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.viewcontrollerName = NameDrinkViewController;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     
     self.viewcontrollerName = NameDrinkViewController;

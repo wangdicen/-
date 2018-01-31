@@ -9,6 +9,7 @@
 #import "OneRankView.h"
 #import "Chameleon.h"
 #import "CWStarRateView.h"
+#import "SnackDetailViewController.h"
 
 @interface OneRankView()<CWStarRateViewDelegate>
 {
@@ -121,6 +122,33 @@
     _starfloatNum = starfloatNum;
     _starview.scorePercent = starfloatNum/5.0f;
     _starlbl.text = [NSString stringWithFormat:@"%.1f",starfloatNum * 2];
+}
+
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    SnackDetailViewController *sdvc = [[SnackDetailViewController alloc] init];
+    [sdvc setHidesBottomBarWhenPushed:YES];
+    [[self viewController].navigationController pushViewController:sdvc animated:YES];
+    
+    sdvc.title = self.title;
+    sdvc.name = self.title;
+    sdvc.image = self.image;
+    sdvc.stars = self.starfloatNum;
+    sdvc.view.backgroundColor = FlatWhite;
+    sdvc.objectId = self.objectID;
+    
+}
+
+//获得view所在的controller
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
 }
 
 - (void)starRateView:(CWStarRateView *)starRateView scroePercentDidChange:(CGFloat)newScorePercent{

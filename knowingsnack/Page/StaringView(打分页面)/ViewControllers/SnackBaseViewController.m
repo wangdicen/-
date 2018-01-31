@@ -43,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self.view addSubview:self.tableView];
     self.isFirst = YES;
     
@@ -289,25 +290,96 @@
             {
                 RecommendView *rv = [[RecommendView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT *5.0/12.0f)];
                 [cell addSubview:rv];
-                if (self.viewcontrollerName == NameSnackViewController) {
-                    rv.type = NameSnackViewController;
-                    [rv fetchDataInBackground];
+                switch (self.viewcontrollerName) {
+                    case NameSnackViewController:
+                        rv.type = NameSnackViewController;
+                        break;
+                    case NameDrinkViewController:
+                        rv.type = NameDrinkViewController;
+                        break;
+                    case NameMeatViewController:
+                        rv.type = NameMeatViewController;
+                        break;
+                    case NameFruitViewController:
+                        rv.type = NameFruitViewController;
+                        break;
+                    case NameSpicyViewController:
+                        rv.type = NameSpicyViewController;
+                        break;
+                    case NameSweetViewController:
+                        rv.type = NameSweetViewController;
+                        break;
+                    case NameFangBianViewController:
+                        rv.type = NameFangBianViewController;
+                        break;
+                    default:
+                        break;
                 }
+                        
+                [rv fetchDataInBackground];
             }
             if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"find&like"])
             {
                 FindNLikeView *rv = [[FindNLikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /8.5f)];
                 [cell addSubview:rv];
-                if (self.viewcontrollerName == NameSnackViewController) {
-                    rv.type = NameSnackViewController;
+                switch (self.viewcontrollerName) {
+                    case NameSnackViewController:
+                        rv.type = NameSnackViewController;
+                        break;
+                    case NameDrinkViewController:
+                        rv.type = NameDrinkViewController;
+                        break;
+                    case NameMeatViewController:
+                        rv.type = NameMeatViewController;
+                        break;
+                    case NameFruitViewController:
+                        rv.type = NameFruitViewController;
+                        break;
+                    case NameSpicyViewController:
+                        rv.type = NameSpicyViewController;
+                        break;
+                    case NameSweetViewController:
+                        rv.type = NameSweetViewController;
+                        break;
+                    case NameFangBianViewController:
+                        rv.type = NameFangBianViewController;
+                        break;
+                    default:
+                        break;
                 }
+                        
             }
             if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"] || [[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"new"])
             {
                 HotRoNewView *hrn = [[HotRoNewView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT/3.0f)];
                 [cell addSubview:hrn];
                 
-                hrn.viewcontrollertype = self.viewcontrollerName;
+                switch (self.viewcontrollerName) {
+                    case NameSnackViewController:
+                        hrn.viewcontrollertype = NameSnackViewController;
+                        break;
+                    case NameDrinkViewController:
+                        hrn.viewcontrollertype = NameDrinkViewController;
+                        break;
+                    case NameMeatViewController:
+                        hrn.viewcontrollertype = NameMeatViewController;
+                        break;
+                    case NameFruitViewController:
+                        hrn.viewcontrollertype = NameFruitViewController;
+                        break;
+                    case NameSpicyViewController:
+                        hrn.viewcontrollertype = NameSpicyViewController;
+                        break;
+                    case NameSweetViewController:
+                        hrn.viewcontrollertype = NameSweetViewController;
+                        break;
+                    case NameFangBianViewController:
+                        hrn.viewcontrollertype = NameFangBianViewController;
+                        break;
+                    default:
+                        break;
+                }
+                
                 if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"]){
                     hrn.type = Hot;
                 }else{
@@ -326,8 +398,30 @@
             {
                 RankView *rv = [[RankView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /3.0f +50)];
                 [cell addSubview:rv];
-                if (self.viewcontrollerName == NameSnackViewController) {
-                    rv.viewcontrollertype = NameSnackViewController;
+                switch (self.viewcontrollerName) {
+                    case NameSnackViewController:
+                        rv.viewcontrollertype = NameSnackViewController;
+                        break;
+                    case NameDrinkViewController:
+                        rv.viewcontrollertype = NameDrinkViewController;
+                        break;
+                    case NameMeatViewController:
+                        rv.viewcontrollertype = NameMeatViewController;
+                        break;
+                    case NameFruitViewController:
+                        rv.viewcontrollertype = NameFruitViewController;
+                        break;
+                    case NameSpicyViewController:
+                        rv.viewcontrollertype = NameSpicyViewController;
+                        break;
+                    case NameSweetViewController:
+                        rv.viewcontrollertype = NameSweetViewController;
+                        break;
+                    case NameFangBianViewController:
+                        rv.viewcontrollertype = NameFangBianViewController;
+                        break;
+                    default:
+                        break;
                 }
                 
             }
@@ -335,67 +429,43 @@
         {
             GuassULikeView *gulv = [[GuassULikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /4.0f)];
             [cell addSubview:gulv];
-            if (self.viewcontrollerName == NameSnackViewController) {
-                gulv.viewcontrollertype = NameSnackViewController;
+            switch (self.viewcontrollerName) {
+                case NameSnackViewController:
+                    gulv.viewcontrollertype = NameSnackViewController;
+                    break;
+                case NameDrinkViewController:
+                    gulv.viewcontrollertype = NameDrinkViewController;
+                    break;
+                case NameMeatViewController:
+                    gulv.viewcontrollertype = NameMeatViewController;
+                    break;
+                case NameFruitViewController:
+                    gulv.viewcontrollertype = NameFruitViewController;
+                    break;
+                case NameSpicyViewController:
+                    gulv.viewcontrollertype = NameSpicyViewController;
+                    break;
+                case NameSweetViewController:
+                    gulv.viewcontrollertype = NameSweetViewController;
+                    break;
+                case NameFangBianViewController:
+                    gulv.viewcontrollertype = NameFangBianViewController;
+                    break;
+                default:
+                    break;
             }
         }
     }
 
-//    if (indexPath.section >=1) {
-//        [cell.subviews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
-//            UIView *subView = (UIView *)obj;
-//            [subView removeFromSuperview];
-//        }];
-//    }
    
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-//    if (indexPath.section == 0) {
-//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
-//        {
-//            RecommendView *rv = [[RecommendView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT *5.0/12.0f)];
-//            [cell addSubview:rv];
-//            if (self.viewcontrollerName == NameSnackViewController) {
-//                rv.type = NameSnackViewController;
-//                [rv fetchDataInBackground];
-//            }
-//        }
-//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"find&like"])
-//        {
-//            FindNLikeView *rv = [[FindNLikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /8.5f)];
-//            [cell addSubview:rv];
-//            if (self.viewcontrollerName == NameSnackViewController) {
-//                rv.type = NameSnackViewController;
-//            }
-//        }
-//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"] || [[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"new"])
-//        {
-//            HotRoNewView *hrn = [[HotRoNewView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT / 3.0f)];
-//            [cell addSubview:hrn];
-//
-//            hrn.viewcontrollertype = self.viewcontrollerName;
-//            if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"hot"]){
-//                hrn.type = Hot;
-//            }else{
-//                hrn.type = New;
-//            }
-//
-//            [hrn fetchDataInBackground];
-//        }
-//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"ads"])
-//        {
-//            UIImageView *adsimage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ads_placeholder"]];
-//            [cell addSubview:adsimage];
-//            adsimage.frame = CGRectMake(20, 5, SCREEN_WEIGHT - 40, 80 - 10);
-//        }
-//        if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"rank"])
-//        {
-//
-//        }
+
     return cell;
     
 }
+
 //select-tableview
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

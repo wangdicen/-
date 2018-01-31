@@ -14,6 +14,17 @@
 
 @implementation SpicyViewController
 
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.viewcontrollerName = NameSpicyViewController;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     
     self.viewcontrollerName = NameSpicyViewController;

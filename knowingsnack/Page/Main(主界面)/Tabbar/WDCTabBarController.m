@@ -48,7 +48,7 @@ NSUInteger WDCTabbarItemsCount = 0;
 
 - (void)addButtonClicked
 {
-    BHBItem * item0 = [[BHBItem alloc]initWithTitle:@"Text" Icon:@"images.bundle/tabbar_compose_idea"];
+    BHBItem * item0 = [[BHBItem alloc]initWithTitle:@"写长评" Icon:@"images.bundle/tabbar_compose_idea"];
     BHBItem * item1 = [[BHBItem alloc]initWithTitle:@"Albums" Icon:@"images.bundle/tabbar_compose_photo"];
     BHBItem * item2 = [[BHBItem alloc]initWithTitle:@"Camera" Icon:@"images.bundle/tabbar_compose_camera"];
     
@@ -58,7 +58,7 @@ NSUInteger WDCTabbarItemsCount = 0;
             
         }else{
             NSLog(@"选中%@项",item.title);
-            if ([item.title isEqualToString:@"Text"]) {
+            if ([item.title isEqualToString:@"写长评"]) {
                 ZSSLargeViewController *viewController = [[ZSSLargeViewController alloc] init];
 
                 viewController.hidesBottomBarWhenPushed = YES;

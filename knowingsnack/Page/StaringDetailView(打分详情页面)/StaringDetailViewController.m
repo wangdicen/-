@@ -12,12 +12,14 @@
 #import "GifView.h"
 #import "CWStarRateView.h"
 #import "FireworksView.h"
+#import "Snack.h"
 
 @interface StaringDetailViewController ()<UITextViewDelegate,CWStarRateViewDelegate>
 {
     FireworksView *_fireworksView;
     CGPoint _starTouchPostion;
     UITextView *_textview;
+    CWStarRateView *_starview;
 }
 @end
 
@@ -55,29 +57,29 @@
     lbl1.text = @"点击星星评分";
     lbl1.textAlignment = NSTextAlignmentCenter;
     lbl1.font = [UIFont systemFontOfSize:12.0f];
-    lbl1.textColor = FlatWhite;
+    lbl1.textColor = FlatBlack;
     lbl1.layer.shadowColor = FlatGray.CGColor;
     lbl1.layer.shadowOpacity = 1.f;
     lbl1.layer.shadowOffset = CGSizeMake(0,0);
     [self.view addSubview:lbl1];
     
-    CWStarRateView *starview = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 35 + 30 + 10 + 10 + 13 +8, SCREEN_WEIGHT/2.0f, 40) numberOfStars:5];
-    starview.layer.shadowColor = FlatGray.CGColor;
-    starview.layer.shadowOpacity = 1.f;
-    starview.layer.shadowOffset = CGSizeMake(0,0);
-    starview.center = CGPointMake(SCREEN_WEIGHT/2.0f, starview.center.y);
-    starview.delegate = self;
-    starview.hasAnimation = NO;
-    starview.allowIncompleteStar = NO;
-    starview.userInteractionEnabled = YES;
-    starview.scorePercent = 0;
-    [self.view addSubview:starview];
+    _starview = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 35 + 30 + 10 + 10 + 13 +8, SCREEN_WEIGHT/2.0f, 40) numberOfStars:5];
+    _starview.layer.shadowColor = FlatGray.CGColor;
+    _starview.layer.shadowOpacity = 1.f;
+    _starview.layer.shadowOffset = CGSizeMake(0,0);
+    _starview.center = CGPointMake(SCREEN_WEIGHT/2.0f, _starview.center.y);
+    _starview.delegate = self;
+    _starview.hasAnimation = NO;
+    _starview.allowIncompleteStar = NO;
+    _starview.userInteractionEnabled = YES;
+    _starview.scorePercent = 0;
+    [self.view addSubview:_starview];
     
-    starview.clipsToBounds = NO;
+    _starview.clipsToBounds = NO;
     
     _fireworksView = [[FireworksView alloc] init];
     _fireworksView.particleImage = [UIImage imageNamed:@"particle.png"];
-    [starview insertSubview:_fireworksView atIndex:0];
+    [_starview insertSubview:_fireworksView atIndex:0];
     
     _textview = [[UITextView alloc] initWithFrame:CGRectMake(30, 35 + 30 + 10 + 10 + 13 +8 + 40 +30, self.view.frame.size.width - 60, self.view.frame.size.height/4.6f)];
     _textview.layer.cornerRadius = 10.0f;
@@ -100,7 +102,11 @@
 
 - (void)next
 {
+    Snack *snack = [Snack objectWithClassName:@"Snack" objectId:self.objectID];
+
+    NSLog(@"%@",self.objectID);
     
+    [snack commentSnackWithShortComment:_textview.text starnum:_starview.scorePercent*5];
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView

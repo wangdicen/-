@@ -10,4 +10,7 @@
 
 @interface StaringDetailViewController : UIViewController
 
+
+@property (nonatomic,strong) NSString *objectID;
+
 @end

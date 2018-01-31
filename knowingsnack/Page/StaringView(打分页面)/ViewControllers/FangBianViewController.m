@@ -14,6 +14,16 @@
 
 @implementation FangBianViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.viewcontrollerName = NameFangBianViewController;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     
     self.viewcontrollerName = NameFangBianViewController;

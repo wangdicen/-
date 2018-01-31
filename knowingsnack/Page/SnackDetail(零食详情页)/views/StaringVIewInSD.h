@@ -13,4 +13,6 @@
 
 @property (nonatomic,assign) float starNum;
 
+@property (nonatomic,assign) NSString *objectID;
+
 @end

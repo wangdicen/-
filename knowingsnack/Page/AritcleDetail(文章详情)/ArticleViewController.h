@@ -13,4 +13,6 @@
 
 @property (nonatomic,assign) NSString *urlString;
 
+
+-(void)webviewReload;
 @end

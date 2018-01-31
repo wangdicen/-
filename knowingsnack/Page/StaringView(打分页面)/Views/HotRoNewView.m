@@ -78,22 +78,57 @@
         int i = 0;
         for (AVObject *object in objects) {
             
-            OneHotRoNewView *view = [_scroll viewWithTag:OneHotOrNewView_TAG + i];
-            
-            AVFile *file = object[@"image"];
-            
-            [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-                view.image = [UIImage imageWithData:data];
-                view.title = object[@"name"];
-                view.starfloatNum = [object[@"stars"] floatValue];
-                view.alpha = 1.0f;
+            if ([object[@"classification"] isEqualToString:[self typeString]]) {
+                OneHotRoNewView *view = [_scroll viewWithTag:OneHotOrNewView_TAG + i];
+                AVFile *file = object[@"image"];
+                [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                    view.image = [UIImage imageWithData:data];
+                    view.title = object[@"name"];
+                    view.starfloatNum = [object[@"stars"] floatValue];
+                    view.alpha = 1.0f;
+                    view.objectID = object[@"objectId"];
+                }];
                 
-            }];
+                i ++;
+            }
+            else
+            {
+                
+            }
             
-            i ++;
         }
     }];
 }
 
+
+-(NSString *)typeString
+{
+    switch (self.viewcontrollertype) {
+        case NameSnackViewController:
+            return @"snack";
+            break;
+        case NameDrinkViewController:
+            return @"drink";
+            break;
+        case NameMeatViewController:
+            return @"meat";
+            break;
+        case NameFruitViewController:
+            return @"fruit";
+            break;
+        case NameSpicyViewController:
+            return @"spicy";
+            break;
+        case NameSweetViewController:
+            return @"sweet";
+            break;
+        case NameFangBianViewController:
+            return @"fangbian";
+            break;
+        default:
+            break;
+    }
+    
+}
 
 @end

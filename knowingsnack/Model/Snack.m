@@ -18,15 +18,14 @@
 }
 
 -(void)commentSnackWithShortComment:(NSString *)shortcomment
-                              image:(UIImage *)image
                             starnum:(int)num{
 //    AVObject *snack = [AVObject objectWithClassName:[Snack parseClassName] objectId:self.objectId];
     AVObject *snack_staring = [[AVObject alloc] initWithClassName:@"snack_staring"];
    
     [snack_staring setObject:shortcomment forKey:@"shortcomment"];
-    NSData *data = UIImagePNGRepresentation(image);
-    AVFile *file = [AVFile fileWithData:data];
-    [snack_staring setObject:file forKey:@"shortcommentimage"];
+//    NSData *data = UIImagePNGRepresentation(image);
+//    AVFile *file = [AVFile fileWithData:data];
+//    [snack_staring setObject:file forKey:@"shortcommentimage"];
     [snack_staring setObject:[NSNumber numberWithInt:num] forKey:@"starnum"];
     [snack_staring setObject:[AVUser currentUser] forKey:@"userpointer"];
     [snack_staring setObject:self forKey:@"snackpointer"];

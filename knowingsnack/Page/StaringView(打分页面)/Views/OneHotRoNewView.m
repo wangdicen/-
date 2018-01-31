@@ -17,6 +17,7 @@
     UILabel *_label;
     CWStarRateView *_starview;
     UILabel *_starNum;
+    
 }
 @end
 
@@ -89,6 +90,11 @@
     _starNum.text = [NSString stringWithFormat:@"%.1f",starfloatNum * 2];
 }
 
+- (void)setObjectID:(NSString *)objectID
+{
+    _objectID = objectID;
+}
+
 - (void)starRateView:(CWStarRateView *)starRateView scroePercentDidChange:(CGFloat)newScorePercent{
     
 }
@@ -100,7 +106,15 @@
     [[self viewController].navigationController pushViewController:sdvc animated:YES];
     
     sdvc.title = _label.text;
+    sdvc.name = _label.text;
+    sdvc.image = self.image;
+    sdvc.stars = self.starfloatNum;
     sdvc.view.backgroundColor = FlatWhite;
+    sdvc.objectId = self.objectID;
+    
+    NSLog(@"%@",self.objectID);
+
+    NSLog(@"%@",sdvc.objectId);
     
 }
 

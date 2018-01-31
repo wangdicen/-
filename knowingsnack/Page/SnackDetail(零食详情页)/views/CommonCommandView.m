@@ -93,6 +93,7 @@ int SPACING = 5;
 {
     _image = image;
     _headIcon.image = image;
+    [_headIcon setNeedsDisplay];
 }
 
 
