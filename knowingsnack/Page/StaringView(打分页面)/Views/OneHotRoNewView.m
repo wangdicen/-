@@ -49,7 +49,7 @@
         [background addSubview:_label];
         _label.font = [UIFont boldSystemFontOfSize:11.0f];
         _label.textColor = RGB(166,147,108,1);
-        _label.text = @"旺旺雪饼";
+        _label.text = @"加载中···";
         
         _starview = [[CWStarRateView alloc] initWithFrame:CGRectMake(5, 20, frame.size.width /3.0f, 20)];
 //        _starview.scorePercent = 0.8;
@@ -63,7 +63,7 @@
         [background addSubview:_starNum];
         _starNum.textColor = RGB(166,147,108,1);
         _starNum.font = [UIFont systemFontOfSize:7.0f];
-        _starNum.text = @"8.0";
+        _starNum.text = @"10.0";
     }
     return self;
 }

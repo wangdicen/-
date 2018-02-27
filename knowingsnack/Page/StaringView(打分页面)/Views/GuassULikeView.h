@@ -13,4 +13,6 @@
 
 @property (nonatomic, assign) SnackViewControllerName viewcontrollertype;
 
+-(void)fetchDataInBackground:(int)index;
+
 @end

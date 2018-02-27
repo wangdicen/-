@@ -28,7 +28,9 @@
 #define HasLoadingAndNotDataView 0
 
 @interface SnackBaseViewController ()
-
+{
+    int guessULikeCount;
+}
 @property (nonatomic, strong) NSMutableArray *datasArrayM;
 
 @property (nonatomic, weak) UIActivityIndicatorView *indicatorView ;
@@ -43,6 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    guessULikeCount = 0;
     
     [self.view addSubview:self.tableView];
     self.isFirst = YES;
@@ -78,9 +81,9 @@
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
-            NSInteger count = weakself.datasArrayM.count;
-            for (int i = 0; i < 20; i++) {
-                [weakself.datasArrayM addObject:[NSString stringWithFormat:@" 加载数据 %zd",count + i]];
+//            NSInteger count = weakself.datasArrayM.count;
+            for (int i = 0; i < 10; i++) {
+                [weakself.datasArrayM addObject:@"guesseyoulike"];
             }
             NSLog(@"下拉加载完成");
             [weakself.tableView.mj_footer endRefreshing];
@@ -274,17 +277,24 @@
 //    NSLog(@"\n section-%d,row-%d \n",(int)indexPath.section,(int)indexPath.row);
     
     static NSString *identifier = nil;
-    if (indexPath.row <= 6) {
+//    if (indexPath.row <= 6) {
         identifier = [NSString stringWithFormat:@"identifier-%d",(int)indexPath.row];
-    }
-    else{
-        identifier = @"identifier";
-    }
+//    }
+//    else{
+//        identifier = @"identifier";
+//    }
+    
+    NSLog(@"indexpath=------%d",(int)indexPath.row);
 
+//    if (indexPath.row >= self.datasArrayM.count) {
+//        for (int i = 0; i < 10; i++) {
+//            [self.datasArrayM addObject:@"guesseyoulike"];
+//        }
+//    }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
 
             if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"recommend"])
             {
@@ -428,28 +438,37 @@
         if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"guesseyoulike"])
         {
             GuassULikeView *gulv = [[GuassULikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /4.0f)];
+//            [gulv fetchDataInBackground:guessULikeCount];
+            guessULikeCount ++;
             [cell addSubview:gulv];
             switch (self.viewcontrollerName) {
                 case NameSnackViewController:
                     gulv.viewcontrollertype = NameSnackViewController;
+                    [gulv fetchDataInBackground:guessULikeCount];
                     break;
                 case NameDrinkViewController:
                     gulv.viewcontrollertype = NameDrinkViewController;
+                    [gulv fetchDataInBackground:guessULikeCount];
                     break;
                 case NameMeatViewController:
                     gulv.viewcontrollertype = NameMeatViewController;
+                    [gulv fetchDataInBackground:guessULikeCount];
                     break;
                 case NameFruitViewController:
                     gulv.viewcontrollertype = NameFruitViewController;
+                    [gulv fetchDataInBackground:guessULikeCount];
                     break;
                 case NameSpicyViewController:
                     gulv.viewcontrollertype = NameSpicyViewController;
+                    [gulv fetchDataInBackground:guessULikeCount];
                     break;
                 case NameSweetViewController:
                     gulv.viewcontrollertype = NameSweetViewController;
+                    [gulv fetchDataInBackground:guessULikeCount];
                     break;
                 case NameFangBianViewController:
                     gulv.viewcontrollertype = NameFangBianViewController;
+                    [gulv fetchDataInBackground:guessULikeCount];
                     break;
                 default:
                     break;

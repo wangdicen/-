@@ -44,4 +44,16 @@ SingleM(AVOSManager)
     }];
 }
 
+
+-(UserInfo *)getUserInfo{
+    NSString *dataPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"userinfo.archive"];
+    NSData *data = [NSData dataWithContentsOfFile:dataPath];
+    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    
+    UserInfo *model = [unArchiver decodeObjectForKey:@"userinfo"];
+    [unArchiver finishDecoding];
+    
+    
+    return model;
+}
 @end

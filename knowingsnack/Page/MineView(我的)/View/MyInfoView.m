@@ -11,6 +11,13 @@
 #import "RigisterViewController.h"
 #import "HeaderIconImageView.h"
 
+@interface MyInfoView()
+{
+    HeaderIconImageView *_icon;
+    
+}
+@end
+
 @implementation MyInfoView
 
 
@@ -47,33 +54,30 @@
             lbl.center = CGPointMake(w/2.0, h/2.0);
         }
         else{
+            _icon = nil;
+            AVFile *file =  [[AVUser currentUser] objectForKey:@"image"];
+            [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+                _icon =  [[HeaderIconImageView alloc] initWithFrame:CGRectMake(20, 20, h - 40, h - 40) andImage:image];
+                [self addSubview:_icon];
+                
+                UILabel *username = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40, w/2.0, h/4.0f)];
+                [self addSubview:username];
+                username.text = info.username;
+                username.textColor = FlatWhite;
+                username.font = [UIFont boldSystemFontOfSize:22];
+                
+                UILabel *email = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27, w, h/4.0f)];
+                [self addSubview:email];
+                email.text = [NSString stringWithFormat:@"邮箱:%@(未激活)",info.email];
+                email.textColor = FlatWhite;
+                email.font = [UIFont systemFontOfSize:8];
+                
+                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27 +27, w *2.0/3.0, 1)];
+                [self addSubview:line];
+                line.backgroundColor = FlatWhite;
+                line.alpha = 0.4;
+            }];
             
-            HeaderIconImageView *icon = [[HeaderIconImageView alloc] initWithFrame:CGRectMake(20, 20, h - 40, h - 40) andImage:IMAGE(@"header")];
-            [self addSubview:icon];
-        
-            UILabel *username = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40, w/4.0, h/4.0f)];
-            [self addSubview:username];
-            username.text = info.username;
-            username.textColor = FlatWhite;
-            username.font = [UIFont boldSystemFontOfSize:22];
-        
-            UILabel *email = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27, w, h/4.0f)];
-            [self addSubview:email];
-            email.text = [NSString stringWithFormat:@"邮箱:%@(未激活)",info.email];
-            email.textColor = FlatWhite;
-            email.font = [UIFont systemFontOfSize:8];
-        
-            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27 +27, w *2.0/3.0, 1)];
-            [self addSubview:line];
-            line.backgroundColor = FlatWhite;
-             line.alpha = 0.4;
-        
-              UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 40  + 27 +22, w, h/4.0f)];
-              [self addSubview:lbl];
-              lbl.text = @"个人主页 >";
-              lbl.textAlignment = NSTextAlignmentRight;
-              lbl.textColor = FlatWhite;
-              lbl.font = [UIFont boldSystemFontOfSize:11];
         }
     }
     

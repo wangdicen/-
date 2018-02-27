@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HeaderIconImageView : UIView
+@interface HeaderIconImageView : UIView<UIActionSheetDelegate>
 
 @property (nonatomic,copy) UIImage *image;
 

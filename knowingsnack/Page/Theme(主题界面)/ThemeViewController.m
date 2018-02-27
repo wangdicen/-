@@ -31,6 +31,11 @@
     self.title = @"主题";
     self.view.backgroundColor = FlatWhiteDark;
     
+    UIImageView *bg = [[UIImageView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:bg];
+    bg.image = [UIImage imageNamed:@"login_bg"];
+    bg.contentMode = UIViewContentModeScaleToFill;
+    
     NSArray *color = @[FlatWhiteDark,FlatRed,FlatBlue,FlatGray,FlatLime,FlatMint,FlatPink,FlatPlum,FlatSand,FlatTeal,FlatBlack,FlatBrown,FlatGreen,FlatCoffee,FlatMaroon,FlatOrange,FlatPurple,FlatYellow,FlatMagenta,FlatRedDark,FlatSkyBlue,FlatBlueDark,FlatGrayDark,FlatLimeDark,FlatMintDark,FlatNavyBlue,FlatForestGreen,FlatWatermelon,FlatPowderBlue,FlatPinkDark,FlatPlumDark,FlatSandDark,FlatTealDark,FlatBlackDark,FlatBrownDark,FlatGreenDark,FlatWatermelonDark];
     
     ZAColorFullChooseView *colorView = [[ZAColorFullChooseView alloc]initGradientWithFrame:CGRectMake(kscreenWidth*0.1, 80, kscreenWidth*0.8, kscreenWidth*0.8) colorArray:color];
@@ -40,7 +45,7 @@
     [colorView setColor:[UIColor colorWithRed:255/255.0 green:0 blue:0 alpha:1 ]];
     
     UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, 20)];
-    lbl.backgroundColor = HexColorWithAlpha(FlatWhiteDark.hexValue, 0.8);
+    lbl.backgroundColor = HexColorWithAlpha(FlatWhiteDark.hexValue, 0.1);
     lbl.layer.cornerRadius = 5.0f;
     lbl.text = @"旋转轮盘设置主题颜色";
     lbl.textAlignment = NSTextAlignmentCenter;
@@ -61,7 +66,7 @@
         
 
     UILabel *lbl2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, 20)];
-    lbl2.backgroundColor = HexColorWithAlpha(FlatWhiteDark.hexValue, 0.8);
+    lbl2.backgroundColor = HexColorWithAlpha(FlatWhiteDark.hexValue, 0.1);
     lbl2.layer.cornerRadius = 5.0f;
     lbl2.text = @"主屏幕图标";
     lbl2.textAlignment = NSTextAlignmentCenter;

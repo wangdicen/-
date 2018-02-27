@@ -62,7 +62,7 @@
                           options:NSKeyValueObservingOptionNew
                           context:nil];
         
-        _likeOrDislikeView = [[LikeRoDislikeView alloc] initWithFrame:CGRectMake( 0, SCREEN_HEIGHT - 40.0f, SCREEN_WEIGHT, 40.f)];
+        _likeOrDislikeView = [[LikeRoDislikeView alloc] initWithFrame:CGRectMake( 0, SCREEN_HEIGHT - 50.0f, SCREEN_WEIGHT, 50.f)];
         [self.view addSubview:_likeOrDislikeView];
     }
     return self;
@@ -71,13 +71,13 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT, SCREEN_WEIGHT, 40.f);
+    _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT, SCREEN_WEIGHT, 50.f);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [UIView animateWithDuration:0.5 animations:^{
-        _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT - 40, SCREEN_WEIGHT, 40.f);
+        _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT - 50, SCREEN_WEIGHT, 50.f);
     }];
 }
 

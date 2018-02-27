@@ -8,9 +8,13 @@
 
 #import "GroupDetailViewController.h"
 #import "Header.h"
+#import "UINavigationController+WXSTransition.h"
+#import "JHUD.h"
 
 @interface GroupDetailViewController ()
-
+{
+    JHUD *_jhud;
+}
 @end
 
 @implementation GroupDetailViewController
@@ -22,16 +26,35 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.mainImageView];
+    
+    UIButton *backbtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 25, 30, 30)];
+    [backbtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [self.view addSubview:backbtn];
+    [self.view bringSubviewToFront:backbtn];
+    [backbtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    
+    _jhud = [[JHUD alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT)];
+    _jhud.backgroundColor = ClearColor;
+    _jhud.messageLabel.text = @"外测版本'小组'还没来得及做~等待下次更新吧~";
+    [_jhud.refreshButton setTitle:@"逛逛其他" forState:UIControlStateNormal];
+    _jhud.customImage = [UIImage imageNamed:@"nullData"];
+    [_jhud showAtView:self.view hudType:JHUDLoadingTypeFailure];
 
 }
+
+-(void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(UIImageView *)mainImageView{
     if (!_mainImageView) {
         _mainImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT/4.0f - 10)];
-        _mainImageView.image = [UIImage imageNamed:@"groupimage"];
+//        _mainImageView.image = [UIImage imageNamed:@"groupimage"];
         _mainImageView.backgroundColor = [UIColor blueColor];
     }
     return _mainImageView;
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];

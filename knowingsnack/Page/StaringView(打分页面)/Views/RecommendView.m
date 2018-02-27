@@ -29,13 +29,13 @@
         lbl.font = [UIFont boldSystemFontOfSize:15.0f];
         [self addSubview:lbl];
         
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WEIGHT - 65, 10, 60, 20)];
-        [self addSubview:button];
-        [button setTitle:@"全部10 >" forState:UIControlStateNormal];
-        [button setTitle:@"全部10 >" forState:UIControlStateSelected];
-        [button setTitleColor:FlatGray forState:UIControlStateNormal];
-        [button setTitleColor:FlatGray forState:UIControlStateSelected];
-        button.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WEIGHT - 65, 10, 60, 20)];
+//        [self addSubview:button];
+//        [button setTitle:@"全部10 >" forState:UIControlStateNormal];
+//        [button setTitle:@"全部10 >" forState:UIControlStateSelected];
+//        [button setTitleColor:FlatGray forState:UIControlStateNormal];
+//        [button setTitleColor:FlatGray forState:UIControlStateSelected];
+//        button.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         
         
         CGFloat hei = frame.size.height;

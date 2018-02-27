@@ -10,6 +10,7 @@
 #import "CWStarRateView.h"
 #import "Chameleon.h"
 #import "Header.h"
+#import "SnackDetailViewController.h"
 
 @interface GuassULikeView()
 {
@@ -21,6 +22,8 @@
     UILabel *_aboutkindlbl;
     UILabel *_onetextlbl;
     UIButton *_morebutton;
+    
+    NSString *_objectID;
 }
 @end
 
@@ -35,6 +38,8 @@
         
         _imageview = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, (height -30.0f) * 147.0/172.0f, height -30.0f)];
         _imageview.backgroundColor = FlatWhiteDark;
+        _imageview.layer.borderWidth = 1.0f;
+        _imageview.layer.borderColor = FlatWhite.CGColor;
         _imageview.layer.shadowOpacity = 0.7;
         _imageview.layer.shadowColor = FlatGray.CGColor;
         _imageview.layer.shadowRadius = 5;
@@ -46,7 +51,7 @@
                                                              SCREEN_WEIGHT - CGRectGetWidth(_imageview.frame) - 30,
                                                              (height - 30)/5.0f)];
         [self addSubview:_titlelbl];
-        _titlelbl.text = @"旺旺仙贝";
+        _titlelbl.text = @"加载中···";
         _titlelbl.font = [UIFont boldSystemFontOfSize:18.0f];
         _titlelbl.textColor = [UIColor blackColor];
         
@@ -67,7 +72,7 @@
                                                                 18)];
         [self addSubview:_factorylbl];
         _factorylbl.textColor = FlatGray;
-        _factorylbl.text = @"厂商：隔壁二大爷开的零食小卖部";
+//        _factorylbl.text = @"厂商：隔壁二大爷开的零食小卖部";
         _factorylbl.font = [UIFont systemFontOfSize:10.0f];
         
 
@@ -77,14 +82,14 @@
                                                                   18)];
         [self addSubview:_aboutkindlbl];
         _aboutkindlbl.textColor = FlatGray;
-        _aboutkindlbl.text = @"抹茶/饼干/重口味/甜食";
+//        _aboutkindlbl.text = @"抹茶/饼干/重口味/甜食";
         _aboutkindlbl.font = [UIFont systemFontOfSize:10.0f];
         
         
         _onetextlbl = [[UILabel alloc] initWithFrame:CGRectMake(15 + CGRectGetWidth(_imageview.frame) +15, height - 35,  SCREEN_WEIGHT - CGRectGetWidth(_imageview.frame) - 30, 20)];
         [self addSubview:_onetextlbl];
         _onetextlbl.textColor = FlatBlackDark;
-        _onetextlbl.text = @"2000+重口味的推荐";
+//        _onetextlbl.text = @"2000+重口味的推荐";
         _onetextlbl.font = [UIFont systemFontOfSize:12.0f];
         
         UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(15 + CGRectGetWidth(_imageview.frame) +15, height - 52,  SCREEN_WEIGHT - CGRectGetWidth(_imageview.frame) - 30 - 5, 1)];
@@ -98,6 +103,89 @@
     }
     
     return self;
+}
+
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    SnackDetailViewController *sdvc = [[SnackDetailViewController alloc] init];
+    [sdvc setHidesBottomBarWhenPushed:YES];
+    [[self viewController].navigationController pushViewController:sdvc animated:YES];
+    
+    sdvc.title = _titlelbl.text;
+    sdvc.name = _titlelbl.text;
+    sdvc.image = _imageview.image;
+    sdvc.stars = _starview.scorePercent * 5.f;
+    sdvc.view.backgroundColor = FlatWhite;
+    sdvc.objectId = _objectID;
+    
+}
+
+//获得view所在的controller
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
+
+
+-(void)fetchDataInBackground:(int)index
+{
+    AVQuery *query = [AVQuery queryWithClassName:@"Snack"];
+    [query whereKey:@"classification" equalTo:[self typeString]];
+    
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+       
+        
+        if (index < objects.count) {
+            AVFile *file = [objects[index] objectForKey:@"image"];
+            [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                UIImage *image = [UIImage imageWithData:data];
+                _imageview.image = image;
+                _titlelbl.text = [objects[index] objectForKey:@"name"];
+                _starview.scorePercent = [[objects[index] objectForKey:@"stars"] floatValue]/5.f;
+                _starnumlbl.text = [NSString stringWithFormat:@"%.1f",[[objects[index] objectForKey:@"stars"] floatValue] * 2];
+                _objectID = [objects[index] objectForKey:@"objectId"];
+
+            }];
+            
+        }
+    }];
+}
+
+-(NSString *)typeString
+{
+    switch (self.viewcontrollertype) {
+        case NameSnackViewController:
+            return @"snack";
+            break;
+        case NameDrinkViewController:
+            return @"drink";
+            break;
+        case NameMeatViewController:
+            return @"meat";
+            break;
+        case NameFruitViewController:
+            return @"fruit";
+            break;
+        case NameSpicyViewController:
+            return @"spicy";
+            break;
+        case NameSweetViewController:
+            return @"sweet";
+            break;
+        case NameFangBianViewController:
+            return @"fangbian";
+            break;
+        default:
+            break;
+    }
+    
 }
 
 

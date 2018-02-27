@@ -8,7 +8,22 @@
 
 #import "HeaderIconImageView.h"
 #import "Chameleon.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "UserInfo.h"
+#import "AVOSManager.h"
+#import "JHUD.h"
 #define kBorderWidth 3
+
+@interface HeaderIconImageView()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
+    UIImagePickerController *_imagePickerController;
+    JHUD *_hudView;
+}
+@end
+
+
 
 @implementation HeaderIconImageView
 
@@ -18,8 +33,75 @@
     if (self) {
         _image = image;
         self.backgroundColor = ClearColor;
+        
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.delegate = self;
+        _imagePickerController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        _imagePickerController.allowsEditing = YES;
+        
+        _hudView = [[JHUD alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT)];
+    
     }
     return self;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"更换头像", nil];
+    sheet.actionSheetStyle = UIActionSheetStyleDefault;
+    [sheet showInView:[self viewController].view];
+}
+
+
+//获得view所在的controller
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //更换头像
+    if (buttonIndex == 0) {
+        [self selectImageFromAlbum];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
+    NSLog(@"选择完毕----image:%@-----info:%@",image,editingInfo);
+    
+    UserInfo *userInfo = [[AVOSManager shareAVOSManager] getUserInfo];
+    NSLog(@"%@",userInfo);
+    NSData *data = UIImagePNGRepresentation(image);
+    AVFile *file =[AVFile fileWithData:data];
+    [[AVUser currentUser] setObject:file forKey:@"image"];
+    [_hudView showAtView:picker.view hudType:JHUDLoadingTypeCircleJoin];
+    _hudView.messageLabel.text = @"正在上传...稍等片刻~";
+    [[AVUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        if (succeeded) {
+            [_hudView hide];
+            self.image = image;
+            [self setNeedsDisplay];
+
+        }
+        [[self viewController] dismissViewControllerAnimated:YES completion:nil];
+
+    }];
+}
+
+
+#pragma mark 从相册获取图片或视频
+- (void)selectImageFromAlbum
+{
+    //NSLog(@"相册");
+    _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [[self viewController] presentViewController:_imagePickerController animated:YES completion:nil];
 }
 
 

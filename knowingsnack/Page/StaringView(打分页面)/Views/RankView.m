@@ -10,6 +10,7 @@
 #import "Chameleon.h"
 #import "Header.h"
 #import "OneRankView.h"
+#import "RankDetailViewController.h"
 
 @interface RankView()
 {
@@ -86,6 +87,7 @@
         [button setTitleColor:FlatWhiteDark forState:UIControlStateHighlighted];
         button.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [button addTarget:self action:@selector(goToRankDetailView) forControlEvents:UIControlEventTouchUpInside];
 //        button.backgroundColor =[UIColor blueColor];
         [self addSubview:button];
 
@@ -95,6 +97,28 @@
 }
 
 
+-(void)goToRankDetailView
+{
+    RankDetailViewController *rdvc = [[RankDetailViewController alloc] init];
+    rdvc.typeString = [self typeString];
+    rdvc.title = @"TOP 250";
+    rdvc.view.backgroundColor = [UIColor whiteColor];
+    rdvc.hidesBottomBarWhenPushed = YES;
+    [[self viewController].navigationController pushViewController:rdvc animated:YES];
+    
+}
+
+
+//获得view所在的controller
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
 -(void)setViewcontrollertype:(SnackViewControllerName)viewcontrollertype
 {
     _viewcontrollertype = viewcontrollertype;
@@ -118,12 +142,18 @@
             NSDictionary *object = sortedArr[i];
             OneRankView *orv = [_scroll viewWithTag:i + OneHotOrNewView_TAG];
             AVFile *file = object[@"image"];
-            [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-                orv.image = [UIImage imageWithData:data];
+            [file getThumbnail:YES width:300 height:357 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+                orv.image = image;
                 orv.starfloatNum = [object[@"stars"] floatValue];
                 orv.title = object[@"name"];
                 orv.objectID = object[@"objectId"];
             }];
+//            [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+//                orv.image = [UIImage imageWithData:data];
+//                orv.starfloatNum = [object[@"stars"] floatValue];
+//                orv.title = object[@"name"];
+//                orv.objectID = object[@"objectId"];
+//            }];
         }
 
     }];

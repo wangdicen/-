@@ -73,7 +73,7 @@
         [background addSubview:_titlelbl];
         _titlelbl.font = [UIFont systemFontOfSize:12.0f];
         _titlelbl.textColor = FlatBlackDark;
-        _titlelbl.text = @"旺旺仙贝";
+        _titlelbl.text = @"加载中";
         
         _starview = [[CWStarRateView alloc] initWithFrame:CGRectMake(0,
                                                                      background.frame.size.height * 2.0f/ 3.0f -5,
@@ -87,12 +87,12 @@
     
         _starlbl = [[UILabel alloc] initWithFrame:CGRectMake(background.frame.size.width/6.0f + 5,
                                                              background.frame.size.height * 2.0f/ 3.0f -5,
-                                                             15,
+                                                             20,
                                                              15)];
         [background addSubview:_starlbl];
         _starlbl.textColor = FlatBlack;
         _starlbl.font = [UIFont systemFontOfSize:8.0f];
-        _starlbl.text = @"8.0";
+        _starlbl.text = @"10.0";
         
         
     }

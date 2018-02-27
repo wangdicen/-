@@ -34,18 +34,34 @@
     [self.view addSubview:_scrollview];
     
     
-    for (int i = 0; i < 10; i ++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, SCREEN_HEIGHT/4.0f * i +5, SCREEN_WEIGHT - 10, SCREEN_HEIGHT/4.0f - 10)];
-        [button setImage:[UIImage imageNamed:@"groupimage"] forState:UIControlStateNormal];
-        [button.imageView setContentMode:UIViewContentModeScaleToFill];
-        button.clipsToBounds = YES;
-        [button addTarget:self action:@selector(goToDetail:) forControlEvents:UIControlEventTouchUpInside];
-        button.tag = 200000+i;
-        [_scrollview addSubview:button];
-        [button setBackgroundColor:FlatGrayDark];
-        button.layer.cornerRadius = 15.0f;
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"Group"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
-    }
+        for (int i = 0; i < 10; i ++) {
+            
+            if (i >= objects.count) {
+                break;
+            }
+            NSDictionary *object = objects[i];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, SCREEN_HEIGHT/4.0f * i +5, SCREEN_WEIGHT - 10, SCREEN_HEIGHT/4.0f - 10)];
+            AVFile *file = object[@"image"];
+            [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                  [button setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+            }];
+            button.layer.borderWidth = 1.0f;
+            button.layer.borderColor = rgba(200, 200, 200, 0.7f).CGColor;
+            [button.imageView setContentMode:UIViewContentModeScaleToFill];
+            button.clipsToBounds = YES;
+            [button addTarget:self action:@selector(goToDetail:) forControlEvents:UIControlEventTouchUpInside];
+            button.tag = 200000+i;
+            [_scrollview addSubview:button];
+            [button setBackgroundColor:FlatGrayDark];
+            button.layer.cornerRadius = 15.0f;
+            
+        }
+    }];
+    
     
     
 
@@ -102,6 +118,7 @@
         transition.animationTime = 0.64;
         transition.startView  = sender;
         transition.targetView = weakgdvc.mainImageView;
+        weakgdvc.mainImageView.image = sender.imageView.image;
     }];
 }
 

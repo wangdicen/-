@@ -16,4 +16,6 @@ SingleH(AVOSManager)
 
 - (void)queryUserInfoAndArchierFromBackgroundWithEmail:(NSString *)email;
 
+-(UserInfo *)getUserInfo;
+
 @end

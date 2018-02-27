@@ -72,6 +72,7 @@
     _mainImageView.image = [UIImage imageNamed:@"demo"];
     _mainImageViewBackground.backgroundColor = [UIColor colorWithAverageColorFromImage:_mainImageView.image];
     
+    
     _staringViewInSD = [[StaringVIewInSD alloc] initWithFrame:CGRectMake(0, 0, 90, 90)];
     _staringViewInSD.center = CGPointMake(SCREEN_WEIGHT*4/5.0f, SCREEN_HEIGHT/2.0 + 80 );
     _staringViewInSD.starNum = 5;
@@ -193,8 +194,11 @@ CGFloat COMMON_HEIGHT = 0;
             [query2 findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                 NSDictionary *object2 = objects[0];
                 AVFile *file = object2[@"image"];
-                command.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:file.url]]];
-                command.nametext = object2[@"username"];
+                [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+                    command.image = image;
+                    command.nametext = object2[@"username"];
+                }];
+               
 
             }];
             
@@ -252,6 +256,7 @@ CGFloat COMMON_HEIGHT = 0;
     imageview.layer.cornerRadius = 8.0f;
     imageview.center = CGPointMake(SCREEN_WEIGHT/2.0f, _scrollview.contentSize.height - 30 - (_twoButton.frame.origin.y + 60.0f));
     [_grounpView addSubview:imageview];
+    
     
     UIButton *btn = [UIButton new];
     btn.frame = CGRectMake(0, 0, SCREEN_WEIGHT - 20, 40);

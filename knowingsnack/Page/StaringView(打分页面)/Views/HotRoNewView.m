@@ -30,13 +30,13 @@
         _lbl.font = [UIFont boldSystemFontOfSize:15.0f];
         [self addSubview:_lbl];
         
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WEIGHT - 65, 10, 60, 20)];
-        [self addSubview:button];
-        [button setTitle:@"全部32 >" forState:UIControlStateNormal];
-        [button setTitle:@"全部32 >" forState:UIControlStateSelected];
-        [button setTitleColor:FlatGray forState:UIControlStateNormal];
-        [button setTitleColor:FlatGray forState:UIControlStateSelected];
-        button.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WEIGHT - 65, 10, 60, 20)];
+//        [self addSubview:button];
+//        [button setTitle:@"全部32 >" forState:UIControlStateNormal];
+//        [button setTitle:@"全部32 >" forState:UIControlStateSelected];
+//        [button setTitleColor:FlatGray forState:UIControlStateNormal];
+//        [button setTitleColor:FlatGray forState:UIControlStateSelected];
+//        button.titleLabel.font = [UIFont systemFontOfSize:13.0f];
         
         
         CGFloat hei = frame.size.height;
@@ -50,7 +50,7 @@
               OneHotRoNewView *orv = [[OneHotRoNewView alloc] initWithFrame:CGRectMake(20 + (20 + hei - 20 -60)*i, 5, hei -20 - 60 , hei - 50)];
               orv.tag = OneHotOrNewView_TAG + i;
               [_scroll addSubview:orv];
-            orv.alpha = 0.0f;
+//            orv.alpha = 0.0f;
         }
         
         [self addSubview:_scroll];
@@ -81,13 +81,20 @@
             if ([object[@"classification"] isEqualToString:[self typeString]]) {
                 OneHotRoNewView *view = [_scroll viewWithTag:OneHotOrNewView_TAG + i];
                 AVFile *file = object[@"image"];
-                [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-                    view.image = [UIImage imageWithData:data];
+                [file getThumbnail:YES width:300 height:357 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+                    view.image = image;
                     view.title = object[@"name"];
                     view.starfloatNum = [object[@"stars"] floatValue];
                     view.alpha = 1.0f;
                     view.objectID = object[@"objectId"];
                 }];
+//                [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+//                    view.image = [UIImage imageWithData:data];
+//                    view.title = object[@"name"];
+//                    view.starfloatNum = [object[@"stars"] floatValue];
+//                    view.alpha = 1.0f;
+//                    view.objectID = object[@"objectId"];
+//                }];
                 
                 i ++;
             }
