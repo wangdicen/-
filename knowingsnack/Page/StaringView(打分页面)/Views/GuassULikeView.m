@@ -105,6 +105,43 @@
     return self;
 }
 
+- (void)addRankNum:(int)ranknum
+{
+    
+    
+    if (ranknum == 1 ||ranknum == 2||ranknum == 3) {
+        UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT/4.0 *(23.f/32.f), SCREEN_HEIGHT/4.0)];
+        [self addSubview:imageview];
+        imageview.image = [UIImage imageNamed:[NSString stringWithFormat:@"top%d",ranknum]];
+        imageview.center = CGPointMake(SCREEN_WEIGHT - imageview.frame.size.width/2.0f, SCREEN_HEIGHT/8.0);
+        return;
+    }
+    CGFloat height = self.frame.size.height;
+
+    _titlelbl.frame = CGRectMake(15 + CGRectGetWidth(_imageview.frame) +15,
+                                                         15 + 30,
+                                                         SCREEN_WEIGHT - CGRectGetWidth(_imageview.frame) - 30,
+                                                         (height - 30)/5.0f);
+    _starview.frame = CGRectMake(15 + CGRectGetWidth(_imageview.frame) +15, 15 + CGRectGetHeight(_titlelbl.frame) + 2 + 30, 80, 25);
+    
+    _starnumlbl.frame = CGRectMake(15 + CGRectGetWidth(_imageview.frame) +15 +85, 15 + CGRectGetHeight(_titlelbl.frame) + 2 + 30, 30, 25);
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(15 + CGRectGetWidth(_imageview.frame) +15 ,
+                                                            15 +5,
+                                                            40,
+                                                            20)];
+    [self addSubview:view];
+    view.layer.cornerRadius = 4.0f;
+    view.backgroundColor = FlatYellow;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:view.frame];
+    [self addSubview:label];
+    [label setText:[NSString stringWithFormat:@"Top%d",ranknum]];
+    label.textAlignment = NSTextAlignmentCenter;
+    [label setFont:[UIFont fontWithName:@"Arial" size:12.0f]];
+    [label setTextColor:FlatBrown];
+    
+}
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
@@ -138,7 +175,8 @@
     AVQuery *query = [AVQuery queryWithClassName:@"Snack"];
     [query whereKey:@"classification" equalTo:[self typeString]];
     
-    
+    query.limit = 1000;
+
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
        
         

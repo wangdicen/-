@@ -26,12 +26,19 @@
 
 #import "ZSSLargeViewController.h"
 #import "ArticleViewController.h"
+#import "WDCSearchView.h"
+#import "SearchDetailViewController.h"
 
 @interface MainViewController ()
 {
     UIButton *chatBtn;
     
     NSString *_html;
+    
+    WDCSearchView *_searchView;
+    
+    MainNavView *navbar;
+    
 }
 @property (nonatomic, strong) NSMutableArray *datasArrayM;
 
@@ -56,7 +63,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    MainNavView *navbar = [[MainNavView alloc] initWithFrame:CGRectMake(0,0,SCREEN_WEIGHT*0.80f,35)];
+    navbar = [[MainNavView alloc] initWithFrame:CGRectMake(0,0,SCREEN_WEIGHT*0.80f,35)];
     UIBarButtonItem *navLeft = [[UIBarButtonItem alloc] initWithCustomView:navbar];
     [self.navigationItem setLeftBarButtonItem:navLeft];
     
@@ -64,7 +71,7 @@
     chatBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.navigationBar.frame.size.height, self.navigationController.navigationBar.frame.size.height)];
     chatBtn.center = CGPointMake(SCREEN_WEIGHT - self.navigationController.navigationBar.frame.size.height/2.0 - 5.0f, self.navigationController.navigationBar.frame.size.height/2.0f);
     chatBtn.backgroundColor = ClearColor;
-    [chatBtn addTarget:self action:@selector(goToRigister:) forControlEvents:UIControlEventTouchUpInside];
+    [chatBtn addTarget:self action:@selector(chatAction) forControlEvents:UIControlEventTouchUpInside];
     [chatBtn setImage:IMAGE(@"setting_theme") forState:UIControlStateNormal];
     [chatBtn setImage:IMAGE(@"setting_theme") forState:UIControlStateSelected];
 
@@ -124,12 +131,89 @@
     
     _html = @"<h1>为您的长评设置一个响当当的标题吧~</h1><p>请在这里输入 <strong>任何</strong>您想要输入的测评文字.</p><p>下方可以修改颜色,增加图片或链接</p><p>注意排版,可以吸引跟多人阅读哦</p><p><strong>一些可能发生的问题:</strong></p><p><strong>1.由于技术水平限制,目前长文评论只能加载一张图片</strong></p><p><strong>2.使用过程可能有些卡顿,我们会在之后的版本尽可能改进</strong></p><h1><em>觉得不错~可以打赏一下~</em>.</h1><div><br /></div><p><i>德国方法</i></p><p style=\"text-align: right;\"><i>如果多层次</i></p><p style=\"text-align: left;\"><i>嘘拜拜吧</i></p><p style=\"text-align: justify;\"><i>vhffgg</i></p><p style=\"text-align: justify;\"><i><br /></i></p><p style=\"text-align: center;\"><i>复合肥刚刚好</i></p><img src=\"wangdicen.png\" /><p style=\"text-align: center;\"><i><u>dgdfgggggb<sup>b</sup><font size=\"2\"><sup>fgv</sup></font></u><strike></strike></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sup><u>dgg</u><strike style=\"text-decoration: underline;\">gg ggvbb</strike></sup></font></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sup><strike>dffffgたなみや</strike></sup></font></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sub>仁万やな</sub>ょにまた</font></i></p><blockquote style=\"margin: 0px 0px 0px 40px;\"><p><i><font color=\"#b3cc50\">斜めなんです</font></i></p><p><i><font color=\"#b3cc50\" style=\"background-color: rgb(89, 21, 142);\">マナ棚よ</font></i></p></blockquote><p><i><br /></i></p><p><i><br /></i></p><p></p><p></p><p></p>";
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeToCancel:) name:@"ChatBtn_changeToCancel" object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goToSearchDetail:) name:@"goToSearchDetail" object:nil];
+    
+    _searchView = [[WDCSearchView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WEIGHT, SCREEN_HEIGHT - 64)];
+    _searchView.alpha = 0.0;
+    [self.view addSubview:_searchView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     chatBtn.alpha = 1.0f;
+    if ([chatBtn.titleLabel.text isEqualToString:@"取消"]) {
+        [navbar.searchbar becomeFirstResponder];
+    }
 }
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ChatBtn_changeToChatBtn" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ChatBtn_changeToCancel" object:nil];
+}
+
+- (void)changeToCancel:(NSNotification *)noti
+{
+    [chatBtn setImage:nil forState:UIControlStateNormal];
+    [chatBtn setImage:nil forState:UIControlStateSelected];
+    [chatBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [chatBtn setTitle:@"取消" forState:UIControlStateSelected];
+    [chatBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [chatBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    chatBtn.titleLabel.font = [UIFont fontWithName:@"Arial" size:15.0f];
+    [UIView animateWithDuration:0.5 animations:^{
+        _searchView.alpha = 1.0;
+    }];
+
+}
+
+-(void)chatAction
+{
+    if ([chatBtn.titleLabel.text isEqualToString:@"取消"]) {
+        [UIView animateWithDuration:0.5 animations:^{
+            _searchView.alpha = 0.0;
+        }];
+        [chatBtn setImage:IMAGE(@"setting_theme") forState:UIControlStateNormal];
+        [chatBtn setImage:IMAGE(@"setting_theme") forState:UIControlStateSelected];
+        [chatBtn setTitle:@"" forState:UIControlStateNormal];
+        [chatBtn setTitle:@"" forState:UIControlStateSelected];
+        chatBtn.titleLabel.text = @"";
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"hidesKeyboard" object:nil];
+    }
+    else
+    {
+        [self goToRigister:chatBtn];
+    }
+}
+
+- (void)goToSearchDetail:(NSNotification *)noti
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        _searchView.alpha = 0.0;
+    }];
+    [chatBtn setImage:IMAGE(@"setting_theme") forState:UIControlStateNormal];
+    [chatBtn setImage:IMAGE(@"setting_theme") forState:UIControlStateSelected];
+    [chatBtn setTitle:@"" forState:UIControlStateNormal];
+    [chatBtn setTitle:@"" forState:UIControlStateSelected];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hidesKeyboard" object:nil];
+    
+    SearchDetailViewController *sdvc = [[SearchDetailViewController alloc] init];
+    sdvc.title = [noti.userInfo objectForKey:@"text"];
+    sdvc.searchText = [noti.userInfo objectForKey:@"text"];
+    sdvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:sdvc animated:YES];
+}
+
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    chatBtn.alpha = 1.0f;
+//}
 
 
 - (void)viewWillDisappear:(BOOL)animated

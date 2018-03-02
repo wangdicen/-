@@ -9,10 +9,12 @@
 #import "RankDetailViewController.h"
 #import "RankButton.h"
 #import "Header.h"
+#import "GuassULikeView.h"
 
-@interface RankDetailViewController()
+@interface RankDetailViewController()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_tableView;
+    int _selectedBtnId;
 }
 @end
 
@@ -22,6 +24,9 @@
 {
     self = [super init];
     if (self) {
+        
+        _selectedBtnId = 0;
+        
         NSArray *array = [[NSArray alloc] initWithObjects:@"Top1-50",@"51-100",@"101-150",@"151-200",@"201-250", nil];
         for (int i = 0; i < 5; i++) {
             RankButton *btn = [[RankButton alloc] init];
@@ -37,12 +42,44 @@
             if (i == 0) {
                 [btn setTitleColor:FlatBlack forState:UIControlStateNormal];
             }
+            
+            _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, btn.frame.origin.y + btn.frame.size.height + 5, SCREEN_WEIGHT, SCREEN_HEIGHT - 66 - btn.frame.size.height - 10) style:UITableViewStylePlain];
+            _tableView.delegate = self;
+            _tableView.dataSource = self;
+            _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            _tableView.allowsSelection = NO;
+
+            [self.view addSubview:_tableView];
         }
         
     }
     return self;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return SCREEN_HEIGHT /4.0f;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 50;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"dequeue-%d",(int)indexPath.row+ 50 * _selectedBtnId]];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"dequeue-%d",(int)indexPath.row+ 50 * _selectedBtnId]];
+        GuassULikeView *gulv = [[GuassULikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /4.0f)];
+        gulv.viewcontrollertype = self.viewcontrollerName;
+        [gulv addRankNum:(int)indexPath.row + 50 * _selectedBtnId + 1];
+        [gulv fetchDataInBackground:(int)indexPath.row +  50 * _selectedBtnId];
+        [cell addSubview:gulv];
+
+    }
+    return cell;
+}
 
 -(void)btnclicked:(UIButton *)sender
 {
@@ -50,6 +87,8 @@
         UIButton *button = [self.view viewWithTag:40000000 + i];
         [button setTitleColor:FlatGray forState:UIControlStateNormal];
     }
+    _selectedBtnId = (int)sender.tag - 40000000;
+    [_tableView reloadData];
     [sender setTitleColor:FlatBlack forState:UIControlStateNormal];
 }
 /*

@@ -188,6 +188,22 @@
 		21A547852015B574004FBC96 /* WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A547712015B574004FBC96 /* WXSTransitionProperty.m */; };
 		21AE036C2045380600D75F81 /* RankDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AE036B2045380600D75F81 /* RankDetailViewController.m */; };
 		21AE036F20453D9B00D75F81 /* RankButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AE036E20453D9B00D75F81 /* RankButton.m */; };
+		21AE0374204655BB00D75F81 /* WDCSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AE0373204655BB00D75F81 /* WDCSearchView.m */; };
+		21AE0387204687A600D75F81 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AE0386204687A600D75F81 /* SearchDetailViewController.m */; };
+		21AE038A20468B1900D75F81 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AE038920468B1900D75F81 /* MyCollectionViewCell.m */; };
+		21F7647C204796A20035231C /* MyGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7647B204796A20035231C /* MyGroupViewController.m */; };
+		21F764962047DE620035231C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764952047DE620035231C /* AboutViewController.m */; };
+		21F764992047EC360035231C /* NewFunctionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764982047EC360035231C /* NewFunctionsViewController.m */; };
+		21F7649D2047F1A30035231C /* NewFuntionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7649C2047F1A30035231C /* NewFuntionButton.m */; };
+		21F764A0204805430035231C /* function10.html in Resources */ = {isa = PBXBuildFile; fileRef = 21F7649F204805430035231C /* function10.html */; };
+		21F764A52048E8870035231C /* InfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764A42048E8870035231C /* InfomationViewController.m */; };
+		21F764C42048F0650035231C /* JGUserFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764BB2048F0650035231C /* JGUserFeedBackViewController.m */; };
+		21F764C52048F0650035231C /* JGPredicateMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764C02048F0650035231C /* JGPredicateMethod.m */; };
+		21F764C62048F0650035231C /* JGPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764C12048F0650035231C /* JGPlaceholderTextView.m */; };
+		21F764C72048F0650035231C /* JGPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764C22048F0650035231C /* JGPhotoCollectionViewCell.m */; };
+		21F764CA20493B410035231C /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764C920493B410035231C /* RecommendViewController.m */; };
+		21F764CD20493C3B0035231C /* ChangePicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764CC20493C3B0035231C /* ChangePicViewController.m */; };
+		21F764D120493F180035231C /* WDCAddImageImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764D020493F180035231C /* WDCAddImageImageView.m */; };
 		21FC701B203E655F00843235 /* like.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21FC700A203E655F00843235 /* like.gif */; };
 		21FC701D203E982000843235 /* dislike.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21FC701C203E982000843235 /* dislike.gif */; };
 		21FCD7F4200EF3D30018BD14 /* TwoButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FCD7F3200EF3D30018BD14 /* TwoButtonsView.m */; };
@@ -715,6 +731,37 @@
 		21AE036B2045380600D75F81 /* RankDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankDetailViewController.m; sourceTree = "<group>"; };
 		21AE036D20453D9B00D75F81 /* RankButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankButton.h; sourceTree = "<group>"; };
 		21AE036E20453D9B00D75F81 /* RankButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankButton.m; sourceTree = "<group>"; };
+		21AE0372204655BB00D75F81 /* WDCSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDCSearchView.h; sourceTree = "<group>"; };
+		21AE0373204655BB00D75F81 /* WDCSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDCSearchView.m; sourceTree = "<group>"; };
+		21AE0385204687A600D75F81 /* SearchDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
+		21AE0386204687A600D75F81 /* SearchDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchDetailViewController.m; sourceTree = "<group>"; };
+		21AE038820468B1900D75F81 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		21AE038920468B1900D75F81 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		21F7647A204796A20035231C /* MyGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyGroupViewController.h; sourceTree = "<group>"; };
+		21F7647B204796A20035231C /* MyGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGroupViewController.m; sourceTree = "<group>"; };
+		21F764942047DE620035231C /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		21F764952047DE620035231C /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		21F764972047EC360035231C /* NewFunctionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewFunctionsViewController.h; sourceTree = "<group>"; };
+		21F764982047EC360035231C /* NewFunctionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewFunctionsViewController.m; sourceTree = "<group>"; };
+		21F7649B2047F1A30035231C /* NewFuntionButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewFuntionButton.h; sourceTree = "<group>"; };
+		21F7649C2047F1A30035231C /* NewFuntionButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewFuntionButton.m; sourceTree = "<group>"; };
+		21F7649F204805430035231C /* function10.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = function10.html; sourceTree = "<group>"; };
+		21F764A32048E8870035231C /* InfomationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfomationViewController.h; sourceTree = "<group>"; };
+		21F764A42048E8870035231C /* InfomationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfomationViewController.m; sourceTree = "<group>"; };
+		21F764BB2048F0650035231C /* JGUserFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGUserFeedBackViewController.m; sourceTree = "<group>"; };
+		21F764BC2048F0650035231C /* JGUserFeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGUserFeedBackViewController.h; sourceTree = "<group>"; };
+		21F764BE2048F0650035231C /* JGPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		21F764BF2048F0650035231C /* JGPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGPlaceholderTextView.h; sourceTree = "<group>"; };
+		21F764C02048F0650035231C /* JGPredicateMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGPredicateMethod.m; sourceTree = "<group>"; };
+		21F764C12048F0650035231C /* JGPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGPlaceholderTextView.m; sourceTree = "<group>"; };
+		21F764C22048F0650035231C /* JGPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		21F764C32048F0650035231C /* JGPredicateMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGPredicateMethod.h; sourceTree = "<group>"; };
+		21F764C820493B410035231C /* RecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		21F764C920493B410035231C /* RecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		21F764CB20493C3B0035231C /* ChangePicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePicViewController.h; sourceTree = "<group>"; };
+		21F764CC20493C3B0035231C /* ChangePicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePicViewController.m; sourceTree = "<group>"; };
+		21F764CF20493F180035231C /* WDCAddImageImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDCAddImageImageView.h; sourceTree = "<group>"; };
+		21F764D020493F180035231C /* WDCAddImageImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDCAddImageImageView.m; sourceTree = "<group>"; };
 		21FC700A203E655F00843235 /* like.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = like.gif; sourceTree = "<group>"; };
 		21FC701C203E982000843235 /* dislike.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dislike.gif; sourceTree = "<group>"; };
 		21FCD7F2200EF3D30018BD14 /* TwoButtonsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoButtonsView.h; sourceTree = "<group>"; };
@@ -1144,6 +1191,7 @@
 			isa = PBXGroup;
 			children = (
 				2160415F2015D1B50070A5A8 /* UIButton+BHBSetImage.h */,
+				2160416C2015D1B50070A5A8 /* UIButton+BHBSetImage.m */,
 				216041602015D1B50070A5A8 /* UIImageView+BHBSetImage.m */,
 				216041612015D1B50070A5A8 /* BHBPlaySoundTool.h */,
 				216041622015D1B50070A5A8 /* BHBGroup.h */,
@@ -1156,7 +1204,6 @@
 				216041692015D1B50070A5A8 /* BHBCustomBtn.h */,
 				2160416A2015D1B50070A5A8 /* BHBPlaySoundTool.m */,
 				2160416B2015D1B50070A5A8 /* UIImageView+BHBSetImage.h */,
-				2160416C2015D1B50070A5A8 /* UIButton+BHBSetImage.m */,
 				2160416D2015D1B50070A5A8 /* BHBItem.m */,
 				2160416E2015D1B50070A5A8 /* BHBPopView.m */,
 				2160416F2015D1B50070A5A8 /* BHBGroup.m */,
@@ -1183,8 +1230,13 @@
 		216041962015D33B0070A5A8 /* Article(文章编辑器) */ = {
 			isa = PBXGroup;
 			children = (
+				21F764CE20493E820035231C /* view */,
 				21A3459B2016CD5B00CDF2DB /* ZSSLargeViewController.h */,
 				21A3459C2016CD5B00CDF2DB /* ZSSLargeViewController.m */,
+				21F764C820493B410035231C /* RecommendViewController.h */,
+				21F764C920493B410035231C /* RecommendViewController.m */,
+				21F764CB20493C3B0035231C /* ChangePicViewController.h */,
+				21F764CC20493C3B0035231C /* ChangePicViewController.m */,
 			);
 			path = "Article(文章编辑器)";
 			sourceTree = "<group>";
@@ -1194,6 +1246,10 @@
 			children = (
 				216AA3F01FE2596000002E77 /* OneCellView.h */,
 				216AA3F11FE2596000002E77 /* OneCellView.m */,
+				21AE0372204655BB00D75F81 /* WDCSearchView.h */,
+				21AE0373204655BB00D75F81 /* WDCSearchView.m */,
+				21AE038820468B1900D75F81 /* MyCollectionViewCell.h */,
+				21AE038920468B1900D75F81 /* MyCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1400,6 +1456,74 @@
 			path = WXSTransition;
 			sourceTree = "<group>";
 		};
+		21F7648D2047A5B20035231C /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				21F764942047DE620035231C /* AboutViewController.h */,
+				21F764952047DE620035231C /* AboutViewController.m */,
+				21F764972047EC360035231C /* NewFunctionsViewController.h */,
+				21F764982047EC360035231C /* NewFunctionsViewController.m */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		21F7649A2047F15A0035231C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				21F7649B2047F1A30035231C /* NewFuntionButton.h */,
+				21F7649C2047F1A30035231C /* NewFuntionButton.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		21F7649E204801CC0035231C /* htmls */ = {
+			isa = PBXGroup;
+			children = (
+				21F7649F204805430035231C /* function10.html */,
+			);
+			path = htmls;
+			sourceTree = "<group>";
+		};
+		21F764B92048F0650035231C /* UserFeedBackVC */ = {
+			isa = PBXGroup;
+			children = (
+				21F764BA2048F0650035231C /* Controller */,
+				21F764BD2048F0650035231C /* View */,
+			);
+			path = UserFeedBackVC;
+			sourceTree = "<group>";
+		};
+		21F764BA2048F0650035231C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				21F764BB2048F0650035231C /* JGUserFeedBackViewController.m */,
+				21F764BC2048F0650035231C /* JGUserFeedBackViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		21F764BD2048F0650035231C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21F764BE2048F0650035231C /* JGPhotoCollectionViewCell.h */,
+				21F764BF2048F0650035231C /* JGPlaceholderTextView.h */,
+				21F764C02048F0650035231C /* JGPredicateMethod.m */,
+				21F764C12048F0650035231C /* JGPlaceholderTextView.m */,
+				21F764C22048F0650035231C /* JGPhotoCollectionViewCell.m */,
+				21F764C32048F0650035231C /* JGPredicateMethod.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21F764CE20493E820035231C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				21F764CF20493F180035231C /* WDCAddImageImageView.h */,
+				21F764D020493F180035231C /* WDCAddImageImageView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		9F1E5FB71FA818AB00D2F3F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1476,6 +1600,9 @@
 		9F6088CE1FA32AFC006EA980 /* Setting(设置界面) */ = {
 			isa = PBXGroup;
 			children = (
+				21F7649E204801CC0035231C /* htmls */,
+				21F7649A2047F15A0035231C /* view */,
+				21F7648D2047A5B20035231C /* viewcontroller */,
 				9F6088D11FA32B45006EA980 /* SettingViewController.h */,
 				9F6088D21FA32B45006EA980 /* SettingViewController.m */,
 			);
@@ -1852,6 +1979,10 @@
 		9FDAC8A31FA035F900A47371 /* Main(主界面) */ = {
 			isa = PBXGroup;
 			children = (
+				9FDAC8B81FA0387200A47371 /* MainViewController.h */,
+				9FDAC8B91FA0387200A47371 /* MainViewController.m */,
+				21AE0385204687A600D75F81 /* SearchDetailViewController.h */,
+				21AE0386204687A600D75F81 /* SearchDetailViewController.m */,
 				9FDAC8B51FA0383700A47371 /* MainView */,
 				9FDAC8A41FA0360D00A47371 /* Tabbar */,
 			);
@@ -1888,8 +2019,6 @@
 			children = (
 				216AA3DF1FE2590300002E77 /* View */,
 				9FDAC90D1FA06EAE00A47371 /* Navigationbar */,
-				9FDAC8B81FA0387200A47371 /* MainViewController.h */,
-				9FDAC8B91FA0387200A47371 /* MainViewController.m */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -1932,6 +2061,11 @@
 		9FDAC8D21FA03A5900A47371 /* MineView(我的) */ = {
 			isa = PBXGroup;
 			children = (
+				21F764B92048F0650035231C /* UserFeedBackVC */,
+				21F7647A204796A20035231C /* MyGroupViewController.h */,
+				21F7647B204796A20035231C /* MyGroupViewController.m */,
+				21F764A32048E8870035231C /* InfomationViewController.h */,
+				21F764A42048E8870035231C /* InfomationViewController.m */,
 				9F6088C71FA30780006EA980 /* View */,
 				9FDAC8D31FA03A6F00A47371 /* MineViewController.h */,
 				9FDAC8D41FA03A6F00A47371 /* MineViewController.m */,
@@ -2327,6 +2461,7 @@
 				21A345712016CCA700CDF2DB /* ZSSclearstyle@2x.png in Resources */,
 				21356FC52019738F00DBB5B3 /* 4.gif in Resources */,
 				AC2B061A1FA4AD80006305E8 /* Image4@3x.png in Resources */,
+				21F764A0204805430035231C /* function10.html in Resources */,
 				21A3456F2016CCA700CDF2DB /* ZSSh1.png in Resources */,
 				AC2B061B1FA4AD80006305E8 /* Image5@2x.png in Resources */,
 				21A345592016CCA700CDF2DB /* ZSSunderline.png in Resources */,
@@ -2415,6 +2550,7 @@
 				2103AB3F2011D9CE00D057C1 /* YYImage.m in Sources */,
 				2160418A2015D1B50070A5A8 /* UIImage+BHBEffects.m in Sources */,
 				9F6089871FA71E38006EA980 /* MJRefreshConst.m in Sources */,
+				21F7647C204796A20035231C /* MyGroupViewController.m in Sources */,
 				2160418D2015D1B50070A5A8 /* UIButton+BHBSetImage.m in Sources */,
 				9F6089881FA71E38006EA980 /* NSBundle+MJRefresh.m in Sources */,
 				2103AB382011D9CE00D057C1 /* YYImageCache.m in Sources */,
@@ -2430,20 +2566,25 @@
 				21A3453D2016CCA700CDF2DB /* ZSSTextView.m in Sources */,
 				2103AB472011D9CE00D057C1 /* UIImage+YYWebImage.m in Sources */,
 				9F60897A1FA71E25006EA980 /* MJRefreshBackFooter.m in Sources */,
+				21F764962047DE620035231C /* AboutViewController.m in Sources */,
+				21F764992047EC360035231C /* NewFunctionsViewController.m in Sources */,
 				2185E13D1FE3B5870071BE5A /* PulsingHaloLayer.m in Sources */,
 				9F60897B1FA71E25006EA980 /* MJRefreshComponent.m in Sources */,
 				9F60897C1FA71E25006EA980 /* MJRefreshFooter.m in Sources */,
 				21A5477D2015B574004FBC96 /* UIViewController+WXSTransition.m in Sources */,
 				21A345472016CCA700CDF2DB /* HRColorCursor.m in Sources */,
 				9F60897D1FA71E25006EA980 /* MJRefreshHeader.m in Sources */,
+				21F764A52048E8870035231C /* InfomationViewController.m in Sources */,
 				9F6089271FA71312006EA980 /* UIView+YNCategory.m in Sources */,
 				9F6089281FA71312006EA980 /* UIViewController+YNCategory.m in Sources */,
 				2103AB3B2011D9CE00D057C1 /* YYKVStorage.m in Sources */,
 				9F6089291FA71312006EA980 /* YNPageScrollHeaderView.m in Sources */,
+				21F764C42048F0650035231C /* JGUserFeedBackViewController.m in Sources */,
 				9F60892A1FA71312006EA980 /* YNPageScrollView.m in Sources */,
 				2103AB402011D9CE00D057C1 /* YYImageCoder.m in Sources */,
 				21A5477E2015B574004FBC96 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				21A345422016CCA700CDF2DB /* CYRLayoutManager.m in Sources */,
+				21AE0374204655BB00D75F81 /* WDCSearchView.m in Sources */,
 				9F60892B1FA71312006EA980 /* YNPageScrollViewController.m in Sources */,
 				21A3454B2016CCA700CDF2DB /* ZSSFontsViewController.m in Sources */,
 				9F60892C1FA71312006EA980 /* YNPageScrollViewMenu.m in Sources */,
@@ -2470,19 +2611,23 @@
 				21A547822015B574004FBC96 /* WXSTransitionManager.m in Sources */,
 				21356FCD201973BD00DBB5B3 /* GifCloseButton.m in Sources */,
 				213D91B2201853A200734757 /* WDCHtmlEditor.m in Sources */,
+				21F7649D2047F1A30035231C /* NewFuntionButton.m in Sources */,
 				9FDAC8F51FA0632200A47371 /* Chameleon_.m in Sources */,
 				2103AB3C2011D9CE00D057C1 /* YYMemoryCache.m in Sources */,
+				21F764C72048F0650035231C /* JGPhotoCollectionViewCell.m in Sources */,
 				9F525BDE1FA172A100DCCD87 /* NSString+IsTelNum.m in Sources */,
 				21356FD02019779400DBB5B3 /* GifView.m in Sources */,
 				216041952015D1B50070A5A8 /* BHBCustomBtn.m in Sources */,
 				9F60893D1FA71683006EA980 /* FruitViewController.m in Sources */,
 				21A5477A2015B574004FBC96 /* WXSTransitionManager+BrickAnimation.m in Sources */,
+				21F764D120493F180035231C /* WDCAddImageImageView.m in Sources */,
 				9F525BE21FA174EE00DCCD87 /* XHToast.m in Sources */,
 				2189BBE220108EB500E09B55 /* CommonCommandView.m in Sources */,
 				21A345442016CCA700CDF2DB /* CYRTextStorage.m in Sources */,
 				9FDAC8F61FA0633E00A47371 /* ChameleonConstants.m in Sources */,
 				9F525BF81FA1B6AA00DCCD87 /* RigisterViewController.m in Sources */,
 				9F1E5FE41FA976CB00D2F3F7 /* HotRoNewView.m in Sources */,
+				21F764CA20493B410035231C /* RecommendViewController.m in Sources */,
 				21356FD32019A1E700DBB5B3 /* FireworksView.m in Sources */,
 				212580CE1FFCD05D00F3204B /* StaringVIewInSD.m in Sources */,
 				9FDAC8FC1FA0634C00A47371 /* UIImage+ChameleonPrivate.m in Sources */,
@@ -2496,6 +2641,8 @@
 				21A5477F2015B574004FBC96 /* WXSTransitionManager+TypeTool.m in Sources */,
 				21AE036C2045380600D75F81 /* RankDetailViewController.m in Sources */,
 				21A547762015B574004FBC96 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
+				21F764C52048F0650035231C /* JGPredicateMethod.m in Sources */,
+				21F764C62048F0650035231C /* JGPlaceholderTextView.m in Sources */,
 				9FDAC8FF1FA0635200A47371 /* UIView+ChameleonPrivate.m in Sources */,
 				9FDAC8BA1FA0387200A47371 /* MainViewController.m in Sources */,
 				9F525BF21FA1AA1700DCCD87 /* UserInfoManager.m in Sources */,
@@ -2505,6 +2652,7 @@
 				21AE036F20453D9B00D75F81 /* RankButton.m in Sources */,
 				2103AB432011D9CE00D057C1 /* _YYWebImageSetter.m in Sources */,
 				21A547752015B574004FBC96 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
+				21AE0387204687A600D75F81 /* SearchDetailViewController.m in Sources */,
 				21A5477B2015B574004FBC96 /* WXSTransitionManager+FlipAnimation.m in Sources */,
 				9FDAC8F91FA0634300A47371 /* UIButton+Chameleon.m in Sources */,
 				2124EE562043EE66005C1D77 /* UIView+JHUD.m in Sources */,
@@ -2542,6 +2690,7 @@
 				21A345492016CCA700CDF2DB /* ZSSBarButtonItem.m in Sources */,
 				9F525BE91FA18CA600DCCD87 /* AVOSManager.m in Sources */,
 				9FDAC8D81FA03C1900A47371 /* GroupViewController.m in Sources */,
+				21F764CD20493C3B0035231C /* ChangePicViewController.m in Sources */,
 				210FE89D1FE0BC790094C4E8 /* RankView.m in Sources */,
 				2103AB442011D9CE00D057C1 /* UIButton+YYWebImage.m in Sources */,
 				9FDAC8D51FA03A6F00A47371 /* MineViewController.m in Sources */,
@@ -2562,6 +2711,7 @@
 				9FDAC8121FA028E400A47371 /* AppDelegate.m in Sources */,
 				9F6088D31FA32B45006EA980 /* SettingViewController.m in Sources */,
 				2103AB492011D9CE00D057C1 /* YYWebImageOperation.m in Sources */,
+				21AE038A20468B1900D75F81 /* MyCollectionViewCell.m in Sources */,
 				21A3453F2016CCA700CDF2DB /* HRColorPickerViewController.m in Sources */,
 				21A3453E2016CCA700CDF2DB /* HRCgUtil.m in Sources */,
 				9F525C001FA1B70100DCCD87 /* RealRigisterViewController.m in Sources */,

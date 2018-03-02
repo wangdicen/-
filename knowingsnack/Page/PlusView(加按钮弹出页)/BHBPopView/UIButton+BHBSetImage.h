@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (BHBSetImage)
-
+- (void)bhb_wdc_setImage:(NSString *)imagePath;
 - (void)bhb_setImage:(NSString *)imagePath;
 - (void)bhb_setBGImage:(NSString *)imagePath;
 

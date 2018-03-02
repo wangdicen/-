@@ -52,7 +52,7 @@
         
         UIButton * secCloseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         secCloseBtn.frame = CGRectMake(frame.size.width / 2, 0, frame.size.width / 2, frame.size.height);
-        [secCloseBtn bhb_setImage:@"images.bundle/tabbar_compose_background_icon_close"];
+        [secCloseBtn bhb_wdc_setImage:@"images.bundle/tabbar_compose_background_icon_close"];
         [secCloseBtn bhb_setBGImage:@"images.bundle/tabbar_compose_right_button"];
         [self addSubview:secCloseBtn];
         [secCloseBtn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];

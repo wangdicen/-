@@ -100,7 +100,7 @@
 -(void)goToRankDetailView
 {
     RankDetailViewController *rdvc = [[RankDetailViewController alloc] init];
-    rdvc.typeString = [self typeString];
+    rdvc.viewcontrollerName = self.viewcontrollertype;
     rdvc.title = @"TOP 250";
     rdvc.view.backgroundColor = [UIColor whiteColor];
     rdvc.hidesBottomBarWhenPushed = YES;
@@ -131,7 +131,7 @@
 {
     AVQuery *query = [AVQuery queryWithClassName:@"Snack"];
     [query whereKey:@"classification" equalTo:[self typeString]];
-    
+    query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSSortDescriptor *des = [NSSortDescriptor sortDescriptorWithKey:@"stars" ascending:NO];
         NSArray *sortedArr = [objects sortedArrayUsingDescriptors:[NSArray arrayWithObject:des]];

@@ -10,6 +10,13 @@
 #import "Chameleon.h"
 #import "Header.h"
 #import "RigisterViewController.h"
+#import "SearchDetailViewController.h"
+
+@interface MainNavView()
+{
+    
+}
+@end
 
 @implementation MainNavView
 
@@ -24,35 +31,63 @@
 }
 
 - (void)addUI{
-    UISearchBar *searchbar = [[UISearchBar alloc] init];
-    searchbar.delegate = self;
-    searchbar.backgroundColor = [UIColor whiteColor];
-    searchbar.frame = CGRectMake(0, 0, SCREEN_WEIGHT *0.80f, 28);
-    searchbar.layer.cornerRadius = 5;
-    searchbar.layer.masksToBounds = YES;
+    _searchbar = [[UISearchBar alloc] init];
+    _searchbar.delegate = self;
+    _searchbar.backgroundColor = [UIColor whiteColor];
+    _searchbar.frame = CGRectMake(0, 0, SCREEN_WEIGHT *0.80f, 28);
+    _searchbar.layer.cornerRadius = 5;
+    _searchbar.layer.masksToBounds = YES;
     //边框线粗细
-    [searchbar.layer setBorderWidth:1];
+    [_searchbar.layer setBorderWidth:1];
     //设置边框为白色是为了盖住UISearchBar上的灰色
-    [searchbar.layer setBorderColor:FlatWhite.CGColor];
-    searchbar.placeholder=@"零食 饮料 泡面 奶茶等";
+    [_searchbar.layer setBorderColor:FlatWhite.CGColor];
+    _searchbar.placeholder=@"零食 饮料 泡面 奶茶等";
     
     //通过kvc来设置placeholder的字体和颜色
-    UITextField * searchField = [searchbar valueForKey:@"_searchField"];
+    UITextField * searchField = [_searchbar valueForKey:@"_searchField"];
     [searchField setValue:FlatGray forKeyPath:@"_placeholderLabel.textColor"];
     [searchField setValue:[UIFont fontWithName:@"Arial" size:14] forKeyPath:@"_placeholderLabel.font"];
     
-    [self addSubview:searchbar];
+    [self addSubview:_searchbar];
     
-//    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
-//    btn.backgroundColor = FlatBlue;
-////    btn.backgroundColor = ClearColor;
-//    [btn setImage:IMAGE(@"setting_review") forState:UIControlStateNormal];
-//    [btn setImage:IMAGE(@"setting_review") forState:UIControlStateSelected];
-//
-//    [searchbar addSubview:btn];
-//    btn.center = CGPointMake(searchbar.frame.size.width - 28/2.0, searchbar.frame.size.height /2.0f);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidesKeyboard) name:@"hidesKeyboard" object:nil];
+}
+
+- (void)hidesKeyboard
+{
+    [_searchbar resignFirstResponder];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"hidesKeyboard" object:nil];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChatBtn_changeToCancel" object:nil];
     
 }
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:_searchbar.text,@"text", nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"goToSearchDetail"
+                                                        object:nil userInfo:info];
+    _searchbar.text = nil;
+}
+
 
 
 

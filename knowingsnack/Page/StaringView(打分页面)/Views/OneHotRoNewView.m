@@ -112,10 +112,6 @@
     sdvc.view.backgroundColor = FlatWhite;
     sdvc.objectId = self.objectID;
     
-    NSLog(@"%@",self.objectID);
-
-    NSLog(@"%@",sdvc.objectId);
-    
 }
 
 

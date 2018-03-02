@@ -23,7 +23,7 @@
     UIImage * image = [UIImage imageWithContentsOfFile:filePath];
     image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height / 2 - 1, image.size.width / 2 - 1, image.size.height / 2 - 1, image.size.width / 2 - 1) resizingMode:UIImageResizingModeStretch];
     if (isAuto) {
-        [self bhb_setImage:image];
+//        [self bhb_setImage:image];
     }else{
         [self setImage:image];
     }

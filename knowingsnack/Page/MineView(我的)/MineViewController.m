@@ -10,6 +10,10 @@
 #import "MyInfoView.h"
 #import "Header.h"
 #import "ThemeViewController.h"
+#import "MyGroupViewController.h"
+#import "SettingViewController.h"
+#import "InfomationViewController.h"
+#import "JGUserFeedBackViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -113,19 +117,63 @@
         }
     }
     
-    
-
-    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row == 0){
-        [self setHidesBottomBarWhenPushed:YES];
-        //去设置主题;
-        ThemeViewController *tvc = [[ThemeViewController alloc] init];
-        [self.navigationController pushViewController:tvc animated:YES];
-        self.hidesBottomBarWhenPushed=NO;
+   
+    if(indexPath.section == 0)
+    {
+        //主题
+        if(indexPath.row == 0){
+            [self setHidesBottomBarWhenPushed:YES];
+            //去设置主题;
+            ThemeViewController *tvc = [[ThemeViewController alloc] init];
+            [self.navigationController pushViewController:tvc animated:YES];
+            self.hidesBottomBarWhenPushed=NO;
+        }
     }
+    else if(indexPath.section == 1)
+    {
+        //喜欢
+        if (indexPath.row == 0) {
+            
+        }
+        //小组
+        else if (indexPath.row == 1){
+            [self setHidesBottomBarWhenPushed:YES];
+
+            MyGroupViewController *mgvc = [[MyGroupViewController alloc] init];
+            [self.navigationController pushViewController:mgvc animated:YES];
+            self.hidesBottomBarWhenPushed=NO;
+        }
+    }
+    else if(indexPath.section == 2)
+    {
+        //设置
+        if (indexPath.row == 0) {
+            [self setHidesBottomBarWhenPushed:YES];
+            
+            SettingViewController *svc = [[SettingViewController alloc] init];
+            [self.navigationController pushViewController:svc animated:YES];
+            self.hidesBottomBarWhenPushed=NO;
+        }
+        //消息
+        else if (indexPath.row == 1){
+            [self setHidesBottomBarWhenPushed:YES];
+            InfomationViewController *ivc = [[InfomationViewController alloc] init];
+            [self.navigationController pushViewController:ivc animated:YES];
+            self.hidesBottomBarWhenPushed=NO;
+        }
+        //反馈
+        else if (indexPath.row == 2){
+            [self setHidesBottomBarWhenPushed:YES];
+            JGUserFeedBackViewController *jgufbvc = [[JGUserFeedBackViewController alloc] init];
+            [self.navigationController pushViewController:jgufbvc animated:YES];
+            self.hidesBottomBarWhenPushed=NO;
+        }
+    }
+    
+    
 }
 
 

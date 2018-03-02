@@ -176,6 +176,7 @@ CGFloat COMMON_HEIGHT = 0;
     AVQuery *query = [AVQuery queryWithClassName:@"snack_staring"];
     AVObject *object = [AVObject objectWithObjectId:self.objectId];
     [query whereKey:@"snackpointer" equalTo:object];
+    query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         float aHeight = 0;

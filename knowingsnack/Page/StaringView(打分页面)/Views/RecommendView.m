@@ -47,7 +47,7 @@
         for (int i = 0; i < 10; i++) {
             OneRecommendView *orv = [[OneRecommendView alloc] initWithFrame:CGRectMake(20 + (20 + hei - 80 + 10)*i, 10, hei -80 + 10, hei - 80)];
             orv.tag = OneRecommendView_TAG + i;
-            orv.alpha = 0.0;
+            orv.alpha = 1.0;
             [_scroll addSubview:orv];
         }
         

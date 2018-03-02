@@ -40,6 +40,10 @@
     _jhud.customImage = [UIImage imageNamed:@"nullData"];
     [_jhud showAtView:self.view hudType:JHUDLoadingTypeFailure];
 
+    
+    [_jhud setJHUDReloadButtonClickedBlock:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 -(void)back{

@@ -7,8 +7,21 @@
 //
 
 #import "UIButton+BHBSetImage.h"
+#import "UIImage+ChangeImageColor.h"
+#import "Header.h"
 
 @implementation UIButton (BHBSetImage)
+
+
+- (void)bhb_wdc_setImage:(NSString *)imagePath{
+    NSString * filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:imagePath];
+    if([[UIDevice currentDevice].systemVersion doubleValue] < 8.0){
+        filePath = [filePath stringByAppendingString:@"@2x"];
+    }
+    UIImage * image = [UIImage imageWithContentsOfFile:filePath];
+    [self setImage:[image imageWithColor:MainColor] forState:UIControlStateNormal];
+}
+
 
 - (void)bhb_setImage:(NSString *)imagePath{
     NSString * filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:imagePath];

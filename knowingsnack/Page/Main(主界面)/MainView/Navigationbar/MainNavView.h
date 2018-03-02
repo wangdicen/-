@@ -10,4 +10,6 @@
 
 @interface MainNavView : UIView <UISearchBarDelegate>
 
+@property (nonatomic,strong) UISearchBar *searchbar;
+
 @end

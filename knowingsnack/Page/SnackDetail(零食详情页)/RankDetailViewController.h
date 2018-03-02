@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SnackBaseViewController.h"
+
 
 @interface RankDetailViewController : UIViewController
 
-@property (nonatomic,assign) NSString *typeString;
+@property (nonatomic, assign) SnackViewControllerName viewcontrollerName;
 
 @end

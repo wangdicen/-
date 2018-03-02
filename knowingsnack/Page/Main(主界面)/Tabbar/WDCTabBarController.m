@@ -13,7 +13,8 @@
 #import "BHBPopView.h"
 #import "ZSSLargeViewController.h"
 #import "UIApplication+Visible.h"
-
+#import "RecommendViewController.h"
+#import "ChangePicViewController.h"
 
 NSUInteger WDCTabbarItemsCount = 0;
 
@@ -48,9 +49,9 @@ NSUInteger WDCTabbarItemsCount = 0;
 
 - (void)addButtonClicked
 {
-    BHBItem * item0 = [[BHBItem alloc]initWithTitle:@"写长评" Icon:@"images.bundle/tabbar_compose_idea"];
-    BHBItem * item1 = [[BHBItem alloc]initWithTitle:@"Albums" Icon:@"images.bundle/tabbar_compose_photo"];
-    BHBItem * item2 = [[BHBItem alloc]initWithTitle:@"Camera" Icon:@"images.bundle/tabbar_compose_camera"];
+    BHBItem * item0 = [[BHBItem alloc]initWithTitle:@"写长评" Icon:@"images.bundle/fruiticons_buttons_watermelon"];
+    BHBItem * item1 = [[BHBItem alloc]initWithTitle:@"推荐零食" Icon:@"images.bundle/fruiticons_buttons_strawberry"];
+    BHBItem * item2 = [[BHBItem alloc]initWithTitle:@"更换图片" Icon:@"images.bundle/fruiticons_buttons_pineapple"];
     
     [BHBPopView showToView:self.view.window withItems:@[item0,item1,item2] andSelectBlock:^(BHBItem *item) {
         if ([item isKindOfClass:[BHBGroup class]]) {
@@ -61,6 +62,22 @@ NSUInteger WDCTabbarItemsCount = 0;
             if ([item.title isEqualToString:@"写长评"]) {
                 ZSSLargeViewController *viewController = [[ZSSLargeViewController alloc] init];
 
+                viewController.hidesBottomBarWhenPushed = YES;
+                
+                UINavigationController *nav = [[UIApplication sharedApplication] visibleNavigationController];
+                [nav pushViewController:viewController animated:YES];
+            }
+            else if ([item.title isEqualToString:@"推荐零食"]) {
+                RecommendViewController *viewController = [[RecommendViewController alloc] init];
+                
+                viewController.hidesBottomBarWhenPushed = YES;
+                
+                UINavigationController *nav = [[UIApplication sharedApplication] visibleNavigationController];
+                [nav pushViewController:viewController animated:YES];
+            }
+            else if ([item.title isEqualToString:@"更换图片"]) {
+                ChangePicViewController *viewController = [[ChangePicViewController alloc] init];
+                
                 viewController.hidesBottomBarWhenPushed = YES;
                 
                 UINavigationController *nav = [[UIApplication sharedApplication] visibleNavigationController];

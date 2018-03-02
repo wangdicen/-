@@ -15,4 +15,6 @@
 
 -(void)fetchDataInBackground:(int)index;
 
+-(void)addRankNum:(int)ranknum;
+
 @end
