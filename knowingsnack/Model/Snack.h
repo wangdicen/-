@@ -15,7 +15,9 @@
 
 
 -(void)commentSnackWithShortComment:(NSString *_Nullable)shortcomment
-                            starnum:(int)num;
+                            starnum:(int)num
+                            success:(void (^)(void))success
+                            failed:(void (^)(void))failed;
 -(void)updateSnackStarNum;
 
 @end

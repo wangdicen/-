@@ -30,6 +30,8 @@
 @interface SnackBaseViewController ()
 {
     int guessULikeCount;
+    
+    FindNLikeView *_fnl;
 }
 @property (nonatomic, strong) NSMutableArray *datasArrayM;
 
@@ -106,7 +108,7 @@
         [self.datasArrayM addObject:@"recommend"];
         [self.datasArrayM addObject:@"find&like"];
         [self.datasArrayM addObject:@"hot"];
-        [self.datasArrayM addObject:@"ads"];
+//        [self.datasArrayM addObject:@"ads"];
         [self.datasArrayM addObject:@"new"];
         [self.datasArrayM addObject:@"rank"];
     }
@@ -330,29 +332,29 @@
             }
             if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"find&like"])
             {
-                FindNLikeView *rv = [[FindNLikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /8.5f)];
-                [cell addSubview:rv];
+                _fnl = [[FindNLikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /8.5f)];
+                [cell addSubview:_fnl];
                 switch (self.viewcontrollerName) {
                     case NameSnackViewController:
-                        rv.type = NameSnackViewController;
+                        _fnl.type = NameSnackViewController;
                         break;
                     case NameDrinkViewController:
-                        rv.type = NameDrinkViewController;
+                        _fnl.type = NameDrinkViewController;
                         break;
                     case NameMeatViewController:
-                        rv.type = NameMeatViewController;
+                        _fnl.type = NameMeatViewController;
                         break;
                     case NameFruitViewController:
-                        rv.type = NameFruitViewController;
+                        _fnl.type = NameFruitViewController;
                         break;
                     case NameSpicyViewController:
-                        rv.type = NameSpicyViewController;
+                        _fnl.type = NameSpicyViewController;
                         break;
                     case NameSweetViewController:
-                        rv.type = NameSweetViewController;
+                        _fnl.type = NameSweetViewController;
                         break;
                     case NameFangBianViewController:
-                        rv.type = NameFangBianViewController;
+                        _fnl.type = NameFangBianViewController;
                         break;
                     default:
                         break;
@@ -518,6 +520,12 @@
     
     
 };
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_fnl refreshText];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

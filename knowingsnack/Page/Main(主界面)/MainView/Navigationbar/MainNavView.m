@@ -51,11 +51,17 @@
     [self addSubview:_searchbar];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidesKeyboard) name:@"hidesKeyboard" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboard) name:@"showKeyboard" object:nil];
 }
 
 - (void)hidesKeyboard
 {
     [_searchbar resignFirstResponder];
+}
+
+- (void)showKeyboard
+{
+    [_searchbar becomeFirstResponder];
 }
 
 - (void)dealloc

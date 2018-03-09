@@ -156,11 +156,20 @@
     [unArchiver finishDecoding];
     
     
-    if ([info.password isEqualToString:_keyword.text]){
-        [XHToast showTopWithText:@"登录成功" topOffset:55.0f];
-    }else{
-        [XHToast showTopWithText:@"密码错误" topOffset:55.0f];
-    }
+    [AVUser logInWithUsernameInBackground:_username.text password:_keyword.text block:^(AVUser * _Nullable user, NSError * _Nullable error) {
+        
+        if (error == nil) {
+            [XHToast showTopWithText:@"登陆成功"];
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
+        else
+        {
+            [XHToast showTopWithText:[error.userInfo objectForKey:@"error"]];
+        }
+        
+    }];
 }
 
 - (void)registerUser{

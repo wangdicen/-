@@ -13,6 +13,8 @@
 #import "CommonCommandView.h"
 #import "UIImage+YYWebImage.h"
 #import "UIImageView+YYWebImage.h"
+#import "JHUD.h"
+#import "StaringDetailViewController.h"
 
 
 @interface SnackDetailViewController ()<UIScrollViewDelegate,TwoButtonsViewDelegate>
@@ -32,6 +34,10 @@
     
     UIView *_commandView;
     UIView *_grounpView;
+    
+    UILabel *lbl;
+    
+    UIButton *_likebtn;
 }
 @end
 
@@ -80,19 +86,33 @@
     
     
     
-    _SnackName = [[UILabel alloc] initWithFrame:CGRectMake(30, SCREEN_HEIGHT/2.0 + 10, SCREEN_WEIGHT*3/5.0f - 15.0f, 120)];
+    _SnackName = [[UILabel alloc] initWithFrame:CGRectMake(30, SCREEN_HEIGHT/2.0 -5, SCREEN_WEIGHT*3/5.0f - 15.0f, 120)];
     [_scrollview addSubview:_SnackName];
     _SnackName.textAlignment = NSTextAlignmentLeft;
     _SnackName.numberOfLines = 2.0f;
     _SnackName.text = @"大波浪薯片:铁板鱿鱼味";
     _SnackName.font = [UIFont boldSystemFontOfSize:23];
     
+    
+    _likebtn = [[UIButton alloc] initWithFrame:CGRectMake(30, SCREEN_HEIGHT/2.0 +100, SCREEN_WEIGHT*3/5.0f/3.f, 25)];
+    [_scrollview addSubview:_likebtn];
+    _likebtn.layer.cornerRadius = 5.f;
+    _likebtn.layer.borderColor = FlatOrange.CGColor;
+    _likebtn.layer.borderWidth = 1.f;
+    
+    
+    [_likebtn setTitleColor:FlatOrange forState:UIControlStateNormal];
+    _likebtn.titleLabel.font = [UIFont systemFontOfSize:12.f];
+    [_likebtn addTarget:self action:@selector(like:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
     _newTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
     _newTitleView.layer.cornerRadius = 14.0f;
     _newTitleView.backgroundColor = [UIColor whiteColor];
     
     
-    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(5, 3, 100, 24)];
+    lbl = [[UILabel alloc] initWithFrame:CGRectMake(5, 3, 100, 24)];
     lbl.text = @"🔥757人正在热议..";
     lbl.textColor = FlatBlack;
     lbl.font = [UIFont systemFontOfSize:11.0f];
@@ -120,6 +140,39 @@
 //    [self addgroups];
 //    _grounpView.backgroundColor = rgb(244, 249, 242);
 //    _grounpView.hidden = YES;
+}
+
+
+- (void)like:(UIButton *)sender
+{
+    //喜欢
+    if ([sender.titleLabel.text isEqualToString:@"喜欢"]) {
+        [sender setTitle:@"取消喜欢" forState:UIControlStateNormal];
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *array = [userDefaults objectForKey:@"theArrayKey"];
+        
+        NSMutableArray *mutableCopyArray = [array mutableCopy];
+        [mutableCopyArray addObject:self.objectId];
+        [userDefaults setObject: mutableCopyArray forKey:@"theArrayKey"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+    }
+    //取消喜欢
+    else if ([sender.titleLabel.text isEqualToString:@"取消喜欢"])
+    {
+        [sender setTitle:@"喜欢" forState:UIControlStateNormal];
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *array = [userDefaults objectForKey:@"theArrayKey"];
+        
+        NSMutableArray *mutableCopyArray = [array mutableCopy];
+        [mutableCopyArray removeObject:self.objectId];
+        [userDefaults setObject: mutableCopyArray forKey:@"theArrayKey"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)setImage:(UIImage *)image
@@ -160,6 +213,17 @@
 //    [self addgroups];
     _grounpView.backgroundColor = rgb(244, 249, 242);
     _grounpView.hidden = YES;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *array = [userDefaults objectForKey:@"theArrayKey"];
+    
+    if ([array containsObject:objectId]) {
+        [_likebtn setTitle:@"取消喜欢" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_likebtn setTitle:@"喜欢" forState:UIControlStateNormal];
+    }
 }
 
 CGFloat COMMON_HEIGHT = 0;
@@ -179,7 +243,33 @@ CGFloat COMMON_HEIGHT = 0;
     query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
+        lbl.text = [NSString stringWithFormat:@"🔥%lu人正在热议..",objects.count] ;
+
         float aHeight = 0;
+        
+        if(objects.count == 0)
+        {
+            UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _scrollview.contentSize.width, 250)];
+            view.backgroundColor = rgb(244, 249, 242);
+            [_commandView addSubview:view];
+            _scrollview.contentSize = CGSizeMake(_scrollview.contentSize.width, _commandView.frame.origin.y + 250);
+            
+            UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+            imageview.center = CGPointMake(view.center.x, 75);
+            imageview.image = [UIImage imageNamed:@"nullData"];
+            [view addSubview:imageview];
+            
+            UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, 45)];
+            lbl.center = CGPointMake(view.center.x, 120);
+            [view addSubview:lbl];
+            lbl.numberOfLines = 2;
+            lbl.text = @"暂时还没有人来评论哦!\n(点击右上\"知食评分\"框进行评论)";
+            lbl.textAlignment = NSTextAlignmentCenter;
+            lbl.textColor = FlatGray;
+            
+            [self addgroups];
+            return;
+        }
         
         for (int i =0; i<10; i++) {
             if (i>=objects.count) {
@@ -193,13 +283,14 @@ CGFloat COMMON_HEIGHT = 0;
             AVQuery *query2 = [AVQuery queryWithClassName:@"_User"];
             [query2 whereKey:@"objectId" equalTo:user.objectId];
             [query2 findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-                NSDictionary *object2 = objects[0];
-                AVFile *file = object2[@"image"];
-                [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
-                    command.image = image;
-                    command.nametext = object2[@"username"];
-                }];
-               
+                if (objects != nil) {
+                    NSDictionary *object2 = objects[0];
+                    AVFile *file = object2[@"image"];
+                    [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+                        command.image = image;
+                        command.nametext = object2[@"username"];
+                    }];
+                }
 
             }];
             
@@ -243,10 +334,10 @@ CGFloat COMMON_HEIGHT = 0;
     int maxNum = COMMON_HEIGHT/oneHeight - 1;
     
     for (int i =0; i<maxNum; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, i * (oneHeight +10) + 5, oneWidth, oneHeight)];
-        [_grounpView addSubview:button];
-        [button setBackgroundColor:FlatGrayDark];
-        button.layer.cornerRadius = 15.0f;
+//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(5, i * (oneHeight +10) + 5, oneWidth, oneHeight)];
+//        [_grounpView addSubview:button];
+//        [button setBackgroundColor:FlatGrayDark];
+//        button.layer.cornerRadius = 15.0f;
     }
     
     
@@ -263,7 +354,7 @@ CGFloat COMMON_HEIGHT = 0;
     btn.frame = CGRectMake(0, 0, SCREEN_WEIGHT - 20, 40);
     btn.backgroundColor = [UIColor clearColor];
     [imageview addSubview:btn];
-    [btn setTitle:@"相关零食 >>>" forState:UIControlStateNormal];
+    [btn setTitle:@"开发中······" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:16.0f];
     [btn setTitleColor:FlatGreen forState:UIControlStateNormal];
 }

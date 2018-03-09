@@ -9,6 +9,7 @@
 #import "RecommendViewController.h"
 #import "WDCAddImageImageView.h"
 #import "Header.h"
+#import "UITextView+Placeholder.h"
 @interface RecommendViewController ()
 {
     UIButton *_leftBtn;
@@ -41,8 +42,49 @@
     UIView *leftview = [[UIView alloc] initWithFrame:frame];
     _textfield.leftViewMode = UITextFieldViewModeAlways;
     _textfield.leftView = leftview;
-
+    
+    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, _textfield.frame.origin.y + _textfield.frame.size.height, SCREEN_WEIGHT, 150)];
+    _textView.font = [UIFont systemFontOfSize:14.f];
+    [self.view addSubview:_textView];
+    _textView.placeholder = @"     输入推荐理由\n     (若知食未收录您喜欢的零食,可以在这里反馈给我们,管理员会在后台添加)";
+    
+    
+    _leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    [self.navigationController.navigationBar addSubview:_leftBtn];
+    
+    _leftBtn.center = CGPointMake(SCREEN_WEIGHT - 30, 22.f);
+    [_leftBtn setTitle:@"完成" forState:UIControlStateNormal];
+    [_leftBtn setTitleColor:FlatGray forState:UIControlStateNormal];
+    _leftBtn.backgroundColor = FlatWhite;
+    _leftBtn.layer.cornerRadius = 5.f;
+    _leftBtn.titleLabel.font = [UIFont systemFontOfSize:13.f];
+    
+    [_leftBtn addTarget:self action:@selector(complete:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+-(void)complete:(UIButton *)sender
+{
+    
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        _leftBtn.alpha = 0.0;
+    }];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        _leftBtn.alpha = 1.0;
+    }];
+}
+
+//-(void)viewDidDisappear:(BOOL)animated
+//{
+//    [_leftBtn removeFromSuperview];
+//    _leftBtn = nil;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

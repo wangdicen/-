@@ -49,12 +49,16 @@
         /**
          *  做你想在整个APP生命里只做一次的事
          */
-        [[NSUserDefaults standardUserDefaults] setObject:FlatOrange.hexValue forKey:@"Main_Color"];
+        [[NSUserDefaults standardUserDefaults] setObject:FlatPowderBlue.hexValue forKey:@"Main_Color"];
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"IS_LOGIN"];
         [[NSUserDefaults standardUserDefaults] setInteger:3  forKey:@"ICON_ID"];
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"once"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:[NSArray new] forKey:@"theArrayKey"];
+        [userDefaults synchronize];
     }
     
     

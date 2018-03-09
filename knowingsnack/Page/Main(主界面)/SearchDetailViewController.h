@@ -12,4 +12,6 @@
 
 @property (nonatomic, assign) NSString *searchText;
 
+@property (nonatomic, copy) NSArray *likesArray;
+
 @end

@@ -19,7 +19,7 @@
 #import "MeatViewController.h"
 #import "MJRefresh.h"
 #import"SnackBaseViewController.h"
-
+#import "SearchDetailViewController.h"
 #import"Header.h"
 
 
@@ -38,8 +38,25 @@
     YNJianShuDemoViewController *viewController = [self getJianShuDemoViewController];
     [viewController addSelfToParentViewController:self isAfterLoadData:YES];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goToLike) name:@"GoToLike" object:nil];
     
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GoToLike" object:nil];
+}
+- (void)goToLike
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *array = [userDefaults objectForKey:@"theArrayKey"];
     
+    [self setHidesBottomBarWhenPushed:YES];
+    
+    SearchDetailViewController *sdvc = [[SearchDetailViewController alloc] init];
+    sdvc.title = @"喜欢";
+    sdvc.likesArray =  array;
+    [self.navigationController pushViewController:sdvc animated:YES];
 }
 
 
@@ -155,6 +172,12 @@
 }
 
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.hidesBottomBarWhenPushed=NO;
+}
 - (void)createTabbarItems
 {
     

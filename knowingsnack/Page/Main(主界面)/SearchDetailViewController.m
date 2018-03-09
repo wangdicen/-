@@ -64,6 +64,18 @@
     
 }
 
+- (void)setLikesArray:(NSArray *)likesArray
+{
+    _likesArray = likesArray;
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"Snack"];
+    [query whereKey:@"objectId" containedIn:likesArray];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        [_datasource addObjectsFromArray:objects];
+        [_collectview reloadData];
+    }];
+}
+
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -87,6 +99,17 @@
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.hidesBottomBarWhenPushed=YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.hidesBottomBarWhenPushed=YES;
+}
 
 
 - (void)didReceiveMemoryWarning {

@@ -27,9 +27,9 @@
     if (self) {
         _imageView = [[YYAnimatedImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width *(179.0f/234.0f))];
         [self addSubview:_imageView];
+        
         NSURL *path = [[NSBundle mainBundle] URLForResource:@"1" withExtension:@"gif"];
         _imageView.yy_imageURL = path;
-        
         
         NSTimer *timer= [NSTimer scheduledTimerWithTimeInterval:3.5f target:self selector:@selector(myLog:) userInfo:nil repeats:YES];
         [timer fire];

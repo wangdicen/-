@@ -13,6 +13,7 @@
 #import "CWStarRateView.h"
 #import "FireworksView.h"
 #import "Snack.h"
+#import "XHToast.h"
 
 @interface StaringDetailViewController ()<UITextViewDelegate,CWStarRateViewDelegate>
 {
@@ -102,11 +103,29 @@
 
 - (void)next
 {
+    if (_starview.scorePercent == 0) {
+        [XHToast showTopWithText:@"评分最少为一星"];
+        return;
+    }
+    if ([_textview.text isEqualToString:@""]) {
+        [XHToast showTopWithText:@"请为零食写点评价吧"];
+        return;
+    }
+    if([AVUser currentUser] == nil)
+    {
+        [XHToast showTopWithText:@"先登陆才能评论哦"];
+        return;
+    }
+    
     Snack *snack = [Snack objectWithClassName:@"Snack" objectId:self.objectID];
 
     NSLog(@"%@",self.objectID);
     
-    [snack commentSnackWithShortComment:_textview.text starnum:_starview.scorePercent*5];
+    [snack commentSnackWithShortComment:_textview.text starnum:_starview.scorePercent*5 success:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failed:^{
+        
+    }];
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView

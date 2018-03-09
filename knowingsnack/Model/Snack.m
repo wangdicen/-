@@ -18,7 +18,10 @@
 }
 
 -(void)commentSnackWithShortComment:(NSString *)shortcomment
-                            starnum:(int)num{
+                            starnum:(int)num
+                            success:(void (^)(void))success
+                             failed:(void (^)(void))failed;
+{
 //    AVObject *snack = [AVObject objectWithClassName:[Snack parseClassName] objectId:self.objectId];
     AVObject *snack_staring = [[AVObject alloc] initWithClassName:@"snack_staring"];
    
@@ -34,9 +37,12 @@
         if (succeeded) {
             [XHToast showTopWithText:@"评论成功"];
             [self updateSnackStarNum];
+            success();
         }else
         {
             [XHToast showTopWithText:@"评论失败"];
+            
+            failed();
         }
     }];
 }

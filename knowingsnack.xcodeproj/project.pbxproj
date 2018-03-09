@@ -39,15 +39,6 @@
 		2124EE592043EE66005C1D77 /* JHUDAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EE532043EE65005C1D77 /* JHUDAnimationView.m */; };
 		212580CE1FFCD05D00F3204B /* StaringVIewInSD.m in Sources */ = {isa = PBXBuildFile; fileRef = 212580CD1FFCD05D00F3204B /* StaringVIewInSD.m */; };
 		21356FB6201972B100DBB5B3 /* StaringDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356FB5201972B100DBB5B3 /* StaringDetailViewController.m */; };
-		21356FC22019738F00DBB5B3 /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FB92019738F00DBB5B3 /* 3.gif */; };
-		21356FC32019738F00DBB5B3 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FBA2019738F00DBB5B3 /* 1.gif */; };
-		21356FC42019738F00DBB5B3 /* 5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FBB2019738F00DBB5B3 /* 5.gif */; };
-		21356FC52019738F00DBB5B3 /* 4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FBC2019738F00DBB5B3 /* 4.gif */; };
-		21356FC62019738F00DBB5B3 /* 6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FBD2019738F00DBB5B3 /* 6.gif */; };
-		21356FC72019738F00DBB5B3 /* 8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FBE2019738F00DBB5B3 /* 8.gif */; };
-		21356FC82019738F00DBB5B3 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FBF2019738F00DBB5B3 /* 2.gif */; };
-		21356FC92019738F00DBB5B3 /* closegif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FC02019738F00DBB5B3 /* closegif.gif */; };
-		21356FCA2019738F00DBB5B3 /* 7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21356FC12019738F00DBB5B3 /* 7.gif */; };
 		21356FCD201973BD00DBB5B3 /* GifCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356FCC201973BD00DBB5B3 /* GifCloseButton.m */; };
 		21356FD02019779400DBB5B3 /* GifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356FCF2019779400DBB5B3 /* GifView.m */; };
 		21356FD32019A1E700DBB5B3 /* FireworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356FD22019A1E700DBB5B3 /* FireworksView.m */; };
@@ -191,6 +182,16 @@
 		21AE0374204655BB00D75F81 /* WDCSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AE0373204655BB00D75F81 /* WDCSearchView.m */; };
 		21AE0387204687A600D75F81 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AE0386204687A600D75F81 /* SearchDetailViewController.m */; };
 		21AE038A20468B1900D75F81 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AE038920468B1900D75F81 /* MyCollectionViewCell.m */; };
+		21EE3F74205221D900B7E87E /* 8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F6B205221D800B7E87E /* 8.gif */; };
+		21EE3F75205221D900B7E87E /* 4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F6C205221D800B7E87E /* 4.gif */; };
+		21EE3F76205221D900B7E87E /* 6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F6D205221D800B7E87E /* 6.gif */; };
+		21EE3F77205221D900B7E87E /* 5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F6E205221D900B7E87E /* 5.gif */; };
+		21EE3F78205221D900B7E87E /* closegif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F6F205221D900B7E87E /* closegif.gif */; };
+		21EE3F79205221D900B7E87E /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F70205221D900B7E87E /* 2.gif */; };
+		21EE3F7A205221D900B7E87E /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F71205221D900B7E87E /* 1.gif */; };
+		21EE3F7B205221D900B7E87E /* 7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F72205221D900B7E87E /* 7.gif */; };
+		21EE3F7C205221D900B7E87E /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F73205221D900B7E87E /* 3.gif */; };
+		21EE3F7E205221F300B7E87E /* 10.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3F7D205221F300B7E87E /* 10.gif */; };
 		21F7647C204796A20035231C /* MyGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7647B204796A20035231C /* MyGroupViewController.m */; };
 		21F764962047DE620035231C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764952047DE620035231C /* AboutViewController.m */; };
 		21F764992047EC360035231C /* NewFunctionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F764982047EC360035231C /* NewFunctionsViewController.m */; };
@@ -521,15 +522,6 @@
 		212580CD1FFCD05D00F3204B /* StaringVIewInSD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaringVIewInSD.m; sourceTree = "<group>"; };
 		21356FB4201972B100DBB5B3 /* StaringDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaringDetailViewController.h; sourceTree = "<group>"; };
 		21356FB5201972B100DBB5B3 /* StaringDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaringDetailViewController.m; sourceTree = "<group>"; };
-		21356FB92019738F00DBB5B3 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 3.gif; path = ../../../../../Desktop/gifs/3.gif; sourceTree = "<group>"; };
-		21356FBA2019738F00DBB5B3 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 1.gif; path = ../../../../../Desktop/gifs/1.gif; sourceTree = "<group>"; };
-		21356FBB2019738F00DBB5B3 /* 5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 5.gif; path = ../../../../../Desktop/gifs/5.gif; sourceTree = "<group>"; };
-		21356FBC2019738F00DBB5B3 /* 4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 4.gif; path = ../../../../../Desktop/gifs/4.gif; sourceTree = "<group>"; };
-		21356FBD2019738F00DBB5B3 /* 6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 6.gif; path = ../../../../../Desktop/gifs/6.gif; sourceTree = "<group>"; };
-		21356FBE2019738F00DBB5B3 /* 8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 8.gif; path = ../../../../../Desktop/gifs/8.gif; sourceTree = "<group>"; };
-		21356FBF2019738F00DBB5B3 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 2.gif; path = ../../../../../Desktop/gifs/2.gif; sourceTree = "<group>"; };
-		21356FC02019738F00DBB5B3 /* closegif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = closegif.gif; path = ../../../../../Desktop/gifs/closegif.gif; sourceTree = "<group>"; };
-		21356FC12019738F00DBB5B3 /* 7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 7.gif; path = ../../../../../Desktop/gifs/7.gif; sourceTree = "<group>"; };
 		21356FCB201973BD00DBB5B3 /* GifCloseButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifCloseButton.h; sourceTree = "<group>"; };
 		21356FCC201973BD00DBB5B3 /* GifCloseButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifCloseButton.m; sourceTree = "<group>"; };
 		21356FCE2019779400DBB5B3 /* GifView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifView.h; sourceTree = "<group>"; };
@@ -737,6 +729,16 @@
 		21AE0386204687A600D75F81 /* SearchDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchDetailViewController.m; sourceTree = "<group>"; };
 		21AE038820468B1900D75F81 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
 		21AE038920468B1900D75F81 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		21EE3F6B205221D800B7E87E /* 8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 8.gif; sourceTree = "<group>"; };
+		21EE3F6C205221D800B7E87E /* 4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 4.gif; sourceTree = "<group>"; };
+		21EE3F6D205221D800B7E87E /* 6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 6.gif; sourceTree = "<group>"; };
+		21EE3F6E205221D900B7E87E /* 5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 5.gif; sourceTree = "<group>"; };
+		21EE3F6F205221D900B7E87E /* closegif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = closegif.gif; sourceTree = "<group>"; };
+		21EE3F70205221D900B7E87E /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
+		21EE3F71205221D900B7E87E /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
+		21EE3F72205221D900B7E87E /* 7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 7.gif; sourceTree = "<group>"; };
+		21EE3F73205221D900B7E87E /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
+		21EE3F7D205221F300B7E87E /* 10.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 10.gif; sourceTree = "<group>"; };
 		21F7647A204796A20035231C /* MyGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyGroupViewController.h; sourceTree = "<group>"; };
 		21F7647B204796A20035231C /* MyGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGroupViewController.m; sourceTree = "<group>"; };
 		21F764942047DE620035231C /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -1162,15 +1164,16 @@
 		21356FB82019736200DBB5B3 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				21356FBA2019738F00DBB5B3 /* 1.gif */,
-				21356FBF2019738F00DBB5B3 /* 2.gif */,
-				21356FB92019738F00DBB5B3 /* 3.gif */,
-				21356FBC2019738F00DBB5B3 /* 4.gif */,
-				21356FBB2019738F00DBB5B3 /* 5.gif */,
-				21356FBD2019738F00DBB5B3 /* 6.gif */,
-				21356FC12019738F00DBB5B3 /* 7.gif */,
-				21356FBE2019738F00DBB5B3 /* 8.gif */,
-				21356FC02019738F00DBB5B3 /* closegif.gif */,
+				21EE3F7D205221F300B7E87E /* 10.gif */,
+				21EE3F71205221D900B7E87E /* 1.gif */,
+				21EE3F70205221D900B7E87E /* 2.gif */,
+				21EE3F73205221D900B7E87E /* 3.gif */,
+				21EE3F6C205221D800B7E87E /* 4.gif */,
+				21EE3F6E205221D900B7E87E /* 5.gif */,
+				21EE3F6D205221D800B7E87E /* 6.gif */,
+				21EE3F72205221D900B7E87E /* 7.gif */,
+				21EE3F6B205221D800B7E87E /* 8.gif */,
+				21EE3F6F205221D900B7E87E /* closegif.gif */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -2392,39 +2395,45 @@
 				21A345752016CCA700CDF2DB /* ZSSredo.png in Resources */,
 				9F1E5FF11FA9B2E700D2F3F7 /* b27_icon_star_gray@2x.png in Resources */,
 				21A3457B2016CCA700CDF2DB /* ZSSunderline@2x.png in Resources */,
+				21EE3F7A205221D900B7E87E /* 1.gif in Resources */,
 				21A345642016CCA700CDF2DB /* ZSSunlink@2x.png in Resources */,
 				21A3454E2016CCA700CDF2DB /* jQuery.js in Resources */,
 				2103AB0E2011D91D00D057C1 /* timg.gif in Resources */,
-				21356FC82019738F00DBB5B3 /* 2.gif in Resources */,
 				21A345512016CCA700CDF2DB /* ZSSh2@2x.png in Resources */,
+				21EE3F74205221D900B7E87E /* 8.gif in Resources */,
 				9F1E5FF21FA9B2E900D2F3F7 /* b27_icon_star_yellow@2x.png in Resources */,
+				21EE3F76205221D900B7E87E /* 6.gif in Resources */,
 				21A345882016CCA700CDF2DB /* ZSSviewsource@2x.png in Resources */,
 				AC2B06131FA4AD80006305E8 /* Image1@2x.png in Resources */,
 				AC2B06141FA4AD80006305E8 /* Image1@3x.png in Resources */,
 				21A345872016CCA700CDF2DB /* ZSSforcejustify@2x.png in Resources */,
+				21EE3F78205221D900B7E87E /* closegif.gif in Resources */,
 				21A345912016CCA700CDF2DB /* ZSSbold@2x.png in Resources */,
 				21A345542016CCA700CDF2DB /* ZSShorizontalrule@2x.png in Resources */,
 				21A345922016CCA700CDF2DB /* ZSSparagraph@2x.png in Resources */,
 				21A3456E2016CCA700CDF2DB /* ZSSinsertkeyword.png in Resources */,
 				21A3457D2016CCA700CDF2DB /* ZSSh3@2x.png in Resources */,
 				21A345672016CCA700CDF2DB /* ZSSh4@2x.png in Resources */,
+				21EE3F79205221D900B7E87E /* 2.gif in Resources */,
 				21A345522016CCA700CDF2DB /* ZSSsubscript@2x.png in Resources */,
 				21A345772016CCA700CDF2DB /* ZSSh3.png in Resources */,
 				21A345852016CCA700CDF2DB /* ZSSlink.png in Resources */,
 				21A3455C2016CCA700CDF2DB /* ZSSpicker.png in Resources */,
 				21A3456A2016CCA700CDF2DB /* ZSSh5.png in Resources */,
 				216041942015D1B50070A5A8 /* music.bundle in Resources */,
-				21356FC22019738F00DBB5B3 /* 3.gif in Resources */,
 				AC2B06151FA4AD80006305E8 /* Image2@2x.png in Resources */,
 				21A3457A2016CCA700CDF2DB /* ZSSundo@2x.png in Resources */,
 				21A345532016CCA700CDF2DB /* ZSSsuperscript@2x.png in Resources */,
 				21A345502016CCA700CDF2DB /* ZSSoutdent@2x.png in Resources */,
+				21EE3F77205221D900B7E87E /* 5.gif in Resources */,
 				21A3454F2016CCA700CDF2DB /* ZSStable@2x.png in Resources */,
+				21EE3F7E205221F300B7E87E /* 10.gif in Resources */,
 				21A3458F2016CCA700CDF2DB /* ZSSrightjustify@2x.png in Resources */,
 				21A345742016CCA700CDF2DB /* ZSSkeyboard.png in Resources */,
 				21A345652016CCA700CDF2DB /* ZSSunorderedlist@2x.png in Resources */,
 				21A3458A2016CCA700CDF2DB /* ZSSpicker@2x.png in Resources */,
 				21A345832016CCA700CDF2DB /* ZSSinsertkeyword@2x.png in Resources */,
+				21EE3F7B205221D900B7E87E /* 7.gif in Resources */,
 				21A345822016CCA700CDF2DB /* ZSSbold.png in Resources */,
 				21A3457F2016CCA700CDF2DB /* ZSSleftjustify.png in Resources */,
 				21A345972016CCA700CDF2DB /* ZSSfonts@2x.png in Resources */,
@@ -2456,10 +2465,10 @@
 				21A3456C2016CCA700CDF2DB /* ZSSclearstyle.png in Resources */,
 				21A3458B2016CCA700CDF2DB /* ZSSorderedlist.png in Resources */,
 				AC2B06191FA4AD80006305E8 /* Image4@2x.png in Resources */,
+				21EE3F7C205221D900B7E87E /* 3.gif in Resources */,
 				21A3458D2016CCA700CDF2DB /* ZSSquicklink@2x.png in Resources */,
 				21A345842016CCA700CDF2DB /* ZSSitalic@2x.png in Resources */,
 				21A345712016CCA700CDF2DB /* ZSSclearstyle@2x.png in Resources */,
-				21356FC52019738F00DBB5B3 /* 4.gif in Resources */,
 				AC2B061A1FA4AD80006305E8 /* Image4@3x.png in Resources */,
 				21F764A0204805430035231C /* function10.html in Resources */,
 				21A3456F2016CCA700CDF2DB /* ZSSh1.png in Resources */,
@@ -2468,10 +2477,10 @@
 				AC2B061C1FA4AD80006305E8 /* Image5@3x.png in Resources */,
 				21A3458E2016CCA700CDF2DB /* ZSStextcolor@2x.png in Resources */,
 				21356FD52019A60500DBB5B3 /* particle.png in Resources */,
+				21EE3F75205221D900B7E87E /* 4.gif in Resources */,
 				21A345572016CCA700CDF2DB /* ZSSleftjustify@2x.png in Resources */,
 				AC2B061D1FA4AD80006305E8 /* Image6@2x.png in Resources */,
 				21A345982016CCA700CDF2DB /* ZSSforcejustify.png in Resources */,
-				21356FCA2019738F00DBB5B3 /* 7.gif in Resources */,
 				21A345992016CCA700CDF2DB /* ZSSredo@2x.png in Resources */,
 				21A345802016CCA700CDF2DB /* ZSSindent.png in Resources */,
 				21FC701D203E982000843235 /* dislike.gif in Resources */,
@@ -2479,7 +2488,6 @@
 				21A345682016CCA700CDF2DB /* ZSSunorderedlist.png in Resources */,
 				21A3454C2016CCA700CDF2DB /* JSBeautifier.js in Resources */,
 				21A3457E2016CCA700CDF2DB /* ZSSfonts.png in Resources */,
-				21356FC32019738F00DBB5B3 /* 1.gif in Resources */,
 				AC2B061F1FA4AD80006305E8 /* Image7@2x.png in Resources */,
 				AC2B06201FA4AD80006305E8 /* Image7@3x.png in Resources */,
 				21A345862016CCA700CDF2DB /* ZSSh1@2x.png in Resources */,
@@ -2491,18 +2499,14 @@
 				21FC701B203E655F00843235 /* like.gif in Resources */,
 				21A345812016CCA700CDF2DB /* ZSSbgcolor@2x.png in Resources */,
 				21A345792016CCA700CDF2DB /* ZSSimageDevice.png in Resources */,
-				21356FC42019738F00DBB5B3 /* 5.gif in Resources */,
 				9FDAC9161FA07D8C00A47371 /* 58.ttf in Resources */,
 				21A3457C2016CCA700CDF2DB /* ZSSlink@2x.png in Resources */,
-				21356FC72019738F00DBB5B3 /* 8.gif in Resources */,
 				21A345732016CCA700CDF2DB /* ZSSkeyboard@2x.png in Resources */,
 				21A345942016CCA700CDF2DB /* ZSSquicklink.png in Resources */,
-				21356FC62019738F00DBB5B3 /* 6.gif in Resources */,
 				21A345932016CCA700CDF2DB /* ZSSimageDevice@2x.png in Resources */,
 				21A345562016CCA700CDF2DB /* ZSSorderedlist@2x.png in Resources */,
 				21A345892016CCA700CDF2DB /* ZSScenterjustify@2x.png in Resources */,
 				9F525C011FA1B70100DCCD87 /* RealRigisterViewController.xib in Resources */,
-				21356FC92019738F00DBB5B3 /* closegif.gif in Resources */,
 				21A345662016CCA700CDF2DB /* ZSSh6.png in Resources */,
 				216041932015D1B50070A5A8 /* images.bundle in Resources */,
 				21A3456D2016CCA700CDF2DB /* ZSSh6@2x.png in Resources */,

@@ -8,6 +8,12 @@
 
 #import "FindNLikeView.h"
 #import "Header.h"
+#import "SearchDetailViewController.h"
+@interface FindNLikeView()
+{
+    UILabel *lbl20;
+}
+@end
 
 @implementation FindNLikeView
 
@@ -30,6 +36,7 @@
                                                                        frame.size.height)];
         findbtn.backgroundColor = ClearColor;
         [self addSubview:findbtn];
+        [findbtn addTarget:self action:@selector(find:) forControlEvents:UIControlEventTouchUpInside];
         
         
         UIImageView *findimageview = [[UIImageView alloc] initWithFrame:CGRectMake(0,
@@ -73,6 +80,7 @@
                                                                        frame.size.height)];
         likebtn.backgroundColor = ClearColor;
         [self addSubview:likebtn];
+        [likebtn addTarget:self action:@selector(like:) forControlEvents:UIControlEventTouchUpInside];
         
         UIImageView *likeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,
                                                                                    0,
@@ -90,12 +98,18 @@
         lbl10.text = @"我的零食";
         lbl10.font = [UIFont boldSystemFontOfSize:15.0f];
         
-        UILabel *lbl20 = [[UILabel alloc] initWithFrame:CGRectMake(likeImageView.frame.origin.x + likeImageView.frame.size.width + 15.0f,
+        lbl20 = [[UILabel alloc] initWithFrame:CGRectMake(likeImageView.frame.origin.x + likeImageView.frame.size.width + 15.0f,
                                                                   20 + likeImageView.frame.size.width/2.0f + 2.0f,
                                                                   120,
                                                                   likeImageView.frame.size.width/2.0f)];
         [likebtn addSubview:lbl20];
-        lbl20.text = @"23件";
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *array = [userDefaults objectForKey:@"theArrayKey"];
+        lbl20.text = [NSString stringWithFormat:@"%d件",(int)array.count];
+        if(array.count >= 100)
+        {
+            lbl20.text = @"99+件";
+        }
         lbl20.font = [UIFont systemFontOfSize:10.0f];
         lbl20.textColor = FlatGray;
         
@@ -103,6 +117,40 @@
     return self;
 }
 
+
+- (void)refreshText
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *array = [userDefaults objectForKey:@"theArrayKey"];
+    lbl20.text = [NSString stringWithFormat:@"%d件",(int)array.count];
+    if(array.count >= 100)
+    {
+        lbl20.text = @"99+件";
+    }
+}
+
+- (void)find:(id)sender
+{
+    [self viewController].tabBarController.selectedIndex = 0;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showKeyboard" object:nil];
+
+}
+
+- (void)like:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"GoToLike" object:nil];
+}
+
+//获得view所在的controller
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

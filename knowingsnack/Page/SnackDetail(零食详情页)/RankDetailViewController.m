@@ -15,6 +15,8 @@
 {
     UITableView *_tableView;
     int _selectedBtnId;
+    
+    UILabel *_tipLabel;
 }
 @end
 
@@ -50,6 +52,14 @@
             _tableView.allowsSelection = NO;
 
             [self.view addSubview:_tableView];
+            
+            _tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 30.f, SCREEN_WEIGHT, 30.f)];
+            _tipLabel.backgroundColor = FlatPowderBlue;
+            _tipLabel.textColor = FlatBlack;
+            _tipLabel.text = @"首次外测,评分人数过少,排名暂无参考价值!";
+            _tipLabel.font = [UIFont systemFontOfSize:12.f];
+            _tipLabel.textAlignment = NSTextAlignmentCenter;
+            [self.view addSubview:_tipLabel];
         }
         
     }
@@ -81,6 +91,12 @@
     return cell;
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        _tipLabel.alpha = 0.0f;
+    }];
+}
 -(void)btnclicked:(UIButton *)sender
 {
     for (int i = 0; i< 5; i++) {

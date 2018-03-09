@@ -14,6 +14,7 @@
 #import "SettingViewController.h"
 #import "InfomationViewController.h"
 #import "JGUserFeedBackViewController.h"
+#import "SearchDetailViewController.h"
 
 @interface MineViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -136,7 +137,16 @@
     {
         //喜欢
         if (indexPath.row == 0) {
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSMutableArray *array = [userDefaults objectForKey:@"theArrayKey"];
             
+            [self setHidesBottomBarWhenPushed:YES];
+            
+            SearchDetailViewController *sdvc = [[SearchDetailViewController alloc] init];
+            sdvc.title = @"喜欢";
+            sdvc.likesArray =  array;
+            [self.navigationController pushViewController:sdvc animated:YES];
+//            self.hidesBottomBarWhenPushed=NO;
         }
         //小组
         else if (indexPath.row == 1){
@@ -175,6 +185,14 @@
     
     
 }
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.hidesBottomBarWhenPushed=NO;
+}
+
 
 
 - (void)didReceiveMemoryWarning {
