@@ -87,13 +87,13 @@
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
                     [XHToast showTopWithText:@"注册成功" topOffset:55.0f];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeLoginView" object:nil];
                     //把后台用户信息取下来放到本地.
                     [[AVOSManager shareAVOSManager] queryUserInfoAndArchierFromBackgroundWithEmail:_username.text];
                     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"IS_LOGIN"];
                    
                     [AVUser requestEmailVerify:_final_username withBlock:^(BOOL succeeded, NSError * _Nullable error) {
                         if(!succeeded){
-//                            [XHToast showTopWithText:[NSString stringWithFormat:@"稍后在个人信息页面出进行验证",[error localizedDescription]] topOffset:150.0f];
                             [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
                                 
                             }];
@@ -109,6 +109,7 @@
                     NSLog(@"注册失败 %@", error.description);
                     [XHToast showTopWithText:[NSString stringWithFormat:@"注册失败 %@",[error localizedDescription]] topOffset:60.0f];
                 }
+                
             }];
            
            

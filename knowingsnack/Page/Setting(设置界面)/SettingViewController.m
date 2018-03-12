@@ -10,6 +10,7 @@
 #import "Header.h"
 #import "AboutViewController.h"
 #import "NewFunctionsViewController.h"
+#import "AccountNSecurityTableViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
@@ -89,7 +90,9 @@
 {
     //账号与安全
     if (indexPath.section == 0) {
-        
+        [self setHidesBottomBarWhenPushed:YES];
+        AccountNSecurityTableViewController *anstvc = [[AccountNSecurityTableViewController alloc] init];
+        [self.navigationController pushViewController:anstvc animated:YES];
     }
     //清理缓存
     if (indexPath.section == 1) {
@@ -116,7 +119,19 @@
     }
     //退出登陆
     if (indexPath.section == 3) {
+        if ([AVUser currentUser] == nil) {
+            [XHToast showTopWithText:@"您还没登陆呢!"];
+        }
+        else
+        {
+            [AVUser logOut];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeLoginView" object:nil];
+            [XHToast showTopWithText:@"退登成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         
+       
+       
     }
 }
 

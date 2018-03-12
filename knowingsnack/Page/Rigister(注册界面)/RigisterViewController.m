@@ -11,6 +11,7 @@
 #import "UITextView+Placeholder.h"
 #import <AVOSCloud/AVUser.h>
 #import "RealRigisterViewController.h"
+#import "AccountNSecurityTableViewController.h"
 
 @interface RigisterViewController ()
 {
@@ -113,6 +114,7 @@
     [forgetkey setTitleColor:FlatGray forState:UIControlStateSelected];
     forgetkey.titleLabel.font = [UIFont fontWithName:@"Arial" size:14];
     forgetkey.center = CGPointMake(SCREEN_WEIGHT/2.0f + SCREEN_WEIGHT * 0.24f/2.0f + 3 , uploadbtn.center.y + 30 +20);
+    [forgetkey addTarget:self action:@selector(forgetBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 20)];
@@ -120,6 +122,25 @@
     [self.view addSubview:line];
     line.center = CGPointMake(SCREEN_WEIGHT/2.0f, uploadbtn.center.y + 30 +20);
     
+}
+
+-(void)forgetBtnAction:(id)sender
+{
+    //重制密码
+    if ([_username.text isEqualToString:@""]) {
+        [XHToast showTopWithText:@"请在邮箱栏,填入您的邮箱"];
+        return;
+    }
+        
+    [AVUser requestPasswordResetForEmailInBackground:_username.text block:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            [XHToast showTopWithText:@"请求成功,请至邮箱查看"];
+        }
+        else
+        {
+            [XHToast showTopWithText:[error.userInfo objectForKey:@"error"]];
+        }
+    }];
 }
 
 
@@ -149,17 +170,18 @@
     [[AVOSManager shareAVOSManager] queryUserInfoAndArchierFromBackgroundWithEmail:_username.text];
     
     
-    NSString *dataPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"userinfo.archive"];
-    NSData *data = [NSData dataWithContentsOfFile:dataPath];
-    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-    UserInfo *info = [unArchiver decodeObjectForKey:@"userinfo"];
-    [unArchiver finishDecoding];
+//    NSString *dataPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"userinfo.archive"];
+//    NSData *data = [NSData dataWithContentsOfFile:dataPath];
+//    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+//    UserInfo *info = [unArchiver decodeObjectForKey:@"userinfo"];
+//    [unArchiver finishDecoding];
     
     
     [AVUser logInWithUsernameInBackground:_username.text password:_keyword.text block:^(AVUser * _Nullable user, NSError * _Nullable error) {
         
         if (error == nil) {
             [XHToast showTopWithText:@"登陆成功"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeLoginView" object:nil];
             [self dismissViewControllerAnimated:YES completion:^{
                 
             }];

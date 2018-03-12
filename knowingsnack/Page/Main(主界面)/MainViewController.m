@@ -29,6 +29,8 @@
 #import "WDCSearchView.h"
 #import "SearchDetailViewController.h"
 
+#import "InfomationViewController.h"
+
 @interface MainViewController ()
 {
     UIButton *chatBtn;
@@ -400,17 +402,10 @@
 
 - (void)goToRigister:(UIButton *)sender
 {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOGIN"]) {
-        RigisterViewController *rvc = [[RigisterViewController alloc] init];
-        [self presentViewController:rvc animated:YES completion:^{
+    InfomationViewController *ivc = [[InfomationViewController alloc] init];
+    [ivc setHidesBottomBarWhenPushed:YES];
 
-        }];
-    }
-
-//    Snack *snack = [Snack objectWithClassName:@"Snack" objectId:@"59f68a05756571004531192d"];
-//    
-//    [snack commentSnackWithShortComment:@"看起来还不错" image:[UIImage imageNamed:@"nullImage"] starnum:5];
-
+    [self.navigationController pushViewController:ivc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

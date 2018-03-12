@@ -13,8 +13,16 @@
 
 @interface MyInfoView()
 {
-    HeaderIconImageView *_icon;
+    UIView *backview;
     
+    //未登陆
+    UILabel *lbl;
+    
+    //登陆
+    HeaderIconImageView *_icon;
+    UILabel *username;
+    UILabel *email;
+    UIView *line;
 }
 @end
 
@@ -25,25 +33,23 @@
 {
     self = [super initWithFrame:frame];
     
-    NSString *dataPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"userinfo.archive"];
-    NSData *data = [NSData dataWithContentsOfFile:dataPath];
-    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-    UserInfo *info = [unArchiver decodeObjectForKey:@"userinfo"];
-    [unArchiver finishDecoding];
-    
     CGFloat w = frame.size.width;
     CGFloat h = frame.size.height;
     
     if (self) {
     
-        UIView *backview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+        backview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
         [self addSubview:backview];
         backview.backgroundColor = [UIColor colorWithPatternImage:IMAGE(@"mine_bg")];
         
-        if(![[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOGIN"])
+        
+        AVUser *user = [AVUser currentUser];
+        
+        
+        if(user == nil)
         {
-            UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, w/2.0, h/2.0)];
-            [self addSubview:lbl];
+            lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, w/2.0, h/2.0)];
+            [backview addSubview:lbl];
             lbl.backgroundColor = ClearColor;
             lbl.text = @"注册/登录";
             lbl.textColor = FlatWhite;
@@ -56,29 +62,36 @@
         else{
             _icon = nil;
             AVFile *file =  [[AVUser currentUser] objectForKey:@"image"];
-            [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+            [file getThumbnail:YES width:200 height:200 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
                 _icon =  [[HeaderIconImageView alloc] initWithFrame:CGRectMake(20, 20, h - 40, h - 40) andImage:image];
-                [self addSubview:_icon];
+                [backview addSubview:_icon];
                 
-                UILabel *username = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40, w/2.0, h/4.0f)];
-                [self addSubview:username];
-                username.text = info.username;
+                
+                
+                username = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40, w/2.0, h/4.0f)];
+                [backview addSubview:username];
+                username.text = user.username;
                 username.textColor = FlatWhite;
                 username.font = [UIFont boldSystemFontOfSize:22];
                 
-                UILabel *email = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27, w, h/4.0f)];
-                [self addSubview:email];
-                email.text = [NSString stringWithFormat:@"邮箱:%@(未激活)",info.email];
+                email = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27, w, h/4.0f)];
+                [backview addSubview:email];
+                email.text = [NSString stringWithFormat:@"邮箱:%@",user.email];
                 email.textColor = FlatWhite;
                 email.font = [UIFont systemFontOfSize:8];
                 
-                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27 +27, w *2.0/3.0, 1)];
-                [self addSubview:line];
+                line = [[UIView alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27 +27, w *2.0/3.0, 1)];
+                [backview addSubview:line];
                 line.backgroundColor = FlatWhite;
                 line.alpha = 0.4;
             }];
             
         }
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(changeLoginView) name:@"changeLoginView"
+                                                   object:nil];
     }
     
     
@@ -86,10 +99,72 @@
     
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"changeLoginView" object:nil];
+}
+
+-(void)changeLoginView
+{
+    for (UIView *view in [backview subviews]) {
+        [view removeFromSuperview];
+    }
+    
+    CGFloat w = self.frame.size.width;
+    CGFloat h = self.frame.size.height;
+    
+    AVUser *user = [AVUser currentUser];
+    
+    
+    if(user == nil)
+    {
+        lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, w/2.0, h/2.0)];
+        [backview addSubview:lbl];
+        lbl.backgroundColor = ClearColor;
+        lbl.text = @"注册/登录";
+        lbl.textColor = FlatWhite;
+        lbl.textAlignment = NSTextAlignmentCenter;
+        lbl.font = [UIFont boldSystemFontOfSize:23];
+        [lbl.layer setBorderWidth:3];
+        [lbl.layer setBorderColor:FlatWhite.CGColor];
+        lbl.center = CGPointMake(w/2.0, h/2.0);
+    }
+    else{
+        _icon = nil;
+        AVFile *file =  [[AVUser currentUser] objectForKey:@"image"];
+        [file getThumbnail:YES width:200 height:200 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+            _icon =  [[HeaderIconImageView alloc] initWithFrame:CGRectMake(20, 20, h - 40, h - 40) andImage:image];
+            [backview addSubview:_icon];
+            
+            
+            
+            username = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40, w/2.0, h/4.0f)];
+            [backview addSubview:username];
+            username.text = user.username;
+            username.textColor = FlatWhite;
+            username.font = [UIFont boldSystemFontOfSize:22];
+            
+            email = [[UILabel alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27, w, h/4.0f)];
+            [backview addSubview:email];
+            email.text = [NSString stringWithFormat:@"邮箱:%@",user.email];
+            email.textColor = FlatWhite;
+            email.font = [UIFont systemFontOfSize:8];
+            
+            line = [[UIView alloc] initWithFrame:CGRectMake(40 + h - 40, 40  + 27 +27, w *2.0/3.0, 1)];
+            [backview addSubview:line];
+            line.backgroundColor = FlatWhite;
+            line.alpha = 0.4;
+        }];
+        
+    }
+    
+}
+
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOGIN"])
+    AVUser *user = [AVUser currentUser];
+    if(user == nil)
     {
         RigisterViewController *rvc = [[RigisterViewController alloc] init];
         [[self viewController] presentViewController:rvc animated:YES completion:nil];
