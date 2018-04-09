@@ -252,10 +252,25 @@
         
             //feedback in background!!!!wdc
             
+            NSData *data = nil;
+            if (self.photoArrayM.count >= 1) {
+                data = UIImagePNGRepresentation([self.photoArrayM objectAtIndex:0]);
+            }
+            AVFile *file =[AVFile fileWithData:data];
+
+            AVObject *object = [[AVObject alloc] initWithClassName:@"feedback"];
+            [object setObject:file forKey:@"image"];
+            [object setObject:self.textView.text forKey:@"text"];
+            [object setObject:self.textField.text forKey:@"name"];
+            [object setObject:[AVUser currentUser] forKey:@"user"];
+            [object saveInBackground];
+
+
+            
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"意见反馈" message:@"亲你的意见我们已经收到，我们会尽快处理" preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *album = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                [self.navigationController popViewControllerAnimated:YES];
             }];
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
             [alertController addAction:album];

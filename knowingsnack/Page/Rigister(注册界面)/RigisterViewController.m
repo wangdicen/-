@@ -170,13 +170,6 @@
     [[AVOSManager shareAVOSManager] queryUserInfoAndArchierFromBackgroundWithEmail:_username.text];
     
     
-//    NSString *dataPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"userinfo.archive"];
-//    NSData *data = [NSData dataWithContentsOfFile:dataPath];
-//    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-//    UserInfo *info = [unArchiver decodeObjectForKey:@"userinfo"];
-//    [unArchiver finishDecoding];
-    
-    
     [AVUser logInWithUsernameInBackground:_username.text password:_keyword.text block:^(AVUser * _Nullable user, NSError * _Nullable error) {
         
         if (error == nil) {

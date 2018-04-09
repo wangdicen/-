@@ -67,6 +67,9 @@
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    if (self.objectID == nil) {
+        return;
+    }
     StaringDetailViewController *sdvc = [[StaringDetailViewController alloc] init];
     sdvc.objectID = self.objectID;
     [[self viewController] presentViewController:sdvc animated:YES completion:^{

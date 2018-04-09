@@ -81,6 +81,7 @@
     
     // 设置图片
     _imageview.image = info[UIImagePickerControllerOriginalImage];
+    self.image = _imageview.image;
 }
 
 

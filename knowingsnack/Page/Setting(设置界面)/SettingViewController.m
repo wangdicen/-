@@ -102,7 +102,7 @@
     if (indexPath.section == 2) {
         //给应用评分
         if (indexPath.row == 0) {
-            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1369797805&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
         }
         //新功能介绍
         else if(indexPath.row == 1){

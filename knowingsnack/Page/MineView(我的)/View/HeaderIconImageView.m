@@ -74,8 +74,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
     NSLog(@"选择完毕----image:%@-----info:%@",image,editingInfo);
     
-    UserInfo *userInfo = [[AVOSManager shareAVOSManager] getUserInfo];
-    NSLog(@"%@",userInfo);
+//    UserInfo *userInfo = [[AVOSManager shareAVOSManager] getUserInfo];
+//    NSLog(@"%@",userInfo);
     NSData *data = UIImagePNGRepresentation(image);
     AVFile *file =[AVFile fileWithData:data];
     [[AVUser currentUser] setObject:file forKey:@"image"];

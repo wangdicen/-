@@ -15,6 +15,7 @@
 #import "UIImageView+YYWebImage.h"
 #import "JHUD.h"
 #import "StaringDetailViewController.h"
+#import "CommentAllTableViewController.h"
 
 
 @interface SnackDetailViewController ()<UIScrollViewDelegate,TwoButtonsViewDelegate>
@@ -145,6 +146,10 @@
 
 - (void)like:(UIButton *)sender
 {
+    if (self.objectId == nil)
+    {
+        return;
+    }
     //喜欢
     if ([sender.titleLabel.text isEqualToString:@"喜欢"]) {
         [sender setTitle:@"取消喜欢" forState:UIControlStateNormal];
@@ -321,16 +326,28 @@ CGFloat COMMON_HEIGHT = 0;
         btn.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
         [btn setTitleColor:FlatOrange forState:UIControlStateNormal];
         
+        [btn addTarget:self action:@selector(moreBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        imageview.userInteractionEnabled = YES;
+        
         [self addgroups];
     }];
 
+}
+
+
+- (void)moreBtnAction:(id)sender
+{
+    CommentAllTableViewController *catvc = [[CommentAllTableViewController alloc] init];
+    catvc.title = @"更多";
+    catvc.objectId = self.objectId;
+    [self.navigationController pushViewController:catvc animated:YES];  
 }
 
 - (void)addgroups
 {
     float gHeight = _grounpView.frame.size.height - 60;
     float oneHeight = gHeight/7.0f - 10;
-    float oneWidth = SCREEN_WEIGHT - 10;
+//    float oneWidth = SCREEN_WEIGHT - 10;
     int maxNum = COMMON_HEIGHT/oneHeight - 1;
     
     for (int i =0; i<maxNum; i++) {

@@ -50,6 +50,7 @@
 {
     self = [super init];
     if (self) {
+        self.title = @"文章";
         WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
         self.userContent = [[WKUserContentController alloc] init];
         [self.userContent addScriptMessageHandler:self  name:@"ocMethod"];
@@ -76,8 +77,8 @@
                           options:NSKeyValueObservingOptionNew
                           context:nil];
         
-        _likeOrDislikeView = [[LikeRoDislikeView alloc] initWithFrame:CGRectMake( 0, SCREEN_HEIGHT - 50.0f, SCREEN_WEIGHT, 50.f)];
-        [self.view addSubview:_likeOrDislikeView];
+//        _likeOrDislikeView = [[LikeRoDislikeView alloc] initWithFrame:CGRectMake( 0, SCREEN_HEIGHT - 50.0f, SCREEN_WEIGHT, 50.f)];
+//        [self.view addSubview:_likeOrDislikeView];
 
     }
     return self;
@@ -86,14 +87,14 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT, SCREEN_WEIGHT, 50.f);
+//    _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT, SCREEN_WEIGHT, 50.f);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [UIView animateWithDuration:0.5 animations:^{
-        _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT - 50, SCREEN_WEIGHT, 50.f);
-    }];
+//    [UIView animateWithDuration:0.5 animations:^{
+//        _likeOrDislikeView.frame = CGRectMake( 0, SCREEN_HEIGHT - 50, SCREEN_WEIGHT, 50.f);
+//    }];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
@@ -118,8 +119,8 @@
 }
 
 - (void)delay:(NSString *)urlString{
-    NSString *CSS= @"<style type=\"text/css\">img{width:80%;margin: 2% 10%;}p{font-size:40px;margin: 15px 35px;}p.center{text-align: center;}h1{font-size:80px;color:#333333;margin: 10px 30px;}div{width: 100%;}#circle{margin: 5px 30px;width: 80px;height: 80px;border-radius: 50%;}#author{position: relative;right: -90px;top: -90px;font-size: 1.9em;color: black;}#time{position: relative;right: -90px;top: -90px;font-size: 0.8m;color: gray;}#box{ width: 100%;height: 50%;}#yellowbtn{background-color: #FFC107;width: 28%;height: 10%;border-radius: 28px;position: relative;right:-38%;top: 40%;}#count{text-align: center;color: white;}</style>";
-    NSString * htmlString = [NSString stringWithFormat:@"<html><meta charset=\"UTF-8\"><header>%@<script type=\"text/javascript\">function dismiss(){window.webkit.messageHandlers.ocMethod.postMessage(arguments[0]);}</script></header><body>%@<div id=\"box\"><div onclick=\"javascript:location.href='HTTPS://QR.ALIPAY.COM/FKX04179TH0G7WRABUIG25'\" id=\"yellowbtn\"><p id=\"count\">打赏</p></div></div></body></html>",CSS,urlString];
+    NSString *CSS= @"<style type=\"text/css\">img{width:90%;margin: 5% 10%;}p{font-size:40px;margin: 20px 45px;}p.center{text-align: center;}h1{font-size:80px;color:#333333;margin: 10px 30px;border-bottom-style: dashed;}div{width: 100%;}#circle{margin: 5px 30px;width: 80px;height: 80px;border-radius: 50%;}#author{position: relative;right: -90px;top: -90px;font-size: 1.9em;color: black;}#time{position: relative;right: -90px;top: -90px;font-size: 0.8m;color: gray;}#box{ width: 100%;height: 30%;}#yellowbtn{background-color: #FFC107;width: 28%;height: 16%;border-radius: 28px;position: relative;right:-38%;top: 15%;}#count{text-align: center;color: white;}</style>";
+    NSString * htmlString = [NSString stringWithFormat:@"<html><meta charset=\"UTF-8\"><header>%@<script type=\"text/javascript\">function dismiss(){window.webkit.messageHandlers.ocMethod.postMessage(arguments[0]);}</script></header><body>%@<div><br /></div><div><br /></div><p class=\"center\" style=\"color: gainsboro;font-size: 20;\">_______ THE END _______</p><div><br /></div><div><br /></div><p class=\"center\" style=\"font: '微软雅黑';font-size: 20;\">\"你的赞赏使我更有动力\"</p><div><br /></div><div id=\"box\"><div onclick=\"javascript:location.href='HTTPS://QR.ALIPAY.COM/FKX04179TH0G7WRABUIG25'\" id=\"yellowbtn\"><p id=\"count\">打赏</p></div></div></body></html>",CSS,urlString];
     
     // 获取当前应用的根目录
     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];

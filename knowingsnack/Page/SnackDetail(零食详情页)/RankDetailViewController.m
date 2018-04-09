@@ -22,7 +22,7 @@
 
 @implementation RankDetailViewController
 
--(instancetype)init
+-(instancetype)initWithType:(SnackViewControllerName)SnackViewControllerName
 {
     self = [super init];
     if (self) {
@@ -30,7 +30,16 @@
         _selectedBtnId = 0;
         
         NSArray *array = [[NSArray alloc] initWithObjects:@"Top1-50",@"51-100",@"101-150",@"151-200",@"201-250", nil];
-        for (int i = 0; i < 5; i++) {
+        int countnum = 5;
+        if(SnackViewControllerName == NameFruitViewController ||
+           SnackViewControllerName == NameSpicyViewController ||
+           SnackViewControllerName == NameMeatViewController ||
+           SnackViewControllerName == NameSweetViewController)
+        {
+            countnum = 2;
+        }
+        
+        for (int i = 0; i < countnum; i++) {
             RankButton *btn = [[RankButton alloc] init];
             CGFloat width = btn.frame.size.width;
             btn.center = CGPointMake(5 + width/2.0 + width * i + 5*i, 64+btn.frame.size.height/2.0f + 5);
@@ -53,14 +62,14 @@
 
             [self.view addSubview:_tableView];
             
-            _tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 30.f, SCREEN_WEIGHT, 30.f)];
-            _tipLabel.backgroundColor = FlatPowderBlue;
-            _tipLabel.textColor = FlatBlack;
-            _tipLabel.text = @"首次外测,评分人数过少,排名暂无参考价值!";
-            _tipLabel.font = [UIFont systemFontOfSize:12.f];
-            _tipLabel.textAlignment = NSTextAlignmentCenter;
-            [self.view addSubview:_tipLabel];
         }
+        _tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 30.f, SCREEN_WEIGHT, 30.f)];
+        _tipLabel.backgroundColor = FlatPowderBlue;
+        _tipLabel.textColor = FlatBlack;
+        _tipLabel.text = @"首次外测,评分人数过少,排名暂无参考价值!";
+        _tipLabel.font = [UIFont systemFontOfSize:12.f];
+        _tipLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:_tipLabel];
         
     }
     return self;
@@ -84,7 +93,7 @@
         GuassULikeView *gulv = [[GuassULikeView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /4.0f)];
         gulv.viewcontrollertype = self.viewcontrollerName;
         [gulv addRankNum:(int)indexPath.row + 50 * _selectedBtnId + 1];
-        [gulv fetchDataInBackground:(int)indexPath.row +  50 * _selectedBtnId];
+        [gulv fetchRankedDataInBackground:(int)indexPath.row +  50 * _selectedBtnId];
         [cell addSubview:gulv];
 
     }
@@ -99,7 +108,15 @@
 }
 -(void)btnclicked:(UIButton *)sender
 {
-    for (int i = 0; i< 5; i++) {
+    int countnum = 5;
+    if(self.viewcontrollerName == NameFruitViewController ||
+       self.viewcontrollerName == NameSpicyViewController ||
+       self.viewcontrollerName == NameMeatViewController ||
+       self.viewcontrollerName == NameSweetViewController)
+    {
+        countnum = 2;
+    }
+    for (int i = 0; i< countnum; i++) {
         UIButton *button = [self.view viewWithTag:40000000 + i];
         [button setTitleColor:FlatGray forState:UIControlStateNormal];
     }

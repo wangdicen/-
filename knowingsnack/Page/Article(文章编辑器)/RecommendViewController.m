@@ -64,7 +64,21 @@
 
 -(void)complete:(UIButton *)sender
 {
-    
+    if(_imageview.image == nil)
+    {
+        return;
+    }
+    NSData *data = UIImagePNGRepresentation(_imageview.image);
+    AVFile *file =[AVFile fileWithData:data];
+    AVObject *object = [[AVObject alloc] initWithClassName:@"feedback"];
+    [object setObject:file forKey:@"image"];
+    [object setObject:_textView.text forKey:@"text"];
+    [object setObject:_textfield.text forKey:@"name"];
+    [object setObject:[AVUser currentUser] forKey:@"user"];
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    }];
+    [XHToast showTopWithText:@"上传成功"];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {

@@ -29,7 +29,7 @@
     NewFuntionButton *btn1 = [[NewFuntionButton alloc] initWithFrame:CGRectMake(10, 10, SCREEN_WEIGHT - 20, 50)];
     [scrollView addSubview:btn1];
 
-    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"function10.html" ofType:nil]]];
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"info1.html" ofType:nil]]];
     [btn1.bottomView loadRequest:request];
     [btn1.bottomView setScalesPageToFit:YES];
     btn1.titleLabel.font = [UIFont systemFontOfSize:16.f];
@@ -40,7 +40,7 @@
     
     NewFuntionButton *btn2 = [[NewFuntionButton alloc] initWithFrame:CGRectMake(10, 10 + 60, SCREEN_WEIGHT - 20, 50)];
     [scrollView addSubview:btn2];
-    NSURLRequest* request2 = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"function10.html" ofType:nil]]];
+    NSURLRequest* request2 = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"info2.html" ofType:nil]]];
     [btn2.bottomView loadRequest:request2];
     btn2.titleLabel.font = [UIFont systemFontOfSize:16.f];
     btn2.titleLabel.textAlignment = NSTextAlignmentLeft;
@@ -49,9 +49,22 @@
     [btn2 setTitle:@"上传文章相关注意事件" forState:UIControlStateSelected];
     [btn2 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     
+    NewFuntionButton *btn3 = [[NewFuntionButton alloc] initWithFrame:CGRectMake(10, 10 + 60 + 60, SCREEN_WEIGHT - 20, 50)];
+    [scrollView addSubview:btn3];
+    NSURLRequest* request3 = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"info3.html" ofType:nil]]];
+    [btn3.bottomView loadRequest:request3];
+    btn3.titleLabel.font = [UIFont systemFontOfSize:16.f];
+    btn3.titleLabel.textAlignment = NSTextAlignmentLeft;
+    [btn3.bottomView setScalesPageToFit:YES];
+    [btn3 setTitle:@"为什么不好的零食反而排很高!!" forState:UIControlStateNormal];
+    [btn3 setTitle:@"为什么不好的零食反而排很高!!" forState:UIControlStateSelected];
+    [btn3 addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     [scrollView addSubview:btn1.bottomView];
     [scrollView addSubview:btn2.bottomView];
+    [scrollView addSubview:btn3.bottomView];
+
 }
 
 - (void)btnAction:(NewFuntionButton *)sender

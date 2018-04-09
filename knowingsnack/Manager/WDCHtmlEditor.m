@@ -57,8 +57,10 @@
     NSScanner * scanner = [NSScanner scannerWithString:html];
     NSString * text = nil;
     NSString *h1 = [self stringOfH1:html];
-    
-    html = [html stringByReplacingOccurrencesOfString:h1 withString:@""];
+    if (h1 != nil) {
+        html = [html stringByReplacingOccurrencesOfString:h1 withString:@""];
+    }
+    html =  [html stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     while([scanner isAtEnd]==NO)
     {
         [scanner scanUpToString:@"<" intoString:nil];

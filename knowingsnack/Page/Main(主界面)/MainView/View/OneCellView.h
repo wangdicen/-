@@ -16,6 +16,6 @@
 @property (nonatomic,assign) NSString *comment;
 @property (nonatomic,retain) UIImage *headerimage;
 @property (nonatomic,assign) NSString *username;
-@property (nonatomic,retain) UIImage *articleimage;
+@property (nonatomic,retain) NSString *articleimageurl;
 
 @end

@@ -1,3 +1,4 @@
+
 //
 //  MainViewController.m
 //  knowingsnack
@@ -30,6 +31,7 @@
 #import "SearchDetailViewController.h"
 
 #import "InfomationViewController.h"
+#import "IconAnimationView.h"
 
 @interface MainViewController ()
 {
@@ -40,6 +42,8 @@
     WDCSearchView *_searchView;
     
     MainNavView *navbar;
+    
+    IconAnimationView *_iav;
     
 }
 @property (nonatomic, strong) NSMutableArray *datasArrayM;
@@ -82,56 +86,53 @@
     
     [self.view addSubview:self.tableView];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self setDataSource];
-    });
+//    });
     
-    __weak typeof (MainViewController *)weakself = self;
+//    __weak typeof (MainViewController *)weakself = self;
+//
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            NSInteger count = weakself.datasArrayM.count;
+//            for (int i = 0; i < 2; i++) {
+//                [weakself.datasArrayM insertObject:[NSString stringWithFormat:@" 刷新数据 %zd",count + i] atIndex:0];
+//            }
+//            NSLog(@"上啦加载完成");
+//            [weakself.tableView.mj_header endRefreshing];
+//            [weakself.tableView reloadData];
+//            //调整占位图footer
+//            [weakself.ynPageScrollViewController reloadPlaceHoderViewFrame];
+//            [weakself.indicatorView stopAnimating];
+//            weakself.label.hidden = NO;
+//        });
+//    }];
     
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSInteger count = weakself.datasArrayM.count;
-            for (int i = 0; i < 2; i++) {
-                [weakself.datasArrayM insertObject:[NSString stringWithFormat:@" 刷新数据 %zd",count + i] atIndex:0];
-            }
-            NSLog(@"上啦加载完成");
-            [weakself.tableView.mj_header endRefreshing];
-            [weakself.tableView reloadData];
-            //调整占位图footer
-            [weakself.ynPageScrollViewController reloadPlaceHoderViewFrame];
-            [weakself.indicatorView stopAnimating];
-            weakself.label.hidden = NO;
-        });
-    }];
+//    if (!HasHeaderRefresh) {
+//        self.tableView.mj_header = nil;
+//    }
     
-    if (!HasHeaderRefresh) {
-        self.tableView.mj_header = nil;
-    }
+//
+//    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+////            NSInteger count = weakself.datasArrayM.count;
+////            for (int i = 0; i < 20; i++) {
+////                [weakself.datasArrayM addObject:[NSString stringWithFormat:@" 加载数据 %zd",count + i]];
+////            }
+//            NSLog(@"下拉加载完成");
+//            [weakself.tableView.mj_footer endRefreshing];
+//
+//            [weakself.tableView reloadData];
+//            //调整占位图footer
+//            [weakself.ynPageScrollViewController reloadPlaceHoderViewFrame];
+//
+//            [weakself.indicatorView stopAnimating];
+//            weakself.label.hidden = NO;
+//        });
+//    }];
     
-    
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            NSInteger count = weakself.datasArrayM.count;
-            for (int i = 0; i < 20; i++) {
-                [weakself.datasArrayM addObject:[NSString stringWithFormat:@" 加载数据 %zd",count + i]];
-            }
-            NSLog(@"下拉加载完成");
-            [weakself.tableView.mj_footer endRefreshing];
-            
-            [weakself.tableView reloadData];
-            //调整占位图footer
-            [weakself.ynPageScrollViewController reloadPlaceHoderViewFrame];
-            
-            [weakself.indicatorView stopAnimating];
-            weakself.label.hidden = NO;
-        });
-    }];
-    
-    
-    
-    _html = @"<h1>为您的长评设置一个响当当的标题吧~</h1><p>请在这里输入 <strong>任何</strong>您想要输入的测评文字.</p><p>下方可以修改颜色,增加图片或链接</p><p>注意排版,可以吸引跟多人阅读哦</p><p><strong>一些可能发生的问题:</strong></p><p><strong>1.由于技术水平限制,目前长文评论只能加载一张图片</strong></p><p><strong>2.使用过程可能有些卡顿,我们会在之后的版本尽可能改进</strong></p><h1><em>觉得不错~可以打赏一下~</em>.</h1><div><br /></div><p><i>德国方法</i></p><p style=\"text-align: right;\"><i>如果多层次</i></p><p style=\"text-align: left;\"><i>嘘拜拜吧</i></p><p style=\"text-align: justify;\"><i>vhffgg</i></p><p style=\"text-align: justify;\"><i><br /></i></p><p style=\"text-align: center;\"><i>复合肥刚刚好</i></p><img src=\"wangdicen.png\" /><p style=\"text-align: center;\"><i><u>dgdfgggggb<sup>b</sup><font size=\"2\"><sup>fgv</sup></font></u><strike></strike></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sup><u>dgg</u><strike style=\"text-decoration: underline;\">gg ggvbb</strike></sup></font></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sup><strike>dffffgたなみや</strike></sup></font></i></p><p style=\"text-align: center;\"><i><font size=\"2\"><sub>仁万やな</sub>ょにまた</font></i></p><blockquote style=\"margin: 0px 0px 0px 40px;\"><p><i><font color=\"#b3cc50\">斜めなんです</font></i></p><p><i><font color=\"#b3cc50\" style=\"background-color: rgb(89, 21, 142);\">マナ棚よ</font></i></p></blockquote><p><i><br /></i></p><p><i><br /></i></p><p></p><p></p><p></p>";
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeToCancel:) name:@"ChatBtn_changeToCancel" object:nil];
@@ -139,9 +140,21 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goToSearchDetail:) name:@"goToSearchDetail" object:nil];
     
+    
+    _iav = [[IconAnimationView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 79.0f, SCREEN_WEIGHT, 30)];
+    [self.view addSubview:_iav];
+    
+    
+    
     _searchView = [[WDCSearchView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WEIGHT, SCREEN_HEIGHT - 64)];
     _searchView.alpha = 0.0;
     [self.view addSubview:_searchView];
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_iav animate];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -225,20 +238,21 @@
 
 - (void)setDataSource
 {
-        [self.datasArrayM addObject:@"recommend"];
-        [self.datasArrayM addObject:@"find&like"];
-        [self.datasArrayM addObject:@"hot"];
-        [self.datasArrayM addObject:@"ads"];
-        [self.datasArrayM addObject:@"new"];
-        [self.datasArrayM addObject:@"rank"];
     
-    if (HasLoadingAndNotDataView) {
-        [self.datasArrayM removeAllObjects];
-        [self.indicatorView stopAnimating];
-        self.label.hidden = NO;
-    }
-    [self.tableView reloadData];
-    [self.ynPageScrollViewController reloadPlaceHoderViewFrame];
+    AVQuery *query = [[AVQuery alloc] initWithClassName:@"Recommand_Daily"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        //倒序
+        self.datasArrayM = (NSMutableArray *)[[objects reverseObjectEnumerator] allObjects];
+        if (HasLoadingAndNotDataView) {
+            [self.datasArrayM removeAllObjects];
+            [self.indicatorView stopAnimating];
+            self.label.hidden = NO;
+        }
+        [self.tableView reloadData];
+        [self.ynPageScrollViewController reloadPlaceHoderViewFrame];
+    }];
+    
+
 }
 
 
@@ -318,12 +332,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *identifier = nil;
-    if (indexPath.row <= 6) {
+//    if (indexPath.row <= 6) {
         identifier = [NSString stringWithFormat:@"identifier-%d",(int)indexPath.row];
-    }
-    else{
-        identifier = @"identifier";
-    }
+//    }
+//    else{
+//        identifier = @"identifier";
+//    }
     
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -332,26 +346,43 @@
         OneCellView *onecellview = [[OneCellView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT/4.0f)];
         [cell addSubview:onecellview];
         
+    
         
-        onecellview.kind = @"饮料&饮品";
-        onecellview.name = @"天喔蜂蜜柚子茶";
-        onecellview.title = [WDCHtmlEditor stringOfH1:_html];//@"健康美丽黑纱哟";
-        onecellview.comment = [WDCHtmlEditor stringOfP:_html];//@"传说有一个美丽的地方。他的名字个麻辣。个麻辣呀个麻辣。打很长看看会怎么样。……有点小饿啦。如月疑云，洗净的诞生。这么长应该够了吧。";
-        onecellview.username = @"酷酷的腾";
-        onecellview.headerimage = [UIImage imageNamed:@"header.png"];
-        
-        
-        NSArray *imagename = [WDCHtmlEditor arrayOfImg:_html];
-        if (imagename.count >=1) {
-            NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"] stringByAppendingPathComponent:[imagename objectAtIndex:0]];
-            UIImage *savedImage = [[UIImage alloc] initWithContentsOfFile:fullPath];
-            onecellview.articleimage = savedImage;
+        NSString *kindstring = [[self.datasArrayM objectAtIndex:indexPath.row] objectForKey:@"type"];
+        if ([kindstring isEqualToString:@"snack"]) {
+            onecellview.kind = @"零食";
         }
-        else
-        {
-            onecellview.articleimage = [UIImage imageNamed:@"lunch"];
+        if ([kindstring isEqualToString:@"drink"]) {
+            onecellview.kind = @"饮料&饮品";
         }
+        if ([kindstring isEqualToString:@"meat"]) {
+            onecellview.kind = @"肉制品";
+        }
+        if ([kindstring isEqualToString:@"fruit"]) {
+            onecellview.kind = @"果干&坚果";
+        }
+        if ([kindstring isEqualToString:@"spicy"]) {
+            onecellview.kind = @"辣食物";
+        }
+        if ([kindstring isEqualToString:@"sweet"]) {
+            onecellview.kind = @"甜食";
+        }
+        if ([kindstring isEqualToString:@"fangbian"]) {
+            onecellview.kind = @"方便食品";
+        }
+        onecellview.name = [[self.datasArrayM objectAtIndex:indexPath.row] objectForKey:@"title"];
         
+        NSMutableString *html = [[self.datasArrayM objectAtIndex:indexPath.row] objectForKey:@"article"];
+        onecellview.title = [WDCHtmlEditor stringOfH1:html];//@"健康美丽黑纱哟";
+        onecellview.comment = [WDCHtmlEditor stringOfP:html];//@"传说有一个美丽的地方。他的名字个麻辣。个麻辣呀个麻辣。打很长看看会怎么样。……有点小饿啦。如月疑云，洗净的诞生。这么长应该够了吧。";
+        onecellview.username = @"可爱的知食小编";
+        onecellview.headerimage = [UIImage imageNamed:@"lunch"];
+        
+        
+        AVFile *file = [[self.datasArrayM objectAtIndex:indexPath.row] objectForKey:@"image"];
+        onecellview.articleimageurl = file.url;
+        
+
     }
     
     
@@ -367,7 +398,7 @@
     //    YNTestOneViewController *vc = [[YNTestOneViewController alloc]init];
     //    [self.navigationController pushViewController:vc animated:YES];
     ArticleViewController *avc = [[ArticleViewController alloc] init];
-    avc.urlString = _html;
+    avc.urlString = [[self.datasArrayM objectAtIndex:indexPath.row] objectForKey:@"article"];
     [avc setHidesBottomBarWhenPushed:YES];
     
     [self.navigationController pushViewController:avc animated:YES];

@@ -20,12 +20,19 @@
 @implementation RankView
 
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame viewControllerType:(SnackViewControllerName)type
 {
     self = [super initWithFrame:frame];
     if (self) {
         UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 150, 20)];
         lbl.text = @"知食 TOP250";
+        if(type == NameFruitViewController ||
+           type == NameSpicyViewController ||
+           type == NameMeatViewController ||
+           type == NameSweetViewController)
+        {
+            lbl.text = @"知食 TOP100";
+        }
         lbl.textAlignment = NSTextAlignmentLeft;
         lbl.font = [UIFont boldSystemFontOfSize:15.0f];
         [self addSubview:lbl];
@@ -83,6 +90,14 @@
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, hei - 30, SCREEN_WEIGHT, 30)];
         [button setTitle:@"全部250种" forState:UIControlStateNormal];
         [button setTitle:@"全部250种" forState:UIControlStateHighlighted];
+        if(type == NameFruitViewController ||
+           type == NameSpicyViewController ||
+           type == NameMeatViewController ||
+           type == NameSweetViewController)
+        {
+            [button setTitle:@"全部100种" forState:UIControlStateNormal];
+            [button setTitle:@"全部100种" forState:UIControlStateHighlighted];
+        }
         [button setTitleColor:FlatWhiteDark forState:UIControlStateNormal];
         [button setTitleColor:FlatWhiteDark forState:UIControlStateHighlighted];
         button.titleLabel.font = [UIFont systemFontOfSize:13.0f];
@@ -99,9 +114,16 @@
 
 -(void)goToRankDetailView
 {
-    RankDetailViewController *rdvc = [[RankDetailViewController alloc] init];
+    RankDetailViewController *rdvc = [[RankDetailViewController alloc] initWithType:self.viewcontrollertype];
     rdvc.viewcontrollerName = self.viewcontrollertype;
     rdvc.title = @"TOP 250";
+    if(self.viewcontrollertype == NameFruitViewController ||
+       self.viewcontrollertype == NameSpicyViewController ||
+       self.viewcontrollertype == NameMeatViewController ||
+       self.viewcontrollertype == NameSweetViewController)
+    {
+        rdvc.title = @"TOP 100";
+    }
     rdvc.view.backgroundColor = [UIColor whiteColor];
     rdvc.hidesBottomBarWhenPushed = YES;
     [[self viewController].navigationController pushViewController:rdvc animated:YES];
@@ -148,12 +170,6 @@
                 orv.title = object[@"name"];
                 orv.objectID = object[@"objectId"];
             }];
-//            [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-//                orv.image = [UIImage imageWithData:data];
-//                orv.starfloatNum = [object[@"stars"] floatValue];
-//                orv.title = object[@"name"];
-//                orv.objectID = object[@"objectId"];
-//            }];
         }
 
     }];

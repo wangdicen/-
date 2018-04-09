@@ -72,16 +72,21 @@
             break;
         case NameDrinkViewController:
             [query whereKey:@"type" equalTo:@"drink"];
+            break;
         default:
-            [query whereKey:@"type" equalTo:@"snack"];
+            [query whereKey:@"type" equalTo:@"fangbian"];
             break;
     }
     
     
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        //倒序
+       NSMutableArray *datasArrayM = (NSMutableArray *)[[objects reverseObjectEnumerator] allObjects];
 
+        
         int i = 0;
-        for (AVObject *object in objects) {
+        for (AVObject *object in datasArrayM) {
 
             OneRecommendView *view = [_scroll viewWithTag:OneRecommendView_TAG + i];
             AVFile *file = object[@"image"];

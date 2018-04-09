@@ -14,4 +14,7 @@
 
 @property (nonatomic, assign) SnackViewControllerName viewcontrollerName;
 
+-(instancetype)initWithType:(SnackViewControllerName)SnackViewControllerName;
+
+
 @end

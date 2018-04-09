@@ -7,6 +7,7 @@
 //
 
 #import "ZSSLargeViewController.h"
+#import "Header.h"
 
 @interface ZSSLargeViewController ()
 
@@ -22,13 +23,12 @@
     self.alwaysShowToolbar = YES;
     
     // HTML Content to set in the editor
-    NSString *html = @"<h1>为您的长评设置一个响当当的标题吧~</h1>"
+    NSString *html = @"<h1>输入标题</h1>"
     "<p>请在这里输入 <strong>任何</strong>您想要输入的测评文字.</p>"
-    "<p>下方可以修改颜色,增加图片或链接,注意排版,可以吸引跟多人阅读哦</p>"
     "<p><strong>一些可能发生的问题:</strong></p>"
-    "<p><strong>由于技术水平限制,嵌入的图片无法在编辑时实时显示,只有一个假的图片框,您可以在预览中查看编辑效果</strong></p>"
+    "<p><strong>由于技术水平限制,文章暂时无法插入图片,默认文字只能手动删除</strong></p>"
     "<p><strong></strong></p>"
-    "<p> <em>觉得不错~可以打赏一下~</em>. </p>"
+    "<p> <em>我们会在今后的版本中完善,(您可以用文本附上您喜欢的图片的链接,管理员会在后台进行处理)</em>. </p>"
     "<p>   </p>"
     "<p>   </p>"
     "<p>   </p>";
@@ -36,7 +36,7 @@
     // Set the HTML contents of the editor
     [self setHTML:html];
     
-    UIBarButtonItem *rightbutton = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(next)];
+    UIBarButtonItem *rightbutton = [[UIBarButtonItem alloc] initWithTitle:@"上传" style:UIBarButtonItemStylePlain target:self action:@selector(next)];
     
     self.navigationItem.rightBarButtonItem = rightbutton;
     
@@ -44,6 +44,15 @@
                                    
 - (void)next{
     NSLog(@"%@",self.getHTML);
+    
+    AVObject *object = [[AVObject alloc] initWithClassName:@"Article"];
+    [object setObject:self.getHTML forKey:@"article"];
+    [object setObject:[AVUser currentUser] forKey:@"user"];
+    [object saveInBackground];
+    
+    [XHToast showTopWithText:@"上传完成,\n管理员会在后台进行处理"];
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

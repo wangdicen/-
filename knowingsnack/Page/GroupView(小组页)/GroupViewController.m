@@ -30,7 +30,7 @@
     
     _scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WEIGHT, SCREEN_HEIGHT - 64 -44)];
     _scrollview.delegate = self;
-    _scrollview.contentSize = CGSizeMake(SCREEN_WEIGHT, SCREEN_HEIGHT/4.0f * 10);
+    _scrollview.contentSize = CGSizeMake(SCREEN_WEIGHT, SCREEN_HEIGHT/4.0f * 6);
     [self.view addSubview:_scrollview];
     
     
@@ -95,16 +95,16 @@
     
     
     
-    _iav = [[IconAnimationView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 79.0f, SCREEN_WEIGHT, 30)];
-    [self.view addSubview:_iav];
+//    _iav = [[IconAnimationView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 79.0f, SCREEN_WEIGHT, 30)];
+//    [self.view addSubview:_iav];
     
     
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [_iav animate];
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    [_iav animate];
+//}
 
 
 - (void)goToDetail:(UIButton *)sender

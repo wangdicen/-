@@ -408,7 +408,7 @@
             }
             if([[self.datasArrayM objectAtIndex:indexPath.row] isEqualToString:@"rank"])
             {
-                RankView *rv = [[RankView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /3.0f +50)];
+                RankView *rv = [[RankView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WEIGHT, SCREEN_HEIGHT /3.0f +50) viewControllerType:self.viewcontrollerName];
                 [cell addSubview:rv];
                 switch (self.viewcontrollerName) {
                     case NameSnackViewController:
@@ -473,7 +473,7 @@
                     [gulv fetchDataInBackground:guessULikeCount];
                     break;
                 default:
-                    break;
+                    break;     
             }
         }
     }

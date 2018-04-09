@@ -180,6 +180,13 @@
 
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
        
+        //乱序
+        objects = [objects sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            NSUInteger len0 = [(NSString *)[obj1 objectForKey:@"name"] length];
+            NSUInteger len1 = [(NSString *)[obj2 objectForKey:@"name"] length];
+            return len0 < len1 ? NSOrderedAscending : NSOrderedDescending;
+
+        }];
         
         if (index < objects.count) {
             AVFile *file = [objects[index] objectForKey:@"image"];
@@ -196,6 +203,37 @@
         }
     }];
 }
+
+
+
+-(void)fetchRankedDataInBackground:(int)index
+{
+    AVQuery *query = [AVQuery queryWithClassName:@"Snack"];
+    [query whereKey:@"classification" equalTo:[self typeString]];
+    
+    query.limit = 1000;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        NSSortDescriptor *des = [NSSortDescriptor sortDescriptorWithKey:@"stars" ascending:NO];
+        NSArray *sortedArr = [objects sortedArrayUsingDescriptors:[NSArray arrayWithObject:des]];
+        
+        if (index < sortedArr.count) {
+            AVFile *file = [sortedArr[index] objectForKey:@"image"];
+            [file getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                UIImage *image = [UIImage imageWithData:data];
+                _imageview.image = image;
+                _titlelbl.text = [sortedArr[index] objectForKey:@"name"];
+                _starview.scorePercent = [[sortedArr[index] objectForKey:@"stars"] floatValue]/5.f;
+                _starnumlbl.text = [NSString stringWithFormat:@"%.1f",[[sortedArr[index] objectForKey:@"stars"] floatValue] * 2];
+                _objectID = [sortedArr[index] objectForKey:@"objectId"];
+                
+            }];
+            
+        }
+    }];
+}
+
 
 -(NSString *)typeString
 {

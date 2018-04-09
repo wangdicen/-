@@ -11,13 +11,16 @@
 #import "Header.h"
 #import "Chameleon.h"
 
+#import "YYAnimatedImageView.h"
+#import "UIImageView+YYWebImage.h"
+
 @interface OneCellView(){
     UILabel *_kindnnamelbl;
     UILabel *_titlelbl;
     UILabel *_commentlbl;
     UIImageView *_headerimageview;
     UILabel *_usernamelbl;
-    UIImageView *_articleimageview;
+    YYAnimatedImageView *_articleimageview;
 }
 @end
 
@@ -45,16 +48,15 @@
         _titlelbl = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, width - height/2.0f - 30, height/4.0)];
         [self addSubview:_titlelbl];
         _titlelbl.text = self.title;
-        _titlelbl.font = [UIFont boldSystemFontOfSize:19.f];
+        _titlelbl.font = [UIFont boldSystemFontOfSize:16.f];
         _titlelbl.textColor = [UIColor blackColor];
-        _titlelbl.lineBreakMode = YES;
+        _titlelbl.lineBreakMode = NSLineBreakByCharWrapping;
         _titlelbl.numberOfLines = 2;
         
-        _commentlbl = [[UILabel alloc] initWithFrame:CGRectMake(10, 30 + height/4.0, width - height/2.0f - 30, height/5.0)];
+        _commentlbl = [[UILabel alloc] initWithFrame:CGRectMake(10, 30 + height/4.0, width - height/2.0f - 30, height/3.0)];
         [self addSubview:_commentlbl];
-        _commentlbl.text = self.comment;
         _commentlbl.textColor = FlatGray;
-        _commentlbl.lineBreakMode = YES;
+        _commentlbl.lineBreakMode = NSLineBreakByCharWrapping;
         _commentlbl.numberOfLines = 2;
         _commentlbl.font = [UIFont systemFontOfSize:13.f];
         
@@ -72,10 +74,9 @@
         _usernamelbl.textColor = FlatGrayDark;
         _usernamelbl.font = [UIFont systemFontOfSize:8.f];
         
-        _articleimageview = [[UIImageView alloc] initWithFrame:CGRectMake(width - 10 -height/2.0, 30, height/2.0, height/2.0)];
-        _articleimageview.image = self.articleimage;
+        _articleimageview = [[YYAnimatedImageView alloc] initWithFrame:CGRectMake(width - 10 -height/2.0, 30, height/2.0, height/2.0)];
         [self addSubview:_articleimageview];
-        _articleimageview.backgroundColor = FlatGrayDark;
+//        _articleimageview.backgroundColor = FlatGrayDark;
         
         UIView *breakarea = [[UIView alloc] initWithFrame:CGRectMake(0, height -10, width, 10)];
         [self addSubview:breakarea];
@@ -109,6 +110,8 @@
 {
     _comment = comment;
     _commentlbl.text = comment;
+    _commentlbl.lineBreakMode = NSLineBreakByCharWrapping;
+    _commentlbl.numberOfLines = 2;
 }
 
 -(void)setHeaderimage:(UIImage *)headerimage
@@ -123,10 +126,10 @@
     _usernamelbl.text = username;
 }
 
--(void)setArticleimage:(UIImage *)articleimage
+-(void)setArticleimageurl:(NSString *)articleimageurl
 {
-    _articleimage = articleimage;
-    _articleimageview.image = articleimage;
+    _articleimageurl = articleimageurl;
+    _articleimageview.yy_imageURL = articleimageurl;
 }
 
 /*
